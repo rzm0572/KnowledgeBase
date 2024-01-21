@@ -1,0 +1,8 @@
+:root {
+    --md-text-font: "JetBrains Mono", "LXGW WenKai Screen"; 
+    --md-code-font: "JetBrains Mono";
+}
+
+:root > * {
+    --md-code-hl-color: #4287ff1a;
+}
