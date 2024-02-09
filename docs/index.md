@@ -1,37 +1,25 @@
-# Welcome to MkDocs
+# 首页
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Hi! (●'◡'●)
 
-## Test
+这是 Silvermilight 的笔记本，Ta 会在这里记录自己的学习旅程
 
-中文测试
+## 组织
 
-``` c title="Demo" linenums="1" hl_lines="2 3"
-#include <cstdio>
-#include <cstdlib>
-int main() {
-	printf("Hello World!\n");
-	return 0;
-}
-```
+!!! note "记笔记的原因"
 
-\( \sum\limits_{k=1}^n k = \dfrac{n(n+1)}{2}  \)
+    1. 便于考试前的复习
+    2. 梳理知识点，建立逻辑
+    3. 记录、总结实践过程中遇到的问题以及解决方案
 
-\[
-	\int_0^1 x^2 \,\text{d}x = \frac{1}{3}
-\]
+鉴于以上几点原因，我会将关于某一个主题的笔记分为以下三类：
 
+1. **备忘录** | Cheatsheet：简略记录一些重要的知识点、命令等
+2. **理论**   |     Theory：对课程理论内容较为详细的阐释与推导过程等
+3. **实验**   |        Lab：实践过程、发现的问题、碰到的 Bug 以及解决方案等
 
-## Commands
+当然，考虑到学习内容的差异，同一个主题下不一定需要同时出现以上三类笔记。
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+在此基础上，再依照主题进行分类，最终形成以下结构：
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+TODO
