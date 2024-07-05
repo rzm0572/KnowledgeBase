@@ -38,6 +38,7 @@ theme:
 
 plugins: 
   - search
+  - statistics
   - git-revision-date-localized:
       enable_creation_date: true
 
@@ -63,9 +64,6 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
-  - toc:
-      permalink: true
-      toc_depth: 4
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
@@ -85,22 +83,43 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+  - toc:
+      permalink: true
+      toc_depth: 4
   
 nav:
   - Home Page:
     - index.md
   - Computer Science:
     - cs/index.md
-    - system:
+    - Programming Language:
+      - cs/programming_language/index.md
+    - System:
       - cs/system/index.md
+      - ZJU System I:
+        - cs/system/zju_system_I/index.md
+      - ZJU System II:
+        - cs/system/zju_system_II/index.md
+      - ZJU System III:
+        - cs/system/zju_system_III/index.md
+      - NJU PA Lab:
+        - cs/system/nju_PA_lab/index.md
+      - CSAPP:
+        - cs/system/CSAPP/index.md
     - HPC:
       - cs/HPC/index.md
-    - tools:
+    - Algorithm:
+      - cs/algorithm/index.md
+    - Tools:
       - cs/tools/index.md
   - Math & Phys:
     - math_phys/index.md
     - Analysis:
       - math_phys/Analysis/index.md
+    - ODE:
+      - math_phys/ODE/index.md
+    - General Physics I:
+      - math_phys/general_physics_I/index.md
   - Misc:
     - misc/index.md
 
