@@ -37,6 +37,8 @@ Hi! (●'◡'●)
 
 咕咕咕……这里是正在更新的内容！
 
+- [Numerical Analysis](math_phys/numerical_analysis/index.md)
+
 ### 填好的坑
 
 ### 想开的坑

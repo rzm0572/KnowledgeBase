@@ -83,6 +83,9 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
       toc_depth: 4
@@ -110,16 +113,23 @@ nav:
       - cs/HPC/index.md
     - Algorithm:
       - cs/algorithm/index.md
+      - ADS:
+        - cs/algorithm/ads/index.md
     - Tools:
       - cs/tools/index.md
   - Math & Phys:
     - math_phys/index.md
     - Analysis:
-      - math_phys/Analysis/index.md
+      - math_phys/analysis/index.md
     - ODE:
       - math_phys/ODE/index.md
     - General Physics I:
       - math_phys/general_physics_I/index.md
+    - General Physics II:
+      - math_phys/general_physics_II/index.md
+    - Numerical Analysis:
+      - math_phys/numerical_analysis/index.md
+      - Mathematical Preliminaries: math_phys/numerical_analysis/chapter1.md
   - Misc:
     - misc/index.md
 
