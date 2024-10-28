@@ -38,6 +38,7 @@ Hi! (●'◡'●)
 咕咕咕……这里是正在更新的内容！
 
 - [Numerical Analysis](math_phys/numerical_analysis/index.md)
+- [Advanced Data Structure and Algorithm Analysis](cs/algorithm/ads/index.md)
 
 ### 填好的坑
 

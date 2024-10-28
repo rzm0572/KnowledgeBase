@@ -39,6 +39,7 @@ theme:
 plugins: 
   - search
   - statistics
+  - tags
   - git-revision-date-localized:
       enable_creation_date: true
 
@@ -50,6 +51,7 @@ extra:
 extra_css:
   - stylesheets/custom.css
   - stylesheets/extra.css
+  - sytlesheets/customAdmonition.css
   - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
 
 extra_javascript:
@@ -95,41 +97,44 @@ nav:
     - index.md
   - Computer Science:
     - cs/index.md
-    - Programming Language:
-      - cs/programming_language/index.md
-    - System:
-      - cs/system/index.md
-      - ZJU System I:
-        - cs/system/zju_system_I/index.md
-      - ZJU System II:
-        - cs/system/zju_system_II/index.md
-      - ZJU System III:
-        - cs/system/zju_system_III/index.md
-      - NJU PA Lab:
-        - cs/system/nju_PA_lab/index.md
-      - CSAPP:
-        - cs/system/CSAPP/index.md
+    # - Programming Language:
+    #   - cs/programming_language/index.md
+    # - System:
+    #   - cs/system/index.md
+    #   - ZJU System I:
+    #     - cs/system/zju_system_I/index.md
+    #   - ZJU System II:
+    #     - cs/system/zju_system_II/index.md
+    #   - ZJU System III:
+    #     - cs/system/zju_system_III/index.md
+    #   - NJU PA Lab:
+    #     - cs/system/nju_PA_lab/index.md
+    #   - CSAPP:
+    #     - cs/system/CSAPP/index.md
     - HPC:
       - cs/HPC/index.md
     - Algorithm:
       - cs/algorithm/index.md
       - ADS:
         - cs/algorithm/ads/index.md
-    - Tools:
-      - cs/tools/index.md
+    # - Tools:
+    #   - cs/tools/index.md
   - Math & Phys:
     - math_phys/index.md
     - Analysis:
       - math_phys/analysis/index.md
     - ODE:
       - math_phys/ODE/index.md
-    - General Physics I:
-      - math_phys/general_physics_I/index.md
+    # - General Physics I:
+    #   - math_phys/general_physics_I/index.md
     - General Physics II:
       - math_phys/general_physics_II/index.md
     - Numerical Analysis:
       - math_phys/numerical_analysis/index.md
       - Mathematical Preliminaries: math_phys/numerical_analysis/chapter1.md
+      - Solution of Equations in One Variable: math_phys/numerical_analysis/chapter2.md
+      - Direct Methods for Solving Linear Systems: math_phys/numerical_analysis/chapter6.md
+      - Iterative Techniques in Matrix Algebra: math_phys/numerical_analysis/chapter7.md
   - Misc:
     - misc/index.md
 

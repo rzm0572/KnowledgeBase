@@ -9,8 +9,10 @@
         - Homework: 5%
         - Final Exam: 40%
 
-## 进度
+## Contents
 
 - [ ] [Chapter 1: Mathematical Preliminaries](chapter1.md)
-- [ ] Chapter 2: Solutions of Equations in One Variable
+- [ ] [Chapter 2: Solutions of Equations in One Variable](chapter2.md)
+- [ ] [Chapter 6: Direct Methods for Solving Linear Systems](chapter6.md)
+- [ ] [Chapter 7: Iterative Techniques in Matrix Algebra](chapter7.md)
 
