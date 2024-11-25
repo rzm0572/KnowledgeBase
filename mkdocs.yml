@@ -131,10 +131,13 @@ nav:
       - math_phys/general_physics_II/index.md
     - Numerical Analysis:
       - math_phys/numerical_analysis/index.md
-      - Mathematical Preliminaries: math_phys/numerical_analysis/chapter1.md
-      - Solution of Equations in One Variable: math_phys/numerical_analysis/chapter2.md
-      - Direct Methods for Solving Linear Systems: math_phys/numerical_analysis/chapter6.md
-      - Iterative Techniques in Matrix Algebra: math_phys/numerical_analysis/chapter7.md
+      - Ch.1 Mathematical Preliminaries: math_phys/numerical_analysis/chapter1.md
+      - Ch.2 Solution of Equations in One Variable: math_phys/numerical_analysis/chapter2.md
+      - Ch.3 Interpolation and Polynomial Approximation: math_phys/numerical_analysis/chapter3.md
+      - Ch.4 Numerical Differentiation and Integration: math_phys/numerical_analysis/chapter4.md
+      - Ch.6 Direct Methods for Solving Linear Systems: math_phys/numerical_analysis/chapter6.md
+      - Ch.7 Iterative Techniques in Matrix Algebra: math_phys/numerical_analysis/chapter7.md
+      - Ch.8 Approximation Theory: math_phys/numerical_analysis/chapter8.md
   - Misc:
     - misc/index.md
 

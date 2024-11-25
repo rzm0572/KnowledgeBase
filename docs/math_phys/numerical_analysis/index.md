@@ -12,7 +12,10 @@
 ## Contents
 
 - [ ] [Chapter 1: Mathematical Preliminaries](chapter1.md)
-- [ ] [Chapter 2: Solutions of Equations in One Variable](chapter2.md)
+- [x] [Chapter 2: Solutions of Equations in One Variable](chapter2.md)
+- [ ] [Chapter 3: Interpolation and Polynomial Approximation](chapter3.md)
+- [ ] [Chapter 4: Numerical Differentiation and Integration](chapter4.md)
 - [ ] [Chapter 6: Direct Methods for Solving Linear Systems](chapter6.md)
 - [ ] [Chapter 7: Iterative Techniques in Matrix Algebra](chapter7.md)
+- [ ] [Chapter 8: Approximation Theory](chapter8.md)
 

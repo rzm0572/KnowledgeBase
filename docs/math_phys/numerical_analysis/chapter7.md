@@ -3,7 +3,6 @@ tags:
   - Theory
 ---
 
-
 # Iterative Techniques in Matrix Algebra
 
 ## Norms
