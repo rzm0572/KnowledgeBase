@@ -43,14 +43,14 @@ tags:
 
 下面列举一些常用的矩阵范数：
 
-1. Frobenius Norm: 
-   
+1. Frobenius Norm:
+
     - $\Vert A \Vert_F = \sqrt{\sum\limits_{i=1}^n \sum\limits_{j=1}^n |a_{ij}|^2}$.
-   
+
     - Frobenius Norm 相当于把矩阵看作一个 $n \times n$ 的向量时的 L2 范数.
 
 2. Natural Norm:
-    
+
     - $\Vert A \Vert_p = \max\limits_{\Vert x \Vert_p = 1} \Vert A \mathbf{x} \Vert_p = \max\limits_{\mathbf{x} \in \mathbb{R}^n} \left\Vert \dfrac{A\mathbf{x}}{\Vert \mathbf{x} \Vert_p} \right\Vert_p$.
     - $\Vert A \Vert_p \Vert \mathbf{x} \Vert_p \geqslant \Vert A \mathbf{x} \Vert_p$.
     - 描述了矩阵作用在向量上的效果
@@ -71,7 +71,7 @@ tags:
 
 !!! Definition "Definiton :: Convergence of Matrix"
     称 $n \times n$ 矩阵 $A$ 收敛，如果对于任意 $i, j = 1, 2, \ldots , n$，都有
-    
+
     $$
         \lim_{k \to \infty} \left( A^k \right)_{ij} = 0.
     $$
@@ -152,8 +152,8 @@ $$
 
 $$
     \mathbf{x}^{(k)} = T \mathbf{x}^{(k-1)} + \mathbf{c}
-                 = T (T \mathbf{x}^{(k-2)} + \mathbf{c}) + \mathbf{c} 
-                 = \cdots 
+                 = T (T \mathbf{x}^{(k-2)} + \mathbf{c}) + \mathbf{c}
+                 = \cdots
                  = T^k \mathbf{x}^{(0)} + \sum_{i=0}^{k-1} T^i \mathbf{c}.
 $$
 
@@ -224,13 +224,12 @@ SOC 方法收敛的条件如下：
 
 !!! Theorem
     如果 $A$ 是正定的三对角矩阵（tridiagonal matrix），则 $\rho(T_g) = [\rho(T_j)]^2 < 1$，并且 SOC 方法中
-    
+
     $$
         \omega_0 = \frac{2}{1 + \sqrt{1 - \rho(T_j)^2}}
     $$
 
     为 $\omega$ 的最优值，此时 $\rho(T_{\omega_0}) = \omega_0 - 1$.
-
 
 ## Error Bounds and Iterative Refinement
 
@@ -256,7 +255,6 @@ $$
 $$
 
 ??? Proof
-
 
 再考虑 $b$ 是精确的，而 $A$ 存在误差 $\delta A$ 的情况，即满足下列方程：
 
@@ -296,4 +294,3 @@ $$
     - 对于任意正定矩阵 $R$, $K(RA)_2 = K(AR)_2 = K(A)_2$.
 
 ### Iterative Refinement | 迭代细化
-

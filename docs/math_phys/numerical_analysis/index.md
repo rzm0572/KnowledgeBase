@@ -18,4 +18,3 @@
 - [ ] [Chapter 6: Direct Methods for Solving Linear Systems](chapter6.md)
 - [ ] [Chapter 7: Iterative Techniques in Matrix Algebra](chapter7.md)
 - [ ] [Chapter 8: Approximation Theory](chapter8.md)
-

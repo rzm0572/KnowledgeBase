@@ -43,8 +43,6 @@ tags:
 
 ### How it works
 
-
-
 ## Evaluation of Iterative Methods
 
 我们使用收敛阶数来衡量迭代方式的收敛速度：
@@ -68,7 +66,7 @@ tags:
 
 !!! Theorem
     对于迭代关系为 $p_{n+1} = g(p_n)$ 的数列，其不动点为 $p$，若存在常数 $\alpha \geqslant 2$ 与 $\delta > 0$，使得
-    
+
     1. $g(x)$ 在 $U(p, \delta)$ 上 $\alpha$ 阶连续
     
     2. $g^{(\alpha)}(x)$ 在 $U(p, \delta)$ 上有界
@@ -135,7 +133,6 @@ $$
     \hat{p_n} = \{\Delta^2\}(p_n) = p_n - \frac{(\Delta p_n)^2}{\Delta^2 p_n}
 $$
 
-
 <div class="grid" markdown>
 
 [![pAdmZQK.md.png](https://s21.ax1x.com/2024/10/22/pAdmZQK.md.png)](https://imgse.com/i/pAdmZQK)
@@ -148,4 +145,3 @@ $$
     5. 令 $p_0 = \hat{p_0}$.
 
 </div>
-

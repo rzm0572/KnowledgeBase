@@ -5,7 +5,6 @@ tags:
 
 # Direct Methods for Solving Linear Systems
 
-
 目标：解线性系统 $A \mathbf{x} = \mathbf{b}$，其中 $A$ 为 $n \times n$ 矩阵，$\mathbf{x}$ 为 $n$ 维向量，$\mathbf{b}$ 为 $n$ 维向量.
 
 ## Gaussian elimination

@@ -20,7 +20,7 @@ In numerical analysis, there're two types of errors:
 
 ??? Example
     Suppose we want to approximate the value of $\pi$ using the following infinite series:
-    
+
     $$
     \pi = 4 \arctan 1 = 4 \sum\limits_{n=0}^{+\infty} \frac{(-1)^n}{2n+1}
     $$
@@ -36,7 +36,7 @@ Suppose there's a real number $\overline{0.d_1d_2d_3 \ldots d_k d_{k+1} d_{k+2} 
 
 Generally, we use the function $fl(x)$ to represent the floating-point approximation of $x$.
 
-**Notation**: 
+**Notation**:
 
 - The error of chopping may not be bigger than the error of rounding.
 - In each calculation step, we will do the chopping or rounding to meet the required precision.

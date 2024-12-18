@@ -9,7 +9,6 @@
         - Midterm Exam: 10%
         - Final Exam: 40%
 
-
 ## Contents
 
 - [ ] [Chapter 1: AVL Trees, Splay Trees, and Amortized Analysis](chapter1.md)

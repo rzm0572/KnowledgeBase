@@ -13,8 +13,6 @@ Target: Speed up operations like search, insertion and deletion
 
 Baseline: Binary Search Trees (BSTs)
 
-
-
 ### What
 
 Before we start, let's define some concepts:
@@ -50,7 +48,7 @@ Before we start, let's define some concepts:
 
 Tree rotation: A technique on a binary tree that changes the structure without interfering with the order of the elements.
 
-- Effect of rotation: 
+- Effect of rotation:
 - Time complexity: $O(1)$
 - Types of rotations:
     1. RR rotation: The trouble maker node is in the right subtree's right subtree of the trouble finder node. We should perform a left rotation on the trouble finder node's right child.
@@ -82,8 +80,6 @@ Target: Any $M$ consecutive tree operations starting from an empty tree take at 
 
 ### How
 
-
-
 Deletions:
 
 - Splay $X$ to the root of the tree.
@@ -95,15 +91,15 @@ Deletions:
 To analyze the time complexity of a sequence of operations, we have three types of bounds:
 
 - Worst-case bound
-    - Assume that every operation in the sequence takes the worst-case time
-    - May not be precisive enough to analyze the algorithm
+  - Assume that every operation in the sequence takes the worst-case time
+  - May not be precisive enough to analyze the algorithm
 - Amortized bound
-    - Garantee that the total time to perform all operation is in amortized bound
-    - Have nothing to do with the probability of operation in the input sequence
-    - Provide a good estimate of the algorithm's performance
+  - Garantee that the total time to perform all operation is in amortized bound
+  - Have nothing to do with the probability of operation in the input sequence
+  - Provide a good estimate of the algorithm's performance
 - Average-case bound
-    - Statistical analysis of the average cost of each operation
-    - May contain big errors in some cases
+  - Statistical analysis of the average cost of each operation
+  - May contain big errors in some cases
 
 Generally, Worst-case bound > Amortized bound > Average-case bound.
 
@@ -115,7 +111,7 @@ Idea: Show that for all $n$, a sequence of $n$ operations takes worst-case time 
 
 ### Accounting method | 核算法
 
-When an operation's amortized cost $\hat{c_i}$ exceeds its actual cost $c_i$, 
+When an operation's amortized cost $\hat{c_i}$ exceeds its actual cost $c_i$,
 
 Assuming that we have $n$ steps, for all $k$ steps from start we need to maintain:
 
@@ -129,9 +125,8 @@ $$
     \hat{c_i} - c_i = Credit_i = \Phi(D_i) - \Phi(D_{i-1})
 $$
 
-
 - zig:
-    
+
     $$
     \begin{align*}
     \hat{c_i} &= 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P) \\

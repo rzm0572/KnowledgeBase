@@ -16,6 +16,7 @@ sys call 随架构的不同而不同.
 Openfile Table
 
 Parameter Passing:
+
 - 寄存器传递
 - 栈传递
 

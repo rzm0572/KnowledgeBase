@@ -71,7 +71,6 @@ $$
 
 外推法特别适合用在使用 Taylor 展开来估计函数导数的情形.
 
-
 ## Numerical Integration (Numerical Quadrature)
 
 目标：求 $I = \int_a^b f(x) \intdd{x}$ 满足给定精度的近似解.
@@ -116,7 +115,7 @@ $$
 
 !!! Example "some common Newton-Cotes formulae"
     - Trapezoidal rule ($n=1$): $P = 1$
-        
+
         $$
             \int_a^b f(x) \intdd{x} = \frac{b-a}{2} (f(a) + f(b)) - \frac{1}{12} h^3 f''(\xi), \enspace h = b-a.
         $$
@@ -196,5 +195,3 @@ $$
 ### Romberg Integration
 
 ### Adaptive Quadrature Methods
-
-

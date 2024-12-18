@@ -14,5 +14,4 @@
 !!! tip "NIL Node"
     在红黑树中，哨兵节点（NIL Node）是一种特殊的节点，不存储数据，只用于作为红黑树的叶子节点，其颜色为黑色。
 
-
 !!! info "Definition :: black-height"

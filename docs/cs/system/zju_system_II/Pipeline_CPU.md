@@ -4,8 +4,6 @@
 
 ### Forwarding
 
-
-
 ### Double Data Hazard
 
 ```assembly

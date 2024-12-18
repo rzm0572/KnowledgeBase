@@ -16,6 +16,4 @@ tags:
 
 ## Lagrange Polynomials
 
-
-
 一般来说，内插的误差比外插的误差小.
