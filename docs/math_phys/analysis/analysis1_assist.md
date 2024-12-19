@@ -3,6 +3,8 @@
 !!! tip
     本讲义的主要内容包括导数的应用、定积分、反常积分和压轴题选讲. 同学们也可阅读 [数分讲义网页版](https://rzm0572.github.io/KnowledgeBase/math_phys/analysis/analysis1_assist/)，讲义发布之后可能会在这里进行更新和放出习题答案.
 
+    如果发现讲义中有错误或需要改进的地方，欢迎联系我进行修改 (●'◡'●)
+
 !!! note "数学分析（甲）I（H）知识结构"
     ![数学分析（甲）I（H）知识结构](/KnowledgeBase/assets/analysis/analysis_outline.png)
 
@@ -21,7 +23,7 @@
     \newcommand{\intdd}[1]{\, \dd{#1}}
     \newcommand{\dint}{\displaystyle \int}
     \newcommand{\dsum}{\displaystyle \sum}
-    f(x) \leqslant f(x_0) \quad(f(x) \geqslant f(x_0))
+    f(x) \leqslant f(x_0) \quad (f(x) \geqslant f(x_0))
     $$
 
     则称 $x_0$ 为 $f(x)$ 的极大（小）值点，$f(x_0)$ 称为 $f(x)$ 的极大（小）值.
@@ -43,6 +45,8 @@
     - $f(a) = f(b)$
 
     则 $\exists \xi \in (a,b)$，使得 $f'(\xi)=0$.
+
+    Hint: 三个条件中，如果有一个条件不满足，会发生什么？
 
 将 Rolle 中值定理的条件减弱，去掉端点值相等的条件，可以得到 Lagrange 中值定理：
 
@@ -67,10 +71,50 @@
     
     则 $\exists \xi \in (a,b)$，使得 $\dfrac{f'(\xi)}{g'(\xi)} = \dfrac{f(b)-f(a)}{g(b)-g(a)}$.
 
-TODO：微分中值定理解题方法
+与微分中值定理相关的题目的解题方法：
+
+- 直接利用
+
+    !!! example
+        设 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 上可导，且 $f(a) \neq f(b)$，证明：
+
+        $$
+            \exists \xi, \eta \in (a,b), \enspace f'(\xi) = \frac{a+b}{2\eta} f'(\eta).
+        $$
 
 - 设 k 法
-- 选主元法
+
+    !!! example
+        已知函数 $f(x)$ 在 $[0,1]$ 上三阶可导，且 $f(0) = -1, f(1) = 0, f'(0) = 0$，证明：$\forall x \in (0,1), \enspace \exists \xi \in (0,1)$，使得
+
+        $$
+            f(x) = -1 + x^2 + \frac{x^2 (x-1)}{3!} f'''(\xi).
+        $$
+
+- 构造函数法
+
+    !!! example
+        设函数 $f(x)$ 在 $[0,1]$ 上连续，在 $(0,1)$ 上可导，$f(0) = f(1) = 0$，并且存在 $t_0 \in (0, 1)$，使得 $f(t_0) = \alpha$. 证明：
+
+        $$
+            \exists \xi \in (0,1), \enspace f'(\xi) = \alpha.
+        $$
+
+    !!! example
+        设奇函数 $f(x)$ 在 $[-1,1]$ 上具有二阶导数，且 $f(1) = 1$，证明：
+
+        1. 存在 $\xi \in (0, 1)$，使得 $f'(\xi) = 1$.
+
+        2. 存在 $\eta \in (-1, 1)$，使得 $f''(\eta) + f'(\eta) = 1$.
+
+    !!! example
+        设函数 $f(x)$ 在闭区间 $[-2,2]$ 上具有二阶导数，若 $(f(0))^2 + (f'(0))^2 = 4, |f(x)| \leqslant 1$，证明：
+
+        $$
+            \exists \xi \in (-2, 2), \enspace f(\xi) + f''(\xi) = 0.
+        $$
+
+    Hint：总结一下各种条件的构造函数方法.
 
 ### 导函数性质
 
@@ -120,7 +164,7 @@ TODO：微分中值定理解题方法
     设 $f(x)$ 在 $U(x_0)$ 内 $n$ 阶可导，则可将 $f(x)$ 展开为
 
     $$
-        f(x) = \sum\limits_{k=0}^n \frac{f^{(k)}(x_0)}{k!} x^k + R_n(x)
+        f(x) = \sum\limits_{k=0}^n \frac{f^{(k)}(x_0)}{k!} x^k + R_n(x),
     $$
 
     其中 $R_n(x)$ 为 Taylor 展开的余项.
@@ -129,7 +173,7 @@ Taylor 展开的余项形式：
 
 - Peano 型余项：若 $f(x)$ 在 $U(x_0)$ 内 $n$ 阶可导，则在该邻域内，满足 $R_n(x) = o((x-x_0)^n)$.
 
-- Lagrange 型余项：若 $f(x) \in C^n[a,b] \cap D^{n+1}(a,b)$，则对于任意定点 $x_0 \in (a,b), \forall x \in (a,b)$，都有 $R_n(x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^n$，其中 $\xi \in (a,b)$
+- Lagrange 型余项：若 $f(x) \in C^n[a,b] \cap D^{n+1}(a,b)$，则对于任意定点 $x_0 \in (a,b), \forall x \in (a,b)$，都有 $R_n(x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^n$，其中 $\xi \in (a,b)$.
 
 - Cauchy 型余项：若 $f(x) \in C^n[a,b] \cap D^{n+1}(a,b)$，则对于任意定点 $x_0 \in (a,b), \forall x \in (a,b)$，都有 $R_n(x) = \dfrac{f^{(n+1)}(x_0 + \theta (x - x_0))}{n!} (1-\theta)^n (x-x_0)^{n+1}$, 其中 $\theta \in (0,1)$.
 
@@ -154,6 +198,32 @@ $$
         $$
             \exists \xi \in (0, 1), \enspace |f''(\xi)| \geqslant 4|f(1) - f(0)|.
         $$
+
+<!-- 泰勒取点在待求点 -->
+!!! example
+    设函数 $f(x)$ 在 $[0,1]$ 上有二阶导数，且 $|f(x)| \leqslant A, |f''(x)| \leqslant B$，证明：$\forall x \in [0,1]$，有
+
+    $$
+        |f'(x)| \leqslant 2A + \frac{B}{2}.
+    $$
+
+<!-- 泰勒取点在极值点 -->
+
+!!! example
+    设函数 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 上二阶可导，$f(a) = f(b) = 0$，且 $|f''(x)| \geqslant m > 0$，证明：
+
+    $$
+        \max\limits_{a \leqslant x \leqslant b} |f(x)| \geqslant \frac{m}{8} (b-a)^2.
+    $$
+
+<!-- 泰勒取点在区间端点 -->
+
+!!! example
+    设 $f(x)$ 在 $I$ 上二阶可导，设区间 $[a,b] \subset I$，满足 $f'(a) = f'(b) = 0$. 证明：存在 $\xi \in (a,b)$，使得
+
+    $$
+        |f''(\xi)| \geqslant \frac{4}{(b-a)^2} |f(b) - f(a)|.
+    $$
 
 ### 导数与函数性态
 
@@ -204,7 +274,9 @@ $$
     - 反之则有 $\max\limits_{x \in I} f(x) = M_0$.
 
 !!! example
-    1. （20-21 期末）设函数 $f(x)$ 满足方程 $\forall x \in \mathbb{R}, \enspace f''(x) + \left[f'(x) \right]^2 = x$，且 $f'(0) = 0$，证明 $x=0$ 不是 $f(x)$ 的极值点.
+    1. （20-21 期末 T6）设函数 $f(x)$ 满足方程 $\forall x \in \mathbb{R}, \enspace f''(x) + \left[f'(x) \right]^2 = x$，且 $f'(0) = 0$，证明 $x=0$ 不是 $f(x)$ 的极值点.
+
+    2. （23-24 期末 T4）求函数 $f(x) = \dint_{-1}^{1} |x-t| e^{t^2} \intdd{t}$ 在 $\mathbb{R}$ 上的最小值.
 
 #### 凹凸性
 
@@ -213,13 +285,13 @@ $$
     设 $f(x)$ 在 $I$ 上有定义，若 $\forall x_1, x_2 \in I, \forall \lambda \in (0,1)$，都有
 
     $$
-    f(\lambda x_1 + (1-\lambda) x_2) \leqslant \lambda f(x_1) + (1-\lambda) f(x_2)
+    f(\lambda x_1 + (1-\lambda) x_2) \leqslant \lambda f(x_1) + (1-\lambda) f(x_2),
     $$
 
     则称 $f(x)$ 在 $I$ 上是凸函数（下凸函数）；反之，若有
 
     $$
-    f(\lambda x_1 + (1-\lambda) x_2) \geqslant \lambda f(x_1) + (1-\lambda) f(x_2)
+    f(\lambda x_1 + (1-\lambda) x_2) \geqslant \lambda f(x_1) + (1-\lambda) f(x_2),
     $$
 
     则称 $f(x)$ 在 $I$ 上是凹函数（上凸函数）.
@@ -255,7 +327,7 @@ $$
     设 $f(x)$ 是定义在 $[a,b]$ 上的函数，若存在实常数 $A$，$\forall \varepsilon > 0, \exists \delta > 0$，使得对于满足 $\Vert \Delta \Vert < \delta$ 的任意对 $[a,b]$ 的分割 $\Delta = \{x_0 = a < x_1 < \cdots < x_n = b\}$，以及任意的介点组 $\{\xi\}$，都有
 
     $$
-        |S_{\Delta}(f, \xi) - A| = \left| \sum_{k=1}^n f(\xi_k) \Delta x_k - A \right| < \varepsilon
+        |S_{\Delta}(f, \xi) - A| = \left| \sum_{k=1}^n f(\xi_k) \Delta x_k - A \right| < \varepsilon,
     $$
 
     则称 $f(x)$ 在 $[a,b]$ 上 Riemann 可积，即 $f \in R[a,b]$. $A$ 为 $f(x)$ 在 $[a,b]$ 上的定积分，记作 $A = \dint_{a}^{b} f(x) \intdd{x}$.
@@ -293,7 +365,12 @@ $$
 !!! property "Property :: 定积分的基本性质"
     设 $f(x), g(x)$ 在 $[a,b]$ 上 Riemann 可积.
 
-    - 线性性：$k_1 f(x) + k_2 g(x)$ 在 $[a,b]$ 上可积，且 $\dint_{a}^{b} [k_1 f(x) \intdd{x} + k_2 g(x)] \intdd{x} = k_1 \dint_{a}^{b} f(x) \intdd{x} + k_2 \dint_{a}^{b} g(x) \intdd{x}$.
+    - 线性性：$k_1 f(x) + k_2 g(x)$ 在 $[a,b]$ 上可积，且
+    
+    $$
+        \dint_{a}^{b} [k_1 f(x) \intdd{x} + k_2 g(x)] \intdd{x} = k_1 \dint_{a}^{b} f(x) \intdd{x} + k_2 \dint_{a}^{b} g(x) \intdd{x}.
+    $$
+    
     - 保号性：$f(x) \leqslant g(x) \implies \dint_{a}^{b} f(x) \intdd{x} \leqslant \dint_{a}^{b} g(x) \intdd{x}$.
     - 乘积可积性：$f(x)g(x)$ 在 $[a,b]$ 上可积.
     - 积分区间可加性：若 $a < c < b$，则 $f(x)$ 在 $[a,c]$ 和 $[c,b]$ 上可积 $\iff f(x)$ 在 $[a,b]$ 上可积，并且
@@ -315,8 +392,8 @@ $$
 !!! theorem "Theorem :: 变上限积分的性质"
     设 $f(x)$ 在 $[a,b]$ 上可积，记 $F(x) = \dint_{a}^{x} f(t) \intdd{t}$，则
 
-    - $F(x)$ 在 $[a,b]$ 上 Lipschitz 连续
-    - 若 $f(x)$ 在 $x_0 \in [a,b]$ 上连续，则 $F(x)$ 在 $x_0$ 处可导
+    - $F(x)$ 在 $[a,b]$ 上 Lipschitz 连续.
+    - 若 $f(x)$ 在 $x_0 \in [a,b]$ 上连续，则 $F(x)$ 在 $x_0$ 处可导.
 
 !!! note "Corollary"
     $f(x)$ 在区间 $[a,b]$ 上的原函数存在的一个充分条件是 $f(x)$ 在 $[a,b]$ 上连续.
@@ -331,11 +408,20 @@ $$
     \frac{\dd{F(x)}}{\dd{x}} = \frac{\dd{}}{\dd{x}} \int_{\phi(x)}^{\psi(x)} f(t) \intdd{t} = f(\psi(x)) \psi'(x) - f(\phi(x)) \phi'(x).
 $$
 
-!!! example "23-24 期末 T2 (c)"
+!!! example "23-24 期末 T2.c"
     求极限 $\lim\limits_{x \to 0} \dfrac{\dint_{0}^{x^2} t^2 e^{\sin t} \intdd{x}}{\ln (1+x^6)}$.
 
 !!! example "23-24 期末 T6"
     设函数 $f(x)\in R[0,1]$，且 $f$ 在 $x=0$ 处右连续. 证明：函数 $\varphi(x)=\displaystyle\int_0^x f(t) \dd{t} \;(0 \leqslant x \leqslant 1)$ 在 $x=0$ 处的右导数等于 $f(0)$.
+
+!!! example
+    设 $f(x)$ 在 $[0,1]$ 上可导，且 $0 \leqslant f'(x) \leqslant 1, f(0) = 0$，证明：
+
+    $$
+        \left( \int_0^1 f(x) \intdd{x} \right)^2 \geqslant \int_0^1 f^3(x) \intdd{x}.
+    $$
+
+    Hint: 将普通积分化为变上限积分.
 
 #### 积分中值定理
 
@@ -380,7 +466,40 @@ $$
 
 - Cauchy-Schwarz 不等式：$\dint_a^b |f(x)g(x)| \intdd{x} \leqslant \left( \dint_a^b f^2(x) \intdd{x} \right) \left( \dint_a^b g^2(x) \intdd{x} \right)$.
 
-TODO：积分不等式例题
+!!! example
+    设 $g(x)$ 在 $[0,1]$ 上可积，且 $\dint_0^1 g(x) \intdd{x} = 0$，证明：
+
+    $$
+        \left[ \int_0^1 x g(x) \intdd{x} \right]^2 \leqslant \frac{1}{12} \int_0^1 g^2(x) \intdd{x}.
+    $$
+
+!!! example
+    设 $a>0$ 为常数，证明：
+
+    $$
+        \int_0^{\pi} x a^{\sin x} \intdd{x} \cdot \int_0^{\frac{\pi}{2}} a^{-\cos x} \geqslant \frac{\pi^3}{4}.
+    $$
+
+!!! example
+    设 $f(x)$ 在 $[0,a]$ 上的导函数连续，$f(0) = 0$，证明：
+
+    $$
+        \int_0^a |f(x) f'(x)| \intdd{x} \leqslant \frac{a}{2} \int_0^a (f'(x))^2 \intdd{x}.
+    $$
+
+!!! example
+    设 $f(x)$ 在 $[a,b]$ 上连续且单调递增，证明：
+
+    $$
+        \int_a^b x f(x) \intdd{x} \geqslant \frac{a+b}{2} \int_a^b f(x) \intdd{x}.
+    $$
+
+!!! example
+    设函数 $f(x)$ 在 $[0,1]$ 上可导，且 $f(x)$ 不恒等于 $0$，$\int_0^1 f(x) \intdd{x} = 0$，证明：
+
+    $$
+        \int_0^1 |f(x)| \intdd{x} \cdot \int_0^1 |f'(x)| \intdd{x} \geqslant 2 \int_0^1 f^2(x) \intdd{x}.
+    $$
 
 ### 定积分的计算
 
@@ -403,6 +522,9 @@ TODO：积分不等式例题
     $$
         \int_{a}^{b} f(x) \intdd{x} = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \intdd{t}.
     $$
+
+!!! example
+    计算 $\dint_1^2 \dfrac{1}{x^{10} + x} \intdd{x}$.
 
 ##### 分部积分法
 
@@ -436,7 +558,7 @@ TODO：积分不等式例题
 
 定积分计算比不定积分计算更复杂的原因之一：对于一些难以求得原函数的被积函数，我们可以通过一些特殊方法把它在<strong>特定区间</strong>上的定积分求出来.
 
-- 倒代换：利用被积函数在积分区间上的对称性把难以求得原函数的部分消去
+- 倒代换：利用被积函数在积分区间上的对称性把难以求得原函数的部分消去.
 
     !!! note "倒代换"
         能通过倒代换求解的定积分中的被积函数通常都有（部分）对称性，例如：
@@ -472,8 +594,6 @@ TODO：积分不等式例题
 
     利用该公式可以将周期函数变换到一个比较容易积分的积分上进行求解.
 
-    !!! example
-
 - 奇偶分离：对于任意一个定义域关于原点对称的函数 $f(x)$，我们可以将其拆分成一个奇函数 $g(x)$ 和一个偶函数 $h(x)$ 的和，其中
 
     $$
@@ -485,7 +605,7 @@ TODO：积分不等式例题
     !!! example
         计算 $I = \dint_{-2}^{2} x \ln(1 + e^x) \intdd{x}$.
 
-- 几何意义：利用定积分的几何意义简化计算
+- 几何意义：利用定积分的几何意义简化计算.
 
     !!! example
         求定积分 $\dint_{0}^{a} \sqrt{a^2 - x^2} \intdd{x}$，其中 $a>0$.
@@ -518,7 +638,8 @@ TODO：积分不等式例题
 我们知道定积分是一个数值，如果将其中部分改为参数的话便可以构造数列或者函数. 此时如果对参数求极限，一般情况下我们不能直接将极限符号与积分符号交换，而需要采用分段放缩的方法.
 
 !!! example
-    证明 $\lim\limits_{n \to +\infty} \dint_{0}^{\frac{\pi}{2}} \sin^n x \intdd{x} = 0$.
+    1. 证明 $\lim\limits_{n \to +\infty} \dint_{0}^{\frac{\pi}{2}} \sin^n x \intdd{x} = 0$.
+    2. 求极限 $\lim\limits_{n \to +\infty} \left( \dint_1^2 e^{-n t^2} \intdd{t} \right)^{\frac{1}{n}}$.
 
 !!! tip
     分段放缩法的应用：
@@ -534,8 +655,8 @@ TODO：积分不等式例题
 
     在直角坐标系下，定积分的几何意义就是曲边梯形与坐标轴围成的有向面积.
 
-    - $y=f(x)$ 与 $x$ 轴围成的有向面积：$S_x = \dint_{a}^{b} f(x) \intdd{x}$
-    - $x=g(y)$ 与 $y$ 轴围成的有向面积：$S_y = \dint_{c}^{d} g(y) \intdd{y}$
+    - $y=f(x)$ 与 $x$ 轴围成的有向面积：$S_x = \dint_{a}^{b} f(x) \intdd{x}$.
+    - $x=g(y)$ 与 $y$ 轴围成的有向面积：$S_y = \dint_{c}^{d} g(y) \intdd{y}$.
 
 2. 极坐标系
 
@@ -555,6 +676,9 @@ TODO：积分不等式例题
 !!! tip
     具有对称性的图形可以只算部分面积，避免正负号处理.
 
+!!! example "23-24 期末 T2.e"
+    求双扭线 $r = \sqrt{\cos (2\theta)}$ 所围平面图形的面积.
+
 ##### 旋转体体积
 
 利用截面法可以解决旋转体体积问题：设旋转轴为 $x$ 轴，设旋转体垂直 $x$ 轴的横截面积为 $S(x)$，横截面半径为 $r(x)$，则
@@ -562,6 +686,9 @@ TODO：积分不等式例题
 $$
     V = \int_{a}^{b} S(x) \intdd{x} = \int_{a}^{b} \pi r^2(x) \intdd{x}.
 $$
+
+!!! example "21-22 期末 T1.d"
+    求 $y=e^x$ 过点 $(0,0)$ 的切线 $L$，并求 $y=e^x$、$L$ 与 $y$ 轴所围图形绕 $x$ 轴旋转一周的体积.
 
 ##### 曲线弧长
 
@@ -582,6 +709,10 @@ $$
 $$
     L(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(r(\theta))^2 + (r'(\theta))^2} \intdd{\theta}.
 $$
+
+!!! example
+    1. （22-23 期末 T1.d）求曲线 $y = \dint_{-\sqrt{3}}^{x} \sqrt{3 - t^2} \intdd{t}$ 在 $x \in [-\sqrt{3}, \sqrt{3}]$ 上的弧长.
+    2. （20-21 期末 T1.e）设 $f(x) = \dint_{0}^{x} \sqrt{\cos t} \intdd{t}$，求曲线 $y = f(x)$ 在 $x \in [0,1]$ 上的弧长.
 
 ## 反常积分
 
@@ -740,6 +871,9 @@ $$
         (f'(x))^2 \leqslant 2M|f(x)|.
     $$
 
+!!! example
+    设 $f(x)$ 在 $x=0$ 处存在二阶导数，且 $\forall n \in \mathbb{N}^+, f(2^{-n}) = 0$，证明 $f''(0) = 0$.
+
 ## 附录
 
 ### 常用不等式
@@ -756,7 +890,7 @@ $$
 !!! theorem "theorem :: Bernoulli 不等式"
     设 $x>-1$，
 
-    - 若 $0< \alpha < 1$，则 $(1 + x)^{\alpha} \leqslant 1 + \alpha x$；
+    - 若 $0< \alpha < 1$，则 $(1 + x)^{\alpha} \leqslant 1 + \alpha x$.
     - 若 $\alpha < 0$ 或 $\alpha > 1$，则 $(1 + x)^{\alpha} \geqslant 1 + \alpha x$.
 
 !!! theorem "theorem :: Young 不等式"
