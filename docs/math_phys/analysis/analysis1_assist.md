@@ -411,9 +411,6 @@ $$
 !!! example "23-24 期末 T2.c"
     求极限 $\lim\limits_{x \to 0} \dfrac{\dint_{0}^{x^2} t^2 e^{\sin t} \intdd{x}}{\ln (1+x^6)}$.
 
-!!! example "23-24 期末 T6"
-    设函数 $f(x)\in R[0,1]$，且 $f$ 在 $x=0$ 处右连续. 证明：函数 $\varphi(x)=\displaystyle\int_0^x f(t) \dd{t} \;(0 \leqslant x \leqslant 1)$ 在 $x=0$ 处的右导数等于 $f(0)$.
-
 !!! example
     设 $f(x)$ 在 $[0,1]$ 上可导，且 $0 \leqslant f'(x) \leqslant 1, f(0) = 0$，证明：
 
@@ -464,7 +461,7 @@ $$
 
 - 绝对值不等式：$\left\vert \dint_a^b f(x) \intdd{x}\right\vert \leqslant \dint_a^b |f(x)| \intdd{x}$.
 
-- Cauchy-Schwarz 不等式：$\dint_a^b |f(x)g(x)| \intdd{x} \leqslant \left( \dint_a^b f^2(x) \intdd{x} \right) \left( \dint_a^b g^2(x) \intdd{x} \right)$.
+- Cauchy-Schwarz 不等式：$\left( \dint_a^b |f(x)g(x)| \intdd{x} \right)^{2} \leqslant \left( \dint_a^b f^2(x) \intdd{x} \right) \left( \dint_a^b g^2(x) \intdd{x} \right)$.
 
 !!! example
     设 $g(x)$ 在 $[0,1]$ 上可积，且 $\dint_0^1 g(x) \intdd{x} = 0$，证明：
@@ -544,7 +541,7 @@ $$
     $$
         I_n = \begin{cases}
             \dfrac{(n-1)!!}{n!!} \dfrac{\pi}{2} &\enspace ,n = 2k \\[1em]
-            \dfrac{(n-1)!!}{n!!}               &\enspace ,n = 2k+1
+            \dfrac{(n-1)!!}{n!!}                &\enspace ,n = 2k+1
         \end{cases}
     $$
 
@@ -811,8 +808,8 @@ $$
         - $0 < A \leqslant +\infty, \dint_{a}^{+\infty} g(x) \intdd{x}$ 发散 $\implies \dint_{a}^{+\infty} f(x) \intdd{x}$ 发散.
 
     !!! eg "比较判别法的几个常用基准"
-        - $\dint_{1}^{+\infty} \dfrac{1}{x^p}$：当 $p > 1$ 时收敛，当 $0 < p \leqslant 1$ 时发散.
-        - $\dint_{e}^{+\infty} \dfrac{1}{x \ln^p x}$：当 $p > 1$ 时收敛，当 $0 < p \leqslant 1$ 时发散.
+        - $\dint_{1}^{+\infty} \dfrac{1}{x^p} \intdd{x}$：当 $p > 1$ 时收敛，当 $0 < p \leqslant 1$ 时发散.
+        - $\dint_{e}^{+\infty} \dfrac{1}{x \ln^p x} \intdd{x}$：当 $p > 1$ 时收敛，当 $0 < p \leqslant 1$ 时发散.
 
 !!! theorem "Theorem :: Dirichlet / Abel 判别法"
     - （Dirichlet 判别法）$F(x) = \dint_{a}^{x} f(t) \intdd{t}$ 在 $[a, +\infty)$ 上有界，$g(x)$ 在 $[a, +\infty)$ 上单调趋于 0 $\implies \dint_{a}^{+\infty} f(x)g(x) \intdd{x}$ 收敛.
