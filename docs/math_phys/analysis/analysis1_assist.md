@@ -82,6 +82,23 @@
             \exists \xi, \eta \in (a,b), \enspace f'(\xi) = \frac{a+b}{2\eta} f'(\eta).
         $$
 
+    ??? proof
+        待证式中含有两个未定量 $\xi, \eta$，考虑使用两次中值定理：
+
+        令 $g(x) = x^2$，由 Cauchy 中值定理，存在 $\eta \in (a,b)$，使得 $\dfrac{f'(\eta)}{g'(\eta)} = \dfrac{f(b)-f(a)}{g(b)-g(a)}$，即
+
+        $$
+            \frac{f'(\eta)}{2\eta} = \frac{f(b)-f(a)}{b^2-a^2}.
+        $$
+
+        该式可变形为
+
+        $$
+            \frac{a + b}{2\eta} f'(\eta) = \frac{f(b) - f(a)}{b - a}.
+        $$
+
+        由 Lagrange 中值定理，存在 $\xi \in (a,b)$，使得 $f'(\xi) = \dfrac{f(b)-f(a)}{b-a} = \dfrac{a+b}{2\eta} f'(\eta)$，证毕.
+
 - 设 k 法
 
     !!! example
@@ -90,6 +107,33 @@
         $$
             f(x) = -1 + x^2 + \frac{x^2 (x-1)}{3!} f'''(\xi).
         $$
+
+    ??? proof
+        使用设 k 法，当 $x$ 给定时，待证式中除了 $f'''(\xi)$ 外的部分都为定值，我们先将定值与不定值分离：
+
+        $$
+            f'''(\xi) = \frac{3! (f(x) + 1 - x^2)}{x^2 (x-1)}.
+        $$
+
+        设右边的定值为 $k$，再将定值 $x$ 换成变量 $t$ 并构造函数：
+
+        $$
+            g(t) = f(t) + 1 - t^2 - \frac{t^2 (t-1)}{3!} k.
+        $$
+
+        由 $f(x)$ 在 $[0,1]$ 上三阶可导，$g(t)$ 在 $[0,1]$ 上也三阶可导，故有
+
+        $$
+        \begin{align*}
+            g'(t)   &= f'(t) - 2t - (\frac{1}{2} t^2 - \frac{1}{3} t)k. \\
+            g''(t)  &= f''(t) - 2 - (t - \frac{1}{3})k. \\
+            g'''(t) &= f'''(t) - k.
+        \end{align*}
+        $$
+
+        因此我们只需要证明 $g'''(t)$ 在 $[0,1]$ 上存在一个零点 $\xi$ 即可.
+        
+        由条件 $f(0) = -1, f(1) = 0, f'(0) = 0$，我们有 $g(0) = 0, g(1) = 0, g'(0) = 0$. 而 $g(t)$ 的构造方法隐含了条件 $g(x) = 0$，因此 $g(t)$ 在 $[0,1]$ 上存在三个零点，由 Rolle 中值定理，$g'(t)$ 在 $(0,x)$ 和 $(x,1)$ 上各有一个零点 $\xi_1$ 和 $\xi_2$，于是 $g'(t)$ 在 $[0,1]$ 上存在三个零点 $0, \xi_1, \xi_2$，再使用两次 Rolle 中值定理，可得 $g''(t)$ 在 $(0, \xi_1)$ 和 $(\xi_1, \xi_2)$ 上各有一个零点 $\eta_1$ 和 $\eta_2$，$g'''(t)$ 在 $(\eta_1, \eta_2)$ 上有一个零点 $\xi$，证毕.
 
 - 构造函数法
 
@@ -100,6 +144,11 @@
             \exists \xi \in (0,1), \enspace f'(\xi) = \alpha.
         $$
 
+    ??? proof
+        构造函数 $g(x) = f(x) - \alpha x$，则 $g'(x) = f'(x) - \alpha$，我们只需证明 $g'(x)$ 在 $(0,1)$ 上存在一个零点即可.
+
+        代入条件，$g(0) = 0, g(1) = 1 - \alpha, g(t_0) = \alpha (1 - t_0)$，其中 $t_0 \in (0,1)$，故由连续函数的零点存在性定理，存在 $\eta \in (t_0, 1)$，使得 $g(\eta) = 0 = g(0)$，于是由 Rolle 中值定理，存在 $\xi \in (0, \eta)$，使得 $g'(\xi) = 0$，证毕.
+
     !!! example
         设奇函数 $f(x)$ 在 $[-1,1]$ 上具有二阶导数，且 $f(1) = 1$，证明：
 
@@ -107,12 +156,28 @@
 
         2. 存在 $\eta \in (-1, 1)$，使得 $f''(\eta) + f'(\eta) = 1$.
 
+    ??? proof
+        1. $f(x)$ 是奇函数，且在 $x=0$ 处有定义，故 $f(0) = 0$. 由 Lagrange 中值定理，存在 $\xi \in (0, 1)$，使得 $f'(\xi) = \dfrac{f(1) - f(0)}{1 - 0} = 1$.
+
+        2. 我们希望能将待证式转化为证明某个函数的导数在 $(-1, 1)$ 上存在零点，这样便能使用 Rolle 中值定理来证明. 观察待证式为相邻阶导数相加的形式，考虑构造函数 $g(x) = e^x (f'(x) - 1)$，则 $g'(x) = e^x (f''(x) + f'(x) - 1)$.
+
+            由第一问，$g(\xi) = e^{\xi} (f'(\xi) - 1) = 0$，我们只需再找 $g(x)$ 的一个零点即可. 由于 $f(x)$ 是奇函数，故 $f'(x)$ 是偶函数，进而 $f'(-\xi) = 0$，故 $g(-\xi) = 0$. 由 Rolle 中值定理，存在 $\eta \in (-\xi, \xi)$，使得 $g'(\eta) = e^{\eta} (f''(\eta) + f'(\eta) - 1) = 0$，而 $e^{\eta} > 0$，故 $f''(\eta) + f'(\eta) = 1$，证毕.
+
     !!! example
         设函数 $f(x)$ 在闭区间 $[-2,2]$ 上具有二阶导数，若 $(f(0))^2 + (f'(0))^2 = 4, |f(x)| \leqslant 1$，证明：
 
         $$
             \exists \xi \in (-2, 2), \enspace f(\xi) + f''(\xi) = 0.
         $$
+
+    ??? proof
+        根据条件 $(f(0))^2 + (f'(0))^2 = 4$，考虑构造函数 $g(x) = (f(x))^2 + (f'(x))^2$，则 $g'(x) = 2 f'(x) (f(x) + f''(x))$，出现了待证式的形式，因此我们需要找 $g'(x)$ 在 $(-2, 2)$ 上的一个零点 $\xi$，并证明 $f'(\xi) \neq 0$.
+
+        要证明某个函数的导函数存在零点，除了使用 Rolle 中值定理外，还可以通过说明函数在某个闭区间上的最值在非区间端点的位置取得，从而这个最值点必为函数的极值点，再由 Fermat 中值定理得到导函数为 0 的结论. 我们这里尝试使用第二种方法：
+
+        由于 $f(x)$ 在 $[-2,2]$ 上有二阶导，故 $f(x)$ 与 $f'(x)$ 必在 $[-2,2]$ 上连续，进而 $g(x)$ 在 $[-2,2]$ 上连续. 我们只需在 $[-2,2]$ 上取两个点 $\eta_1, \eta_2$，使得 $g(\eta_1) < g(0), g(\eta_2) < g(0)$，这样的话 $g(x)$ 在 $[\eta_1, \eta_2]$ 上的最大值存在且必然不在区间端点处取得.
+
+        由 Lagrange 中值定理，存在 $\eta_1 \in (-2, 0), \eta_2 \in (0, 2)$，使得 $f'(\eta_1) = \dfrac{f(0) - f(-2)}{2}, f'(\eta_2) = \dfrac{f(2) - f(0)}{2}$，于是 $|f'(\eta_1)| \leqslant \dfrac{|f(0)| + |f(-2)|}{2} \leqslant 1, |f'(\eta_2)| \leqslant \dfrac{|f(2)| + |f(0)|}{2} \leqslant 1$，进而 $g(\eta_1) \leqslant 1 + 1 = 2, g(\eta_2) \leqslant 1 + 1 = 2$，于是存在 $\xi \in (\eta_1, \eta_2)$，使得 $\xi$ 为 $g(x)$ 的一个最大值点和极大值点，$g'(\xi) = 0, g(\xi) \geqslant g(0) = 4$，而 $|f(\xi)| \leqslant 1$，故 $f'(\xi) \neq 0$，证毕.
 
     Hint：总结一下各种条件的构造函数方法.
 
@@ -146,9 +211,9 @@
 
 !!! example "例题"
 
-    1. （23-24 期末）证明导函数介值定理：若 $f(x)$ 在 $\mathbb{R}$ 上可导，且 $f'(0) < a < f'(1)$，则存在 $\xi \in (0,1)$，使得 $f'(\xi) = a$.
+    1. （23-24 期末 T5）证明导函数介值定理：若 $f(x)$ 在 $\mathbb{R}$ 上可导，且 $f'(0) < a < f'(1)$，则存在 $\xi \in (0,1)$，使得 $f'(\xi) = a$.
 
-    2. （22-23 期末）已知 $g(x)$ 有二阶连续导数，$g(0)=1$，$g'(0)=0$，且
+    2. （22-23 期末 T3）已知 $g(x)$ 有二阶连续导数，$g(0)=1$，$g'(0)=0$，且
 
         $$
             f(x) = \begin{cases} \dfrac{g(x)-\cos x}{x} &\enspace, x \neq 0 \\ a &\enspace,x=0 \end{cases}
@@ -157,6 +222,28 @@
         1. 若 $f(x)$ 在 $x=0$ 处连续，求 $a$.
     
         2. 已知 $f(x)$ 在 $x=0$ 处连续，讨论 $f'(x)$ 在 $x=0$ 处的连续性.
+
+??? proof "Proof :: 23-24 期末 T5"
+    设 $g(x)=f(x)-ax$，则只需证明 $\exists \xi \in (0,1), g'(\xi)=0$.
+
+    $g(x)=f(x)-ax \in C[0,1]$，由闭区间上连续函数的最值定理可知 $g(x)$ 在 $[0,1]$ 上有最小值.
+
+    $g'(0)=\displaystyle\lim_{x\to 0} \frac{g(x)-g(0)}{x}<0$，由局部保号性可知 $\exists \delta_1>0, \forall x \in (0,\delta_1), g(x)<g(0)$.
+
+    $g'(1)=\displaystyle\lim_{x\to 1} \frac{g(x)-g(1)}{x}>0$，由局部保号性可知 $\exists \delta_2>0, \forall x \in (1-\delta_2,1), g(x)<g(0)$.
+
+    所以 $g(0)$ 和 $g(1)$ 都不是 $g(x)$ 在 $[0,1]$ 上的最小值，故最小值在 $(0,1)$ 上的某个点 $\xi$ 处取得，$\xi$ 同时也是极小值.
+
+    又因为 $g(x)\in D[0,1]$，由 Fermat 引理可知 $g'(\xi)=0$，得证.
+
+??? proof "Solution :: 22-23 期末 T3"
+    1. $\lim\limits_{x\to 0} f(x) = \lim\limits_{x\to 0} \dfrac{g(0) + g'(0) x + o(x) - 1 + o(x)}{x} = f(0) = a$，故 $a=0$.
+
+    2. 通过 Taylor 展开可得 $f'(0) = \lim\limits_{x\to 0} \dfrac{f(x) - f(0)}{x} = \lim\limits_{x\to 0} \dfrac{g(x) - \cos x}{x^2} = \dfrac{1}{2} (g''(0) + 1)$.
+
+        同理有 $\lim\limits_{x\to 0} f'(x) = \lim\limits_{x\to 0} \dfrac{(g'(x) + \sin x) x - g(x) + \cos x}{x^2} = \dfrac{1}{2} (g''(0) + 1) = f'(0)$.
+
+        故 $f'(x)$ 在 $x=0$ 处连续.
 
 ### Taylor 公式
 
@@ -190,6 +277,61 @@ $$
     2. 若 $f(x) = \arctan x$，求 $f^{(n)}(0)$.
     3. （23-24 期末）求极限 $\lim\limits_{x \to 1} \dfrac{x^x - x}{1 - x + \ln x}$.
 
+??? Proof "Solution"
+    1. 由 $f(x) = \tan x = \dfrac{\sin x}{\cos x} = (\sin x)(\cos x)^{-1}$，将分子分母用 Taylor 公式展开有
+
+        $$
+            f(x) = (x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5))(1 - \frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5))^{-1}.
+        $$
+
+        再将 $\left(1 - \dfrac{1}{2}x^2 + \dfrac{1}{24}x^4 + o(x^5)\right)^{-1}$ 在 $x=0$ 处展开有
+
+        $$
+            f(x) = \left(x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5)\right)\left(1 + \left(\frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5)\right) + \left(\frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5)\right)^2 + o(x^5)\right).
+        $$
+
+        化简后即有 $f(x) = x + \dfrac{1}{3}x^3 + \dfrac{2}{15}x^5 + o(x^5)$，即 $f(x)$ 展开至 $x^5$ 的麦克劳林公式.
+    
+    2. 对 $f(x)$ 求导有 $f'(x) = \dfrac{1}{1 + x^2}$，再对 $f'(x)$ 泰勒展开有
+
+        $$
+            f'(x) = \dsum_{k=0}^{n} (-1)^k x^{2k} + o(x^{2n+1}).
+        $$
+
+        两边求积分，并用 $f(0) = 0$ 代入得
+
+        $$
+            f(x) = \dsum_{k=0}^{n} (-1)^k \frac{x^{2k+1}}{2k+1} + o(x^{2n+2}).
+        $$
+
+        由 Taylor 展开的唯一性，上式便为 $f(x)$ 在 $x=0$ 处的 Taylor 展开，故有
+
+        $$
+            \frac{f^{(n)}(0)}{n!} = \begin{cases}
+                0 \enspace &, n = 2k, k \in \mathbb{N} \\
+                \dfrac{(-1)^{\frac{n - 1}{2}}}{n} \enspace &, n = 2k+1, k \in \mathbb{N}
+            \end{cases}
+        $$
+
+        因此，$f^{(n)}(0) = \begin{cases}
+            0 \enspace &, n = 2k, k \in \mathbb{N} \\
+            (-1)^{\frac{n-1}{2}} (n-1)! \enspace &, n = 2k+1, k \in \mathbb{N}
+        \end{cases}$
+    
+    3. 令 $t = x - 1$，则
+    
+        $$
+        \begin{align*}
+            \lim\limits_{x \to 1} \dfrac{x^x - x}{1 - x + \ln x}
+            &= \lim\limits_{t \to 0} \dfrac{(t + 1)^{t + 1} - t - 1}{-t + \ln (1 + t)} \\
+            &= \lim\limits_{t \to 0} \dfrac{e^{(t+1)\ln(t+1)} - t - 1}{-t + t - \frac{1}{2} t^2 + o(t^2)} \\
+            &= \lim\limits_{t \to 0} \dfrac{e^{(t + 1)(t - \frac{1}{2} t^2 + o(t^2))} - t - 1}{-\frac{1}{2} t^2 + o(t^2)} \\
+            &= \lim\limits_{t \to 0} \dfrac{1 + (t + \frac{1}{2} t^2 + o(t^2)) + \frac{1}{2} (t + \frac{1}{2} t^2 + o(t^2))^2 + o(t^2) - t - 1}{-\frac{1}{2} t^2 + o(t^2)} \\
+            &= \lim\limits_{t \to 0} \dfrac{t^2 + o(t^2)}{-\frac{1}{2} t^2 + o(t^2)} \\
+            &= -2.
+        \end{align*}
+        $$
+
 在计算问题中我们常用 Peano 型余项来估阶，而在证明问题中则更常用 Lagrange 型余项来确定余项的具体范围. 事实上，Taylor 公式相当于利用了更高阶的导数提供的信息，得到了比 Lagrange 中值定理更强的结论，当题目中出现高阶导数时，通常都会使用 Taylor 展开式来求解.
 
 !!! example
@@ -199,12 +341,67 @@ $$
             \exists \xi \in (0, 1), \enspace |f''(\xi)| \geqslant 4|f(1) - f(0)|.
         $$
 
+??? proof
+    题目给出条件 $f'\left(\frac{1}{2}\right) = 0$，而待证式中存在二阶导数，我们尝试在 $x = \frac{1}{2}$ 处对 $f(x)$ 进行 Taylor 展开：
+
+    $$
+        f(x) = f\left(\frac{1}{2}\right) + \frac{f''(\xi)}{2} \left(x - \frac{1}{2}\right)^2.
+    $$
+
+    代入 $x = 0$ 与 $x = 1$，有
+
+    $$
+        \begin{cases}
+            f(0) &= f\left(\dfrac{1}{2}\right) + \dfrac{1}{8} f''(\xi_1). \\[1em]
+            f(1) &= f\left(\dfrac{1}{2}\right) + \dfrac{1}{8} f''(\xi_2).
+        \end{cases}
+    $$
+
+    两式相减并取绝对值有
+
+    $$
+        |f(1) - f(0)| = \frac{1}{8} |f''(\xi_1) + f''(\xi_2)| \leqslant \frac{1}{8} (|f''(\xi_1)| + |f''(\xi_2)|).
+    $$
+
+    令 $|f''(\xi)| = \max \{|f''(\xi_1)|, |f''(\xi_2)|\}$，则有
+
+    $$
+        4|f(1) - f(0)| \leqslant |f''(\xi)|.
+    $$
+
 <!-- 泰勒取点在待求点 -->
 !!! example
     设函数 $f(x)$ 在 $[0,1]$ 上有二阶导数，且 $|f(x)| \leqslant A, |f''(x)| \leqslant B$，证明：$\forall x \in [0,1]$，有
 
     $$
         |f'(x)| \leqslant 2A + \frac{B}{2}.
+    $$
+
+??? proof
+    题目给了区间上任意点的函数值和二阶导数的上界，因此我们考虑在任意点 $x$ 处的 Taylor 展开：
+
+    $$
+        f(x_0) = f(x) + f'(x) (x_0 - x) + \frac{f''(\xi_x)}{2} (x_0 - x)^2.
+    $$
+
+    代入区间端点 $x_0 = 0$ 和 $x_0 = 1$，有
+
+    $$
+    \begin{cases}
+        f(0) &= f(x) - f'(x) x + \dfrac{f''(\xi_0)}{2} x^2, \\[0.5em]
+        f(1) &= f(x) + f'(x) (1 - x) + \dfrac{f''(\xi_1)}{2} (1 - x)^2.
+    \end{cases}
+    $$
+
+    两式相减并取绝对值有
+
+    $$
+    \begin{align*}
+        |f'(x)| &= \left| f(1) - f(0) - \dfrac{f''(\xi_1)}{2} (1-x)^2 + \dfrac{f''(\xi_0)} x^2 \right| \\
+                &\leqslant |f(1)| + |f(0)| + \left|\dfrac{f''(\xi_1)}{2} \right| (1-x)^2 + \left|\dfrac{f''(\xi_0)}{2} \right| x^2 \\
+                &\leqslant 2A + \frac{B}{2} ((1-x)^2 + x^2) \\
+                &\leqslant 2A + \frac{B}{2}.
+    \end{align*}
     $$
 
 <!-- 泰勒取点在极值点 -->
@@ -216,6 +413,45 @@ $$
         \max\limits_{a \leqslant x \leqslant b} |f(x)| \geqslant \frac{m}{8} (b-a)^2.
     $$
 
+??? proof
+    $f(a) = f(b) = 0$，由 Rolle 中值定理可知 $\exists \xi \in (a,b)$，使得 $f'(\xi) = 0$.
+
+    由 $|f''(x)| \geqslant m > 0$，据导函数介值定理可知 $f''(x)$ 在 $(a,b)$ 上不变号，否则就一定存在 $x_0 \in (a,b)$ 使得 $f''(x_0) = 0 < m$.
+
+    因此，$f'(x)$ 在 $(a,b)$ 上严格单调，故 $x = \xi$ 为 $f'(x)$ 在 $(a,b)$ 上的唯一零点，$f(x)$ 在 $(a,b)$ 上的唯一极值点.
+
+    不妨设 $f''(x) < 0$，则 $f'(x)$ 在 $(a,b)$ 上严格单调递减，$f(x)$ 在 $(a, \xi)$ 上严格单调递增，在 $(\xi, b)$ 上严格单调递减，$x = \xi$ 为 $f(x)$ 在 $(a,b)$ 上的唯一极大值点.
+
+    因此 $\max\limits_{a \leqslant x \leqslant b} |f(x)| = f(\xi)$，我们只要证 $f(\xi) \geqslant \dfrac{m}{8} (b-a)^2$ 即可.
+
+    将 $f(x)$ 在 $x = \xi$ 处 Taylor 展开，有
+
+    $$
+        f(x) = f(\xi) + f'(\xi) (x - \xi) + \frac{f''(\eta_x)}{2} (x - \xi)^2 = f(\xi) + \frac{f''(\eta_x)}{2} (x - \xi)^2.
+    $$
+
+    代入 $x = a$ 和 $x = b$，有
+
+    $$
+    \begin{cases}
+        0 = f(a) &= f(\xi) + \dfrac{f''(\eta_0)}{2} (a - \xi)^2, \\[0.5em]
+        0 = f(b) &= f(\xi) + \dfrac{f''(\eta_1)}{2} (b - \xi)^2.
+    \end{cases}
+    $$
+
+    两式相加并取绝对值有
+
+    $$
+    \begin{align*}
+        2|f(\xi)| &= \left|\dfrac{f''(\eta_0)}{2} (a - \xi)^2 + \dfrac{f''(\eta_1)}{2} (b - \xi)^2 \right| \\
+                  &\geqslant \left|\dfrac{m}{2} \left((a - \xi)^2 + (b - \xi)^2\right) \right| \\
+                  &\geqslant \frac{m}{4} (b-a)^2.
+    \end{align*}
+    $$
+
+    因而 $\max\limits_{a \leqslant x \leqslant b} |f(x)| = f(\xi) \geqslant \dfrac{m}{8} (b-a)^2$.
+    
+
 <!-- 泰勒取点在区间端点 -->
 
 !!! example
@@ -223,6 +459,27 @@ $$
 
     $$
         |f''(\xi)| \geqslant \frac{4}{(b-a)^2} |f(b) - f(a)|.
+    $$
+
+??? proof
+    利用 $f'(a) = f'(b) = 0$ 的条件，在 $x=a$ 和 $x=b$ 处对 $f(x)$ 进行 Taylor 展开，有
+
+    $$
+    \begin{align*}
+        f(x) &= f(a) + \frac{f''(\xi_0)}{2} (x-a)^2,
+        f(x) &= f(b) + \frac{f''(\xi_1)}{2} (x-b)^2.
+    \end{align*}
+    $$
+
+    粮食相减并取绝对值有
+
+    $$
+    \begin{align*}
+        |f(b) - f(a)| &= \left|\frac{f''(\xi_0)}{2} (x-a)^2 - \frac{f''(\xi_1)}{2} (x-b)^2\right| \\
+                      &\leqslant \frac{|f''(\xi_0)|}{2} (x-a)^2 + \frac{|f''(\xi_1)|}{2} (x-b)^2 \\
+                      &\leqslant \frac{|f''(\xi)|}{2} ((x-a)^2 + (x-b)^2)
+                      &\leqslant \frac{|f''(\xi)|}{4} (b-a)^2.
+    \end{align*}
     $$
 
 ### 导数与函数性态
@@ -277,6 +534,53 @@ $$
     1. （20-21 期末 T6）设函数 $f(x)$ 满足方程 $\forall x \in \mathbb{R}, \enspace f''(x) + \left[f'(x) \right]^2 = x$，且 $f'(0) = 0$，证明 $x=0$ 不是 $f(x)$ 的极值点.
 
     2. （23-24 期末 T4）求函数 $f(x) = \dint_{-1}^{1} |x-t| e^{t^2} \intdd{t}$ 在 $\mathbb{R}$ 上的最小值.
+
+??? proof "Proof :: 20-21 期末 T6"
+    向 $f''(x) + \left[f'(x) \right]^2 = x$ 代入 $x=0$，有 $f''(0) = 0$.
+
+    由 $f''(x) + \left[f'(x) \right]^2 = x$ 可知 $f(x)$ 二阶可导，将该方程变形为
+
+    $$
+        f''(x) = x - \left[f'(x) \right]^2,
+    $$
+
+    则由右边函数可导，知 $f''(x)$ 可导，即 $f(x)$ 的三阶导函数存在，且 $f'''(x) = 1 - 2f(x)f'(x)$.
+
+    代入 $x=0$，有 $f'''(x) = 1 - 0 = 1 > 0$，而 $f''(x) = f'(x) = 0$，由极值点判定定理 II 可知 $x=0$ 不是 $f(x)$ 的极值点.
+
+??? proof "Solution :: 23-24 期末 T4"
+    分以下三种情况讨论：
+
+    1. $x \geqslant 1$，则
+
+        $$
+            f(x) = x\int_{-1}^1 e^{t^2} \intdd{t} - \int_{-1}^1 te^{t^2} \intdd{t}
+                            = x\int_{-1}^1 e^{t^2} \intdd{t} - \frac{1}{2} e^{t^2} \bigg{|}_{-1}^1
+                            \geqslant \int_{-1}^1 e^{t^2} \intdd{t}
+        $$
+
+    2. $x \leqslant -1$，则
+
+        $$
+            f(x) = \int_{-1}^1 te^{t^2} \intdd{t} - x\int_{-1}^1 e^{t^2} \intdd{t}
+                            = \frac{1}{2} e^{t^2} \bigg{|}_{-1}^1 - x\int_{-1}^1 e^{t^2} \intdd{t}
+                            \geqslant \int_{-1}^1 e^{t^2} \intdd{t}
+        $$
+
+    3. $-1<x<1$，则
+
+        $$
+        \begin{align*}
+            f(x) &= x\int_{-1}^x e^{t^2} \intdd{t} - \int_{-1}^x te^{t^2} \intdd{t} + \int_x^1 te^{t^2} \intdd{t} - x\int_x^1 e^{t^2} \intdd{t} \\
+                    &= x \left(\int_{-1}^x e^{t^2}\intdd{t} - \int_x^1 e^{t^2}\intdd{t} \right) + e - e^{x^2}
+        \end{align*}
+        $$
+
+        求导可得 $f'(x) = \displaystyle\int_{-1}^x e^{t^2}\intdd{t} - \int_x^1 e^{t^2}\intdd{t},\quad f''(x)=2e^{x^2}>0$，故 $f'(x)$ 单调递增.
+
+        由 $f''(x)=2e^{x^2}$ 为偶函数，知 $f'(0)=0$，故 $f(x)$ 在 $[-1,0]$ 上单调递减，在 $[0,1]$ 上单调递增，在 $x=0$ 处取得最小值 $e-1$.
+
+    由于 $\displaystyle\int_{-1}^1 e^{t^2} \intdd{t} = 2\int_0^1 e^{t^2} \intdd{t} > 2\int_0^1 te^{t^2} \intdd{t} = e-1$，故 $e-1$ 为 $f(x)$ 在 $\mathbb{R}$ 上的最小值.
 
 #### 凹凸性
 
@@ -358,6 +662,24 @@ $$
         \lim_{n \to +\infty} \sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right] = \frac{f(1)-f(0)}{2}.
     $$
 
+??? proof
+    由条件知 $f(x) \in C[0,1] \cap D(0,1)$，据 Lagrange 中值定理，有
+
+    $$
+        \displaystyle{\sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right] = \frac{1}{2n} \sum_{k=1}^n f'(\xi_k)},
+    $$
+
+    且有 $\xi_k \in \left( \dfrac{2k-1}{2n},\dfrac{k}{n} \right) \subset \left( \dfrac{k-1}{n}, \dfrac{k}{n} \right)$.
+
+    取分割 $\Delta \colon x_0=0,x_1=\dfrac{1}{n},\ldots,x_k=\dfrac{k}{n},\ldots,x_n=1$ 与介点组 $\{\xi_k\}$，由 $f'(x) \in C[0,1]$，知 $f'(x)$ 黎曼可积且有原函数 $f(x)$. 故
+    
+    $$
+        \lim_{n \to +\infty} \sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right]
+        = \frac{1}{2} \lim_{\| \Delta \| \to 0} \sum_{k=1}^{n} f'\left(\xi_k\right) \frac{1}{n}
+        = \frac{1}{2} \int_{0}^{1} f'(x) \dd{x}
+        = \frac{f(1)-f(0)}{2}.
+    $$
+
 ### 定积分的性质
 
 #### 基本性质
@@ -383,6 +705,15 @@ $$
 
 !!! example "23-24 期末 T6"
     设函数 $f(x) \in R[0,1]$，且 $f$ 在 $x=0$ 处右连续. 证明：函数 $\varphi(x)=\dint_0^x f(t) \intdd{t} \enspace (0 \leqslant x \leqslant 1)$ 在 $x=0$ 处的右导数等于 $f(0)$.
+
+??? proof
+    $f(x)$ 在 $x=0$ 处右连续，故 $\forall \varepsilon>0, \exists \delta>0, \forall x \in (0,\delta), |f(x)-f(0)|<\varepsilon$，即 $f(0)-\varepsilon<f(x)<f(0)+\varepsilon$.
+
+    由定积分保序性，可知 $\forall x \in (0,\delta), (f(0)-\varepsilon)x<\varphi(x)<(f(0)+\varepsilon)x$.
+
+    所以 $\forall \varepsilon>0, \exists \delta>0, \forall x \in (0,\delta),  f(0)-\varepsilon<\dfrac{\varphi(x)}{x}<f(0)+\varepsilon$.
+
+    所以 $\varphi'_+(0) = \displaystyle\lim_{x\to 0+} \dfrac{\varphi(x)}{x} = f(0)$.
 
 #### 变限积分
 
@@ -411,6 +742,17 @@ $$
 !!! example "23-24 期末 T2.c"
     求极限 $\lim\limits_{x \to 0} \dfrac{\dint_{0}^{x^2} t^2 e^{\sin t} \intdd{x}}{\ln (1+x^6)}$.
 
+??? proof "Solution"
+    设 $f(x)=\displaystyle\int_0^{x^2} t^2 e^{\sin t} \dd{x}$ ，由于被积函数在 $\mathbb{R}$ 上连续，知 $f(x) \in D( \mathbb{R} )$ ，且 $f'(x)=2x^5 e^{\sin x^2}$.
+
+    当 $x \to 0$ 时，分子和分母都趋向0，可以使用 L'Hospital 法则：
+
+    $$
+        \text{原式} = \lim_{x \to 0} \frac{2x^5 e^{\sin x^2}}{\frac{6x^5}{1+x^6}}
+                    = \lim_{x \to 0} \frac{(1+x^6) e^{\sin x^2}}{3}
+                    = \frac{1}{3}.
+    $$
+
 !!! example
     设 $f(x)$ 在 $[0,1]$ 上可导，且 $0 \leqslant f'(x) \leqslant 1, f(0) = 0$，证明：
 
@@ -419,6 +761,24 @@ $$
     $$
 
     Hint: 将普通积分化为变上限积分.
+
+??? proof
+    构造函数 $F(x) = \left( \int_0^x f(t) \intdd{t} \right)^2 - \int_0^x f^3(t) \intdd{t}$，由于 $f(x)$ 在 $[0,1]$ 上连续可导，故 $F(x)$ 可导.
+
+    $$
+        F'(x) = 2 f(x) \left( \int_0^x f(t) \intdd{t} \right) - f^3(x)
+              = f(x) (2 \int_0^x f(t) \intdd{t} - f^2(x)).
+    $$
+
+    设 $G(x) = 2 \int_0^x f(t) \intdd{t} - f^2(x)$，则 $G(x)$ 在 $[0,1]$ 上也可导，且
+
+    $$
+        G'(x) = 2 f(x) - 2 f(x) f'(x) = 2f(x) (1 - f'(x)).
+    $$
+
+    由于 $0 \leqslant f'(x) \leqslant 1$，故 $f(x) \geqslant f(0) = 0$，因此 $G'(x) \geqslant 0$，$G(x)$ 在 $[0,1]$ 上单调递增，进而有 $G(x) \geqslant G(0) = 0$.
+
+    因此 $F'(x) = f(x) G(x) \geqslant 0$，$F(x)$ 在 $[0,1]$ 上单调递增，故 $F(1) \geqslant F(0) = 0$，证毕.
 
 #### 积分中值定理
 
@@ -445,6 +805,23 @@ $$
 !!! example
     设 $f(x)$ 在 $[0, \pi]$ 上连续，且 $\dint_0^{\pi} f(x) \intdd{x} = 0, \dint_0^{\pi} f(x) \cos x \intdd{x} = 0$，证明：$\exists \xi_1, \xi_2 \in (0, \pi)$，使得 $f(\xi_1) = f(\xi_2) = 0$.
 
+??? proof
+    直接对 $\dint_0^{\pi} f(x) \intdd{x}$ 在 $[0, \pi]$ 上使用积分第一中值定理只能得到 $f(x)$ 在 $[0,\pi]$ 上存在至少一个根，而无法说明存在两个不等的根. 但这给我们了一个启发：如果我们可以找到 $[0,\pi]$ 的两个不重叠的子区间，使 $f(x)$ 在这两个区间上的定积分均为 $0$，那么这两个区间上分别存在 $f(x)$ 的一个根，这就证明了 $f(x)$ 在 $[0,\pi]$ 上存在两个不等的根.
+
+    由 $\cos x$ 在 $[0, \pi]$ 上单调，据积分第二中值定理，存在 $\xi \in [0, \pi]$，使得
+
+    $$
+        0 = \dint_0^{\pi} f(x) \cos x \intdd{x} = cos 0 \dint_0^{\xi} f(x) \intdd{x} + cos \pi \dint_{\xi}^{\pi} f(x) \intdd{x} = \dint_0^{\xi} f(x) \intdd{x} - \dint_{\xi}^{\pi} f(x) \intdd{x}.
+    $$
+
+    而我们又有
+
+    $$
+        \dint_0^{\xi} f(x) \intdd{x} + \dint_{\xi}^{\pi} f(x) \intdd{x} = \dint_0^{\pi} f(x) \intdd{x} = 0.
+    $$
+
+    上两式联立可得 $\dint_0^{\xi} f(x) \intdd{x} = \dint_{\xi}^{\pi} f(x) \intdd{x} = 0$. 分别在 $[0, \xi]$ 和 $[\xi, \pi]$ 使用积分第一中值定理，即有 $\xi_1, \xi_2 \in (0, \pi)$，使得 $f(\xi_1) = f(\xi_2) = 0$，证毕.
+
 !!! example "Riemann-Lebesque 引理"
     设 $f(x)$ 在 $[a,b]$ 上单调，证明：
 
@@ -457,17 +834,59 @@ $$
 
     Hint：注意单调条件的运用
 
+??? proof
+    由 $f(x)$ 在 $[a,b]$ 上单调，使用积分第二中值定理，则存在 $\xi \in [a,b]$，使得
+
+    $$
+    \begin{align*}
+        \left|\int_a^b f(x) \cos \lambda x \intdd{x}\right| &= \left|f(a) \int_a^{\xi} \cos \lambda x \intdd{x} + f(b) \int_{\xi}^b \cos \lambda x \intdd{x} \right| \\
+                                                            &= \left|\frac{1}{\lambda} (f(a) (\sin \lambda \xi - \sin \lambda a) + f(b) (\sin \lambda b - \sin \lambda \xi)) \right| \\
+                                                            &\leqslant \frac{2}{\lambda} (|f(a)| + |f(b)|).
+    \end{align*}
+    $$
+
+    令 $\lambda \to + \infty$，则上式趋于 0. 同理可证 $\lim\limits_{\lambda \to +\infty} \dint_a^b f(x) \sin \lambda x \intdd{x} = 0$.
+
 #### 积分不等式
 
 - 绝对值不等式：$\left\vert \dint_a^b f(x) \intdd{x}\right\vert \leqslant \dint_a^b |f(x)| \intdd{x}$.
 
 - Cauchy-Schwarz 不等式：$\left( \dint_a^b |f(x)g(x)| \intdd{x} \right)^{2} \leqslant \left( \dint_a^b f^2(x) \intdd{x} \right) \left( \dint_a^b g^2(x) \intdd{x} \right)$.
 
+!!! tip "积分不等式的三种常见解法"
+    - 利用保号性对被积函数放缩
+    - 定积分化变上限积分后求导研究
+    - 利用已有积分不等式
+
 !!! example
     设 $g(x)$ 在 $[0,1]$ 上可积，且 $\dint_0^1 g(x) \intdd{x} = 0$，证明：
 
     $$
         \left[ \int_0^1 x g(x) \intdd{x} \right]^2 \leqslant \frac{1}{12} \int_0^1 g^2(x) \intdd{x}.
+    $$
+
+??? proof
+    观察待证式和条件的结构，发现待证式与 Cauchy-Schwarz 不等式形式相似，尝试直接进行放缩：
+
+    $$
+        \left[ \int_0^1 x g(x) \intdd{x} \right]^2 \leqslant \left(\int_0^1 x^2 \intdd{x} \right) \left(\int_0^1 g^2(x) \intdd{x} \right) = \frac{1}{3} \int_0^1 g^2(x) \intdd{x},
+    $$
+
+    发现放过头，需要进一步调整. 我们现在仍然未使用条件 $\int_0^1 g(x) \intdd{x} = 0$，通过该条件可以对待证式左边进行调整，再利用 Cauchy-Schwarz 不等式进行放缩：
+
+    $$
+    \begin{align*}
+        \left[ \int_0^1 x g(x) \intdd{x} \right]^2
+        &= \left[ \int_0^1 (x + a) g(x) \intdd{x} \right]^2 \\
+        &\leqslant \left(\int_0^1 (x + a)^2 \intdd{x} \right) \left(\int_0^1 g^2(x) \intdd{x} \right) \\
+        &= \frac{1}{3} \left[(1-a)^3 + a^3 \right] \int_0^1 g^2(x) \intdd{x} \\
+    \end{align*}
+    $$
+
+    考虑求 $h(a) = \dfrac{1}{3}[(1-a)^3 + a^3] = a^2 - a + \dfrac{1}{3}$ 的最小值，发现当 $a = \dfrac{1}{2}$ 时，$h(a) = \dfrac{1}{12}$ 取得最小值. 故
+
+    $$
+        \left[ \int_0^1 x g(x) \intdd{x} \right]^2 = \left[ \int_0^1 \left(x + \dfrac{1}{2}\right) g(x) \intdd{x} \right]^2 \leqslant \frac{1}{12} \int_0^1 g^2(x) \intdd{x}.
     $$
 
 !!! example
@@ -477,12 +896,48 @@ $$
         \int_0^{\pi} x a^{\sin x} \intdd{x} \cdot \int_0^{\frac{\pi}{2}} a^{-\cos x} \geqslant \frac{\pi^3}{4}.
     $$
 
+??? proof
+    对待证式左边的两个积分分别进行处理：
+
+    $$
+    \begin{align*}
+        \int_0^{\pi} x a^{\sin x} \intdd{x} &= \int_0^{\frac{\pi}{2}} x a^{\sin x} \intdd{x} + \int_{\frac{\pi}{2}}^{\pi} x a^{\sin x} \intdd{x} \\
+                                            &= \int_0^{\frac{\pi}{2}} x a^{\sin x} \intdd{x} + \int_0^{\frac{\pi}{2}} (\pi - x) a^{\sin x} \intdd{x} \\
+                                            &= \pi \int_0^{\frac{\pi}{2}} a^{\sin x} \intdd{x}.
+    \end{align*}
+    $$
+
+    $$
+        \int_0^{\frac{\pi}{2}} a^{-\cos x} \intdd{x} = \int_0^{\frac{\pi}{2}} a^{-\sin x} \intdd{x}.
+    $$
+
+    故
+
+    $$
+        \mathrm{LHS} = \pi \int_0^{\frac{\pi}{2}} a^{\sin x} \intdd{x} \int_0^{\frac{\pi}{2}} a^{-\sin x} \intdd{x} \geqslant \pi \left(\int_0^{\frac{\pi}{2}} \intdd{x}\right)^2 = \frac{\pi^3}{4}.
+    $$
+
 !!! example
     设 $f(x)$ 在 $[0,a]$ 上的导函数连续，$f(0) = 0$，证明：
 
     $$
         \int_0^a |f(x) f'(x)| \intdd{x} \leqslant \frac{a}{2} \int_0^a (f'(x))^2 \intdd{x}.
     $$
+
+??? proof
+    令 $F(x) = \int_0^a |f'(x)| \intdd{x}$，则 $F'(x) = |f'(x)|$，并且 $F(x) \geqslant \left|\dint_0^a f'(x) \intdd{x}\right| = |f(x)|$. 利用该不等式，待证式左侧可化为
+
+    $$
+        \int_0^a |f(x)||f'(x)| \intdd{x} \leqslant \int F(x) F'(x) \intdd{x} = \frac{1}{2} (F^2(a) - F^2(0)) = \frac{1}{2} F^2(a).
+    $$
+
+    利用 Cauchy-Schwarz 不等式，有
+
+    $$
+        \frac{1}{2} F^2(a) = \frac{1}{2} \left( \int_0^a |f'(x)| \intdd{x} \right)^2 \leqslant \frac{a}{2} \int_0^a (f'(x))^2 \intdd{x}.
+    $$
+
+    证毕.
 
 !!! example
     设 $f(x)$ 在 $[a,b]$ 上连续且单调递增，证明：
@@ -491,11 +946,74 @@ $$
         \int_a^b x f(x) \intdd{x} \geqslant \frac{a+b}{2} \int_a^b f(x) \intdd{x}.
     $$
 
+??? proof
+    没有想法时可以尝试做差法，待证式化为
+
+    $$
+        \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} \geqslant 0.
+    $$
+
+    由于 $g(x) = x - \frac{a+b}{2}$ 关于 $[a,b]$ 的中点 $\dfrac{a+b}{2}$ 中心对称，有 $-\dint_a^{\frac{a+b}{2}} g(x) \intdd{x} = \dint_{\frac{a+b}{2}}^b g(x) \intdd{x} = \dfrac{(b-a)^2}{8} > 0$.
+
+    根据以上性质，我们尝试将积分区间按照中点 $\dfrac{a+b}{2}$ 分割，得到
+
+    $$
+        \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} = \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} + \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x}.
+    $$
+
+    由于 $g(x)$ 在 $\left[a, \dfrac{a+b}{2} \right]$ 和 $\left[\dfrac{a+b}{2}, b \right]$ 上分别不变号，利用积分第一中值定理，存在 $\xi_1 \in \left(a, \dfrac{a+b}{2} \right)$ 和 $\xi_2 \in \left(\dfrac{a+b}{2}, b \right)$，使得
+
+    $$
+    \begin{align*}
+        \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x}
+        &= \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} + \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} \\
+        &= f(\xi_1) \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) \intdd{x} + f(\xi_2) \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) \intdd{x} \\
+        &= \frac{(b-a)^2}{8}(f(\xi_2) - f(\xi_1)).
+    \end{align*}
+    $$
+
+    由 $f(x)$ 在 $[a,b]$ 上单调递增，有 $f(\xi_1) \leqslant f(\xi_2)$，故上式非负，证毕.
+
 !!! example
     设函数 $f(x)$ 在 $[0,1]$ 上可导，且 $f(x)$ 不恒等于 $0$，$\int_0^1 f(x) \intdd{x} = 0$，证明：
 
     $$
         \int_0^1 |f(x)| \intdd{x} \cdot \int_0^1 |f'(x)| \intdd{x} \geqslant 2 \int_0^1 f^2(x) \intdd{x}.
+    $$
+
+??? proof
+    令变上限积分 $F(x) = \dint_0^x f(t) \intdd{t}$，则由条件有 $F(0) = F(1) = 0$. 对待证式右侧进行处理：
+
+    $$
+    \begin{align*}
+        \left| \int_0^1 f^2(x) \intdd{x} \right| &= \left| \int_0^1 f(x) \intdd{F(x)} \right| \\
+                                                 &= \left| f(x) F(x) \bigg{|}_{0}^{1} - \int_0^1 F(x) f'(x) \intdd{x} \right| \\
+                                                 &= \left|\int_0^1 F(x) f'(x) \intdd{x} \right| \\
+                                                 &\leqslant \int_0^1 |F(x)| |f'(x)| \intdd{x}.
+    \end{align*}
+    $$
+
+    再利用积分第一中值定理，存在 $\xi \in (0,1)$，使得
+
+    $$
+        \left| \int_0^1 f^2(x) \intdd{x} \right| \leqslant |F(\xi)| \int_0^1 |f'(x)| \intdd{x}.
+    $$
+
+    下面证明 $2|F(\xi)| \leqslant \dint_0^1 |f(x)| \intdd{x}$. 将右侧以 $\xi$ 为分界点拆成两个积分，再利用绝对值不等式进行放缩：
+
+    $$
+    \begin{align*}
+        \int_0^1 |f(x)| \intdd{x} &= \int_0^{\xi} |f(x)| \intdd{x} + \int_{\xi}^1 |f(x)| \intdd{x} \\
+                                  &\geqslant \left|\int_0^{\xi} f(x) \intdd{x} \right| + \left|\int_{\xi}^1 f(x) \intdd{x} \right| \\
+                                  &= |F(\xi)| + |F(1) - F(\xi)| \\
+                                  &= 2|F(\xi)|.
+    \end{align*}
+    $$
+
+    综上，
+
+    $$
+        2 \left| \int_0^1 f^2(x) \intdd{x} \right| \leqslant 2 |F(\xi)| \int_0^1 |f'(x)| \intdd{x} \leqslant \int_0^1 |f(x)| \intdd{x} \int_0^1 |f'(x)| \intdd{x}.
     $$
 
 ### 定积分的计算
@@ -788,6 +1306,22 @@ $$
 !!! example
     1. （23-24 期末 T2.d）求 $\dint_{1}^{+\infty} \dfrac{\arctan x}{x^2} \intdd{x}$.
 
+??? proof "Solution"
+    先证该反常积分收敛：$\dint_{1}^{+\infty} \dfrac{1}{x^2} \intdd{x}$ 收敛，而 $f(x) = \arctan x$ 在 $[1, +\infty)$ 单调有界，由 Abel 判别法可知 $\dint_{1}^{+\infty} \dfrac{\arctan x}{x^2} \intdd{x}$ 收敛.
+
+    下面求该反常积分的值：
+
+    $$
+    \begin{align*}
+        \text{原式} &= - \int_1^{+\infty} \arctan x \dd(\frac{1}{x}) \\
+                    &= - \left( \frac{\arctan x}{x} \right) \bigg{|}_1^{+\infty} + \int_1^{+\infty} \frac{1}{x(1+x^2)} \dd{x} \\
+                    &= \frac{\pi}{4} + \frac{1}{2} \int_1^{+\infty} \frac{1}{x^2 (1+x^2)} \dd{x}^2 \\
+                    &= \frac{\pi}{4} + \frac{1}{2} \int_1^{+\infty} \left(\frac{1}{x^2}-\frac{1}{1+x^2} \right) \dd{x}^2 \\
+                    &= \frac{\pi}{4} + \frac{1}{2} \left(\ln \frac{x^2}{1+x^2} \right) \bigg{|}_1^{+\infty} \\
+                    &= \frac{\pi}{4} + \frac{1}{2} \ln 2.
+    \end{align*}
+    $$
+
 ### 敛散性判别
 
 #### 无穷积分
@@ -841,6 +1375,64 @@ $$
 
     证明：存在常数 $M>0$，使得 $\sup\limits_{x \in \mathbb{R}} \left(|xf'(x)|\right) \leqslant M$.
 
+??? proof
+    1. $|x|\leqslant 1$
+
+        $f(x)$ 有二阶连续导数，故 $f'(x) \in C[-1,1]$，进而 $xf'(x) \in C[-1,1]$，
+        由有界性定理可知 $\exists M_1>0, \forall x \in [-1,1], |xf'(x)|\leqslant M_1$.
+
+    2. $|x|>1$
+
+        $f(x)$ 有二阶连续导数，$\forall |x_0|>1$，
+        
+        $$
+        \begin{equation}
+            f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(\xi)}{2}(x-x_0)^2
+        \end{equation}
+        $$
+
+        代入 $x=x_0+\dfrac{1}{x_0}$，有
+        
+        $$
+        \begin{equation}
+            f(x_0+\frac{1}{x_0}) = f(x_0) + \frac{f'(x_0)}{x_0} + \frac{f''(\xi)}{2x_0^2}
+        \end{equation}
+        $$
+
+        两边同乘 $x_0^2$，移项得
+        
+        $$
+        \begin{equation}
+            x_0 f'(x_0) = x_0^2 f(x_0+\frac{1}{x_0}) - x_0^2 f(x_0) - \frac{f''(\xi)}{2}  \label{eq:result1}
+        \end{equation}
+        $$
+
+        等式右边第二项与第三项都是有界量，故只需证明第一项也为有界量，考虑利用有界量 $(x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0})$ 进行估计：
+
+        $$
+        \begin{equation} \label{eq:result2}
+            \begin{aligned}
+            \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| &= \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) - 2f(x_0+\frac{1}{x_0}) - \frac{f(x_0+\frac{1}{x_0})}{x_0^2} \right| \\
+                                                        &\leqslant \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) \right| + \left| 2f(x_0+\frac{1}{x_0}) \right| + \left| \frac{f(x_0+\frac{1}{x_0})}{x_0^2} \right| \\
+                                                        &< \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) \right| + 3 \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| \\
+                                                        &\leqslant 4C
+            \end{aligned}
+        \end{equation}
+        $$
+
+        利用上两式可得
+
+        $$
+        \begin{align*}
+            \left| x_0 f'(x_0) \right| &\leqslant \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| + \left| x_0^2 f(x_0) \right| + \frac{\left|f''(\xi)\right|}{2} \\
+                                        &\leqslant 4C + C + \frac{C}{2} \\
+                                        &= \frac{11C}{2}
+        \end{align*}
+        $$
+
+    综上，取 $M=\max\left\{M_1,\frac{11C}{2}\right\}$，则 $\forall x\in \mathbb{R}, |xf'(x)|\leqslant M$，
+    故 $M$ 为 $|xf'(x)|$ 的一个上界，必然不小于其上确界，因此 $\sup\limits_{x \in \mathbb{R}} \left(|xf'(x)|\right) \leqslant M$.
+
 !!! example "22-23 期末 T8"
     已知 $f(x)$ 在 $[0, 1]$ 上有二阶连续导数，证明：
 
@@ -867,6 +1459,50 @@ $$
     $$
         (f'(x))^2 \leqslant 2M|f(x)|.
     $$
+
+??? proof
+    由 $f(x)$ 在 $\mathbb{R}$ 上有连续导函数，$\forall x, h \in \mathbb{R}$，有
+
+    $$
+        f(x+h) - f(x) = \int_{x}^{x+h} f'(t) \intdd{t}.
+    $$
+
+    为了构造出条件中两导数差的形式，可对右侧积分进行拆解：
+
+    $$
+        f(x+h) = f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} + f'(x)h.
+    $$
+
+    而 $f(x+h)\geqslant 0$ 恒成立，将其放掉后移项有
+
+    $$
+        -hf'(x) \leqslant f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t}
+    $$
+
+    现在希望在两边加绝对值，以用积分绝对值不等式放出 |f'(t) - f'(x)| 的形式，为了保证放缩的方向，我们必须保证 $-hf'(x) \geqslant 0$，由于 $h \in \mathbb{R}$，这是可以做到的. 于是我们有
+
+    $$
+    \begin{align*}    
+        |-hf'(x)| = -hf'(x) &\leqslant \left|f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} \right| \\
+                            &\leqslant f(x) + \left|\int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} \right| \\
+                            &\leqslant f(x) + M \int_{x}^{x+h} |t - x| \intdd{t} \\
+                            &= f(x) + \frac{M}{2}h^2.
+    \end{align*}
+    $$
+
+    于是
+
+    $$
+        |f'(x)| = \frac{f(x)}{|h|} + \frac{M|h|}{2}
+    $$
+
+    对所有满足 $-hf'(x) \geqslant 0$ 的 $h$ 成立，故 $|f'(x)|$ 不大于右侧的最小值，即 $2\sqrt{\dfrac{Mf(x)}{2}}$. 两边平方，
+
+    $$
+        (f'(x))^2 \leqslant 2Mf(x)
+    $$
+
+    成立.
 
 !!! example
     设 $f(x)$ 在 $x=0$ 处存在二阶导数，且 $\forall n \in \mathbb{N}^+, f(2^{-n}) = 0$，证明 $f''(0) = 0$.
