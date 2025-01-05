@@ -1041,6 +1041,20 @@ $$
 !!! example
     计算 $\dint_1^2 \dfrac{1}{x^{10} + x} \intdd{x}$.
 
+??? proof "Solution"
+    观察到分母和分子次数相差很大，因此考虑分子分母同乘 $x$ 的幂，对分子凑微分后换元降幂.
+
+    $$
+    \begin{align*}
+        \int_1^2 \frac{1}{x^{10} + x} \intdd{x}
+        &= \int_1^2 \frac{x^8}{x^{18} + x^9} \intdd{x} \\
+        &= \frac{1}{9} \int_1^2 \frac{1}{x^{18} + x^9} \intdd{x^9} \\
+        &= \frac{1}{9} \int_1^{512} \frac{1}{t(t+1)} \intdd{t} \\
+        &= \frac{1}{9} \left(\ln \frac{t}{t+1} \right) \bigg{|}_{1}^{512} \\
+        &= \frac{1}{9} \ln \frac{1024}{513}.
+    \end{align*}
+    $$
+
 ##### 分部积分法
 
 !!! theorem "Theorem :: 定积分的分部积分法"
@@ -1085,6 +1099,47 @@ $$
 
         !!! example
             计算 $\dint_{-\pi}^{\pi} \dfrac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x}$.
+        
+        ??? proof "Solution"
+            设 $I = \dint_{-\pi}^{\pi} \dfrac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x}$，令 $t = -x$，则有
+
+            $$
+                I = \int_{\pi}^{-\pi} \frac{-t \sin (-t) \cdot \arctan e^{-t}}{1 + \cos^2 (-t)} -\intdd{t}
+                  = \int_{-\pi}^{\pi} \frac{t \sin t \cdot \arctan e^{-t}}{1 + \cos^2 t} \intdd{t}.
+            $$
+
+            因此有
+
+            $$
+            \begin{align*}
+                I &= \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x} + \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x \cdot \arctan e^{-x}}{1 + \cos^2 x} \intdd{x} \\
+                  &= \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x}{1 + \cos^2 x} (\arctan e^x + \arctan e^{-x}) \intdd{x} \\
+                  &= \frac{1}{2} \int_{-\pi}^{\pi} \frac{\pi}{2} \frac{x \sin x}{1 + \cos^2 x} \intdd{x}.
+            \end{align*}
+            $$
+
+            由于 $\dfrac{x \sin x}{1 + \cos^2 x}$ 是偶函数，因此
+
+            $$
+                I = \frac{\pi}{2} \int_{0}^{\pi} \frac{x \sin x}{1 + \cos^2 x} \intdd{x}.
+            $$
+
+            设 $u = \pi - x$，则有
+
+            $$
+                I = \frac{\pi}{2} \int_{0}^{-\pi} \frac{(\pi - u) \sin u}{1 + \cos^2 u} -\intdd{u} = \frac{\pi}{2} \int_{0}^{\pi} \frac{(\pi - u) \sin u}{1 + \cos^2 u} \intdd{u}.
+            $$
+
+            上两式相加有
+
+            $$
+            \begin{align*}
+                I &= \frac{\pi}{4} \int_{0}^{\pi} \frac{\pi \sin x}{1 + \cos^2 x} \intdd{x} \\
+                  &= -\frac{\pi^2}{4} \int_{0}^{\pi} \frac{\dd{\cos x}}{1 + \cos^2 x} \\
+                  &= -\frac{\pi^2}{4} \arctan (\cos x) \bigg{|}_{0}^{\pi} \\
+                  &= \frac{\pi^3}{8}.
+            \end{align*}
+            $$
 
         如果积分区间是 $[a,b]$，而被积函数中含有对称的 $x$ 与 $a+b-x$ 项，那么我们可以通过倒代换后进行组合的方式计算定积分：
 
@@ -1093,7 +1148,30 @@ $$
 
             - 计算 $I = \dint_0^1 \dfrac{\ln (1+x)}{1 + x^2} \intdd{x}$.
             
-            - 计算 $I = \dint_{-1}^1 \dfrac{\sqrt{1 - x^2}}{a - x} \intdd{x}$.
+            - 计算 $I = \dint_{-1}^1 \dfrac{\sqrt{1 - x^2}}{1 - x} \intdd{x}$.
+        
+        ??? proof "Solution"
+            1. $\dfrac{a}{2}$. (Hint: 令 $u=a-x$，换元后得到的被积函数与原来的被积函数相加后等于 $1$)
+            2. $\dfrac{\pi}{8} \ln 2$. (Hint: 令 $x = \tan t$，换元后便可以通过倒代换求解)
+            3. 令 $u = -x$，换元有
+
+                $$
+                \begin{align*}
+                    I &= \int_{1}^{-1} \frac{\sqrt{1-u^2}}{1 + u} -\intdd{u} \\
+                      &= \int_{-1}^1 \frac{\sqrt{1-u^2}}{1 + u} \intdd{u}.
+                \end{align*}
+                $$
+
+                与原积分式相加有
+
+                $$
+                \begin{align*}
+                    I &= \frac{1}{2} \left(\int_{-1}^1 \frac{\sqrt{1-x^2}}{1 - x} + \int_{-1}^1 \frac{\sqrt{1-x^2}}{1 + x} \right) \\
+                      &= \int_{-1}^1 \frac{\sqrt{1 - x^2}}{1 - x^2} \intdd{x} \\
+                      &= \arcsin x \bigg{|}_{-1}^1 \\
+                      &= \pi.
+                \end{align*}
+                $$
         
         补充：倒代换中常用的三角恒等式：
 
@@ -1120,10 +1198,33 @@ $$
     !!! example
         计算 $I = \dint_{-2}^{2} x \ln(1 + e^x) \intdd{x}$.
 
+    ??? proof "Solution"
+        将被积函数 $f(x) = x \ln(1 + e^x)$ 分解为奇函数 $g(x) 和偶函数 $h(x)$ 的和，可得
+
+        $$
+        \begin{align*}
+            g(x) &= \frac{f(x) - f(-x)}{2} = \frac{1}{2} x \left( 2\ln (1 + e^x) - x \right), \\
+            h(x) &= \frac{f(x) + f(-x)}{2} = \frac{1}{2} x \ln \frac{1 + e^x}{1 + e^{-x}} = \frac{1}{2} x^2.
+        \end{align*}
+        $$
+
+        发现分解出的偶函数 $h(x)$ 十分简单，而奇函数 $g(x)$ 在积分区间 $[-2,2]$ 上的积分为 $0$，因此有
+
+        $$
+            \int_{-2}^{2} x \ln(1 + e^x) \intdd{x} = \int_{-2}^{2} \frac{1}{2} x^2 \intdd{x} = \frac{8}{3}.
+        $$
+
 - 几何意义：利用定积分的几何意义简化计算.
 
     !!! example
         求定积分 $\dint_{0}^{a} \sqrt{a^2 - x^2} \intdd{x}$，其中 $a>0$.
+
+    ??? proof "Solution"
+        被积函数恰为圆心位于 $(0,0)$，半径为 $a$ 的圆的上半部分，因此待求定积分恰为该圆在第一象限内的面积，即
+
+        $$
+            \int_0^a \sqrt{a^2 - x^2} \intdd{x} = \frac{\pi a^2}{4}.
+        $$
 
 ### 定积分的应用
 
@@ -1141,11 +1242,74 @@ $$
 
 !!! example
     1. 计算极限 $\lim\limits_{n \to +\infty} \dfrac{1}{n} \dsum_{k=1}^n \dfrac{\cos(\dfrac{k}{n})}{1 + \sin(\dfrac{k}{n})}$.
-    2. 计算极限 $I_n = \lim\limits_{n \to +\infty} \dfrac{1}{n^4} \displaystyle\prod_{k=1}^{2n} (n^2 + k^2)^{\frac{1}{n}}$.
+    2. 计算极限 $I = \lim\limits_{n \to +\infty} \dfrac{1}{n^4} \displaystyle\prod_{k=1}^{2n} (n^2 + k^2)^{\frac{1}{n}}$.
     3. 设 $f(x)$ 在 $[0,1]$ 上的一阶导数连续，证明：
 
         $$
             \lim\limits_{n \to \infty} \sum_{k=1}^n \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right] = \frac{\ln 2}{2} f'(x).
+        $$
+
+??? proof "Solution"
+    1. 设函数 $f(x) = \dfrac{\cos x}{1 + \sin x}$，则 $f(x)$ 在 $[0, 1]$ 上可积，因此
+
+        $$
+            \lim \limits_{n \to \infty} \dfrac{1}{n} \dsum_{k=1}^n \dfrac{\cos(\dfrac{k}{n})}{1 + \sin(\dfrac{k}{n})} = \int_0^1 \frac{\cos x}{1 + \sin x} \intdd{x} = \ln (1 + \sin x) \bigg{|}_{0}^1 = \ln (1 + \sin 1).
+        $$
+    
+    2. 设
+    
+        $$
+        \begin{align*}
+            J_n &= \ln \left(\dfrac{1}{n^4} \displaystyle\prod_{k=1}^{2n} (n^2 + k^2)^{\frac{1}{n}}\right) \\
+                &= \dsum_{k=1}^{2n} \frac{1}{n} \ln (n^2 + k^2) - 4 \ln n \\
+                &= \frac{1}{n} \dsum_{k=1}^{2n} \left[\ln \left(1 + \frac{k^2}{n^2}\right) + 2\ln n \right] - 4 \ln n \\
+                &= \frac{1}{n} \dsum_{k=1}^{2n} \ln \left(1 + \frac{k^2}{n^2}\right).
+        \end{align*}
+        $$
+
+        设函数 $f(x) = \ln (1 + x^2)$，则 $f(x)$ 在 $[0, 2]$ 上可积，因此
+
+        $$
+        \begin{align*}
+            \lim\limits_{n \to +\infty} J_n
+            &= \int_0^2 \ln (1 + x^2) \intdd{x} \\
+            &= (x \ln (1 + x^2)) \bigg{|}_{0}^{2} - \int_0^2 \frac{2x^2}{1+x^2} \intdd{x} \\
+            &= 2 \ln 5 - \int_0^2 2 \intdd{x} + 2 \int_0^2 \frac{1}{1+x^2} \intdd{x} \\
+            &= 2 \ln 5 - 4 + 2 \arctan 2.
+        \end{align*}
+        $$
+
+        由 $g(x) = e^x$ 在 $x = 2\ln 5 - 4 + 2 \arctan 2$ 处连续，可得
+
+        $$
+            I = \lim\limits_{n \to +\infty} e^{J_n} = e^{2 \ln 5 - 4 + 2 \arctan 2} = 25 e^{2 \arctan 2 - 4}.
+        $$
+    
+    3. 观察到 $\dfrac{k}{n^2 + k^2} \leqslant \frac{1}{2n} \to 0 \enspace (n \to +\infty)$，因此我们可以尝试将 $f(x)$ 在 $x$ 处 Taylor 展开：
+
+        $$
+            f \left(x + \frac{k}{n^2 + k^2}\right) = f(x) + \frac{k}{n^2 + k^2} f'(x) + o\left(\frac{k}{n^2 + k^2}\right).
+        $$
+
+        求和后有
+
+        $$
+        \begin{align*}
+            \dsum_{k=1}^n \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right]
+            &= \dsum_{k=1}^n \left[ \frac{k}{n^2 + k^2} f'(x) + \frac{k}{n^2 + k^2} o(1) \right] \\
+            &= \frac{1}{n} \dsum_{k=1}^n \frac{\frac{k}{n}}{1 + \frac{k^2}{n^2}} (f'(x) + o(1)).
+        \end{align*}
+        $$
+
+        而 $g(x) = \dfrac{x}{1 + x^2}$ 在 $[0, 1]$ 上可积，因此
+
+        $$
+        \begin{align*}
+            \lim\limits_{n \to \infty} \dsum_{k=1}^{2n} \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right]
+            &= f'(x) \int_0^1 \frac{x}{1 + x^2} \intdd{x} \\
+            &= f'(x) \frac{1}{2} \ln (1 + x^2) \bigg{|}_{0}^1 \\
+            &= \frac{\ln 2}{2} f'(x).
+        \end{align*}
         $$
 
 ##### 极限中的定积分
@@ -1155,6 +1319,33 @@ $$
 !!! example
     1. 证明 $\lim\limits_{n \to +\infty} \dint_{0}^{\frac{\pi}{2}} \sin^n x \intdd{x} = 0$.
     2. 求极限 $\lim\limits_{n \to +\infty} \left( \dint_1^2 e^{-n t^2} \intdd{t} \right)^{\frac{1}{n}}$.
+
+??? proof
+    1. 当 $n \to +\infty$ 时，$x = \dfrac{\pi}{2}$ 是 $f(x) = \sin^n x$ 的一个异常点，我们设 $\delta > 0$，将积分分为两部分
+
+        $$
+            \int_0^{\frac{\pi}{2}} \sin^n x \intdd{x} = \int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x} + \int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}.
+        $$
+
+        $\forall \varepsilon > 0$，要证明 $\exists N > 0$，使得 $\forall n > N$，有 $\dint_0^{\frac{\pi}{2}} \sin^n x \intdd{x} < \varepsilon$.
+    
+        对于第一部分，$\forall \delta > 0$，存在 $N_1(\delta) > 0$，使得 $\forall n > N_1(\delta)$，有 $|(\sin x)^n| < \dfrac{\varepsilon}{\pi}$，因此
+
+        $$
+            \left|\int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x}\right| < \frac{\varepsilon}{\pi} \left(\frac{\pi}{2} - \delta\right) < \frac{\varepsilon}{2}.
+        $$
+
+        对于第二部分，取 $\delta = \dfrac{\varepsilon}{2}$，即有
+
+        $$
+            \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| < \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \intdd{x} \right| = \delta = \frac{\varepsilon}{2}.
+        $$
+
+        因此取 $N = N_1\left(\dfrac{\varepsilon}{2}\right)$，则 $\forall n > N$，有
+
+        $$
+            \left|\int_0^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| < \left|\int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x}\right| + \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+        $$
 
 !!! tip
     分段放缩法的应用：
@@ -1194,6 +1385,15 @@ $$
 !!! example "23-24 期末 T2.e"
     求双扭线 $r = \sqrt{\cos (2\theta)}$ 所围平面图形的面积.
 
+??? proof "Solution"
+    双纽线关于 $x$ 轴与 $y$ 轴对称，故我们可以只计算位于第一象限的部分面积.
+
+    $$
+        S = 4 \int_{0}^{\frac{\pi}{4}} \frac{1}{2} \cos(2\theta) \dd{\theta}
+          = \sin(2\theta) \bigg{|}_0^{\frac{\pi}{4}}
+          = 1
+    $$
+
 ##### 旋转体体积
 
 利用截面法可以解决旋转体体积问题：设旋转轴为 $x$ 轴，设旋转体垂直 $x$ 轴的横截面积为 $S(x)$，横截面半径为 $r(x)$，则
@@ -1204,6 +1404,12 @@ $$
 
 !!! example "21-22 期末 T1.d"
     求 $y=e^x$ 过点 $(0,0)$ 的切线 $L$，并求 $y=e^x$、$L$ 与 $y$ 轴所围图形绕 $x$ 轴旋转一周的体积.
+
+??? proof "Solution"
+
+    $$
+        V = \int_0^1 \pi e^{2x} \intdd{x} - \frac{\pi}{3} e^2 = \frac{\pi e^2}{6} - \frac{\pi}{2}.
+    $$
 
 ##### 曲线弧长
 
@@ -1228,6 +1434,24 @@ $$
 !!! example
     1. （22-23 期末 T1.d）求曲线 $y = \dint_{-\sqrt{3}}^{x} \sqrt{3 - t^2} \intdd{t}$ 在 $x \in [-\sqrt{3}, \sqrt{3}]$ 上的弧长.
     2. （20-21 期末 T1.e）设 $f(x) = \dint_{0}^{x} \sqrt{\cos t} \intdd{t}$，求曲线 $y = f(x)$ 在 $x \in [0,1]$ 上的弧长.
+
+??? proof "Solution"
+    1. $f(x) = \dint_{-\sqrt{3}}^{x} \sqrt{3 - t^2} \intdd{t}$，求导有 $f'(x) = \sqrt{3 - x^2}$. 故曲线 $y = f(x)$ 在 $x \in [-\sqrt{3}, \sqrt{3}]$ 上的弧长为
+
+        $$
+            L = \int_{-\sqrt{3}}^{\sqrt{3}} \sqrt{1 + (f'(x))^2} \intdd{x}
+              = \int_{-\sqrt{3}}^{\sqrt{3}} \sqrt{4 - x^2} \intdd{x}
+              = \sqrt{3} + 4 \arcsin \frac{\sqrt{3}}{2}.
+        $$
+
+    2. $f'(x) = \sqrt{\cos x}$，故曲线 $y = f(x)$ 在 $x \in [0,1]$ 上的弧长为
+
+        $$
+            L = \int_0^1 \sqrt{1 + (f'(x))^2} \intdd{x}
+              = \int_0^1 \sqrt{1 + \cos x} \intdd{x}
+              = \int_0^1 \sqrt{2 \cos^2 \frac{x}{2}} \intdd{x}
+              = 2\sqrt{2} \sin \frac{1}{2}.
+        $$
 
 ## 反常积分
 
@@ -1361,8 +1585,76 @@ $$
 
     证明 $\dint_{0}^{+\infty} f(x) \intdd{x}$ 与 $\dint_{0}^{+\infty} f^2(x) \intdd{x}$ 均收敛，且收敛到同一值.
 
+??? proof
+    由 $\dint_0^x \sin t \intdd{t} = 1 -\cos x$ 在 $[0, +\infty)$ 上有界，$\dfrac{1}{x}$ 在 $x \to +\infty$ 时单调趋于 $0$，据 Dirichlet 判别法可知 $\dint_0^{+\infty} \dfrac{\sin x}{x} \intdd{x}$ 收敛.
+
+    要证 $\dint_0^{+\infty} f^2(x) \intdd{x}$ 收敛，且与 $\dint_0^{+\infty} f(x) \intdd{x}$ 收敛到同一值，只需证明 $\dint_0^{+\infty} (f(x) - f^2(x)) \intdd{x}$ 收敛到 $0$ 即可.
+
+    由 $\dint_0^{+\infty} f(x) \intdd{x}$ 收敛，令 $x = 2u$，使用换元公式得
+
+    $$
+        \int_0^{+\infty} \frac{\sin x}{x} \intdd{x}
+        = \int_0^{+\infty} \frac{\sin 2u}{2u} 2\intdd{u}
+        = \int_0^{+\infty} \frac{\sin 2x}{x} \intdd{x}.
+    $$
+
+    对于任意 $M \in (0, +\infty)$，
+
+    $$
+    \begin{align*}
+        \int_0^{M} f(x) - f^2(x) \intdd{x}
+        &= \int_0^{M} \left( \frac{\sin 2x}{x} - \frac{\sin x^2}{x^2} \right) \intdd{x} \\
+        &= \int_0^{M} \frac{x \sin 2x - \sin^2 x}{x^2} \intdd{x} \\
+        &= \int_0^{M} \intdd{\left(\frac{\sin^2 x}{x}\right)} \\
+        &= \left( \frac{\sin^2 x}{x} \right) \bigg{|}_0^{M} \\
+        &= \frac{\sin^2 M}{M} - \lim\limits_{x \to 0^+} \frac{\sin^2 x}{x} \\
+        &= \frac{\sin^2 M}{M}.
+    \end{align*}
+    $$
+
+    令 $M \to +\infty$，可得
+
+    $$
+        \int_0^{+\infty} (f(x) - f^2(x)) \intdd{x}
+        = \lim\limits_{M \to +\infty} \int_0^{M} (f(x) - f^2(x)) \intdd{x}
+        = \lim\limits_{M \to +\infty} \frac{\sin^2 M}{M}
+        = 0.
+    $$
+
+    证毕.
+
 !!! example
     设 $\dint_{a}^{+\infty} f(x) \intdd{x}$ 收敛，且 $f(x)$ 在 $[a, +\infty)$ 上一致连续，证明 $\lim\limits_{x \to +\infty} f(x) = 0$.
+
+??? proof
+    $\forall \varepsilon > 0$，要证 $\exists M > a$，使得 $\forall x > M$，有 $|f(x)| < \varepsilon$.
+
+    由 $f(x)$ 在 $[a, + \infty)$ 上一致连续，取 $\varepsilon_0 = \dfrac{\varepsilon}{2}$，则存在 $\delta > 0$，使得 $\forall x_1, x_2 \in [a, +\infty)$ 且 $|x_1-x_2| < \delta$，有 $|f(x_1) - f(x_2)| < \varepsilon_0$.
+
+    由 $\dint_a^{+\infty} f(x) \intdd{x}$ 收敛，根据 Cauchy 收敛原理，$\forall \varepsilon_1 > 0$，存在 $M_1(\varepsilon_1) > a$，使得 $\forall c, d > M_1(\varepsilon_1)$，有
+
+    $$
+        \left| \int_c^d f(x) \intdd{x} \right| \leqslant \varepsilon_1.
+    $$
+
+    $\forall x_0 \in (c, d)$，我们可以将上式化为
+
+    $$
+        \left |\int_c^d (f(x) - f(x_0)) \intdd{x} + f(x_0) (d - c) \right| < \varepsilon_1.
+    $$
+
+    我们取 $d - c = \delta$，则 $|f(x) - f(x_0)| < \varepsilon_0$，利用绝对值不等式，有
+
+    $$
+    \begin{align*}
+        |f(x_0) (d-c)|
+        &< \varepsilon_1 + \left| \int_c^d (f(x) - f(x_0)) \intdd{x} \right| \\
+        &\leqslant \varepsilon_1 + \int_c^d |f(x) - f(x_0)| \intdd{x} \\
+        &\leqslant \varepsilon_1 + (d-c) \varepsilon_0.
+    \end{align*}
+    $$
+
+    即 $|f(x_0)| < \dfrac{\varepsilon_1}{\delta} + \varepsilon_0$. 故取 $\varepsilon_1 = \dfrac{\varepsilon}{2}$，并取 $M = M_1(\varepsilon_1)$，即可证明 $\forall x > M$，有 $|f(x)| < \varepsilon$，证毕.
 
 ## 压轴题选讲
 
@@ -1437,8 +1729,42 @@ $$
     已知 $f(x)$ 在 $[0, 1]$ 上有二阶连续导数，证明：
 
     $$
-        \dint_0^1 x^nf(x) \intdd{x} = \dfrac{f(1)}{n} -\dfrac{f(1) + f'(1)}{n^2}+ o(\dfrac{1}{n^2}) \enspace (n\to+\infty).
+        \dint_0^1 x^nf(x) \intdd{x} = \dfrac{f(1)}{n} -\dfrac{f(1) + f'(1)}{n^2}+ o\left(\dfrac{1}{n^2}\right) \enspace (n\to+\infty).
     $$
+
+??? proof
+    这边提供一个与网站上的答案不同的方法：对待证式左侧多次使用分部积分，有
+
+    $$
+    \begin{align*}
+        \int_0^1 x^nf(x) \intdd{x}
+        &= \frac{1}{n} \int_0^1 xf(x) \intdd{x^{n}} \\
+        &= \frac{f(1)}{n} - \frac{1}{n} \int_0^1 (x^n f(x) + x^{n+1} f'(x)) \intdd{x} \\
+        &= \frac{f(1)}{n} - \frac{1}{n^2} \left(\int_0^1 xf(x) \intdd{x^n} + \int_0^1 x^2 f'(x) \intdd{x^n} \right) \\
+        &= \frac{f(1)}{n} - \frac{1}{n^2} \left(f(1) - \int_0^1 (x^n f(x) + x^{n+1} f'(x)) \intdd{x} \right) \\
+        &\quad\; - \frac{1}{n^2} \left(f'(1) - \int_0^1 (2x^{n+1}f'(x) + x^{n+2} f''(x)) \intdd{x} \right) \\
+        &= \frac{f(1)}{n} - \frac{f(1)+f'(1)}{n^2} + \frac{1}{n^2} \left(\int_0^1 (x^n f(x) + 3x^{n+1} f'(x) + x^{n+2} f''(x)) \intdd{x} \right).
+    \end{align*}
+    $$
+
+    由可积函数必有界，知 $f(x), f'(x), f''(x)$ 在 $[0,1]$ 上均为有界函数，设 $M = \max \left\{\sup\limits_{x\in[0,1]}|f(x)|, \sup\limits_{x\in[0,1]}|f'(x)|, \sup\limits_{x\in[0,1]}|f''(x)| \right\}$，则余项
+
+    $$
+    \begin{align*}
+        \frac{1}{n^2} \left|\int_0^1 (x^n f(x) + 3x^{n+1} f'(x) + x^{n+2} f''(x)) \intdd{x}\right|
+        &\leqslant \frac{M}{n^2} \left |\int_0^1 (x^n + 3x^{n+1} + x^{n+2}) \intdd{x}\right| \\
+        &= \frac{M}{n^2} \left(\frac{1}{n+1} + \frac{3}{n+2} + \frac{1}{n+3} \right) \\
+        &\in o \left(\frac{1}{n^2}\right).
+    \end{align*}
+    $$
+
+    故当 $n \to +\infty$ 时，
+
+    $$
+        \int_0^1 x^nf(x) \intdd{x} = \frac{f(1)}{n} -\dfrac{f(1) + f'(1)}{n^2}+ o \left(\dfrac{1}{n^2} \right)
+    $$
+
+    成立.
 
 !!! example "21-22 期末 T8"
     设 $f(x)$ 三阶可导，$f(0)=f'(0)=f''(0)=0$，$f'''(0)>0$，$x\in(0,1)$ 时 $f(x) \in (0,1)$，且数列 $\{x_n\}$ 满足
@@ -1450,6 +1776,9 @@ $$
     1. 证明：$\lim\limits_{n \to +\infty} x_n = 0$;
     
     2. 证明：存在 $\alpha >0$ 和常数 $c\neq 0$，使 $\lim\limits_{n \to +\infty} cn^{\alpha} x_n = 1$.
+
+??? proof
+    见 [21-22 数分期末答案](https://ckc-agc.bowling233.top/analysis/analysis1_paper/21exam_answer.pdf)，此处略.
 
 !!! example
     设 $f(x)$ 是 $\mathbb{R}$ 上具有连续导数的非负函数，且存在 $M>0$，使得 $\forall x,y \in \mathbb{R}$，有 $|f'(x) - f'(y)| \leqslant M|x-y|$.
@@ -1506,6 +1835,25 @@ $$
 
 !!! example
     设 $f(x)$ 在 $x=0$ 处存在二阶导数，且 $\forall n \in \mathbb{N}^+, f(2^{-n}) = 0$，证明 $f''(0) = 0$.
+
+??? proof
+    $f(x)$ 在 $x=0$ 处二阶可导，说明存在 $\delta > 0$，使得 $f(x)$ 在邻域 $U(0, \delta)$ 内的一阶导数连续，其本身也连续.
+
+    取 $N = \lfloor - \log_2 \delta \rfloor + 1$，并设数列 $x_n = 2^{-(n+N)}$，则由 Rolle 中值定理，$\forall k \in \mathbb{N}^+$，存在 $\xi_k \in (x_k, x_{k+1})$，使得 $f'(\xi_k) = 0$，新构成的数列 $\{\xi_n\}$ 满足 $\xi_n \to 0, \enspace n \to +\infty$.
+
+    由 $f'(x)$ 在 $x=0$ 处连续，知 $\lim\limits_{x \to 0} f'(x) = f'(0)$ 存在，故由 Heine 定理，
+
+    $$
+        f'(0) = \lim\limits_{x \to 0} = \lim\limits_{n \to +\infty} f'(\xi_n) = 0.
+    $$
+
+    由 $f(x)$ 在 $x=0$ 处二阶可导，$f''(0) = \lim\limits_{x \to 0} \dfrac{f'(x) - f'(0)}{x} = \lim\limits_{x \to 0} \dfrac{f'(x)}{x}$.
+
+    由 $f'(x)$ 在 $(0, \delta)$ 内连续，知 $\dfrac{f'(x)}{x}$ 在 $(0, \delta)$ 内连续，故由 Heine 定理，
+
+    $$
+        f''(0) = \lim\limits_{x \to 0} \frac{f'(x)}{x} = \lim\limits_{n \to +\infty} \frac{f'(\xi_n)}{\xi_n} = 0.
+    $$
 
 ## 附录
 

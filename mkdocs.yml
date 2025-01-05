@@ -52,7 +52,10 @@ extra_css:
   - stylesheets/custom.css
   - stylesheets/extra.css
   - sytlesheets/customAdmonition.css
-  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
 
 extra_javascript:
   - js/mathjax.js
@@ -117,6 +120,10 @@ nav:
       - cs/algorithm/index.md
       - ADS:
         - cs/algorithm/ads/index.md
+    - AI:
+      - cs/AI/index.md
+      - 人工智能引论:
+        - cs/AI/AI_intro/index.md
     # - Tools:
     #   - cs/tools/index.md
   - Math & Phys:
