@@ -37,10 +37,17 @@ Hi! (●'◡'●)
 
 咕咕咕……这里是正在更新的内容！
 
-- [Numerical Analysis](math_phys/numerical_analysis/index.md)
-- [Advanced Data Structure and Algorithm Analysis](cs/algorithm/ads/index.md)
+- [Database System](cs/DB/index.md)
+- [System III](cs/system/zju_system_III/index.md)
+- [Fundamentals of Quantum Information](math_phys/FQI/index.md)
 
 ### 填好的坑
+
+- [Numerical Analysis](math_phys/numerical_analysis/index.md)
+
+### 没填完的坑
+
+- [Advanced Data Structure and Algorithm Analysis](cs/algorithm/ads/index.md)
 
 ### 想开的坑
 

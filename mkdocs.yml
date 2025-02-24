@@ -51,7 +51,7 @@ extra:
 extra_css:
   - stylesheets/custom.css
   - stylesheets/extra.css
-  - sytlesheets/customAdmonition.css
+  # - sytlesheets/cards.css
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
@@ -94,7 +94,7 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-  
+
 nav:
   - Home Page:
     - index.md
@@ -102,14 +102,16 @@ nav:
     - cs/index.md
     # - Programming Language:
     #   - cs/programming_language/index.md
-    # - System:
-    #   - cs/system/index.md
+    - System:
+      - cs/system/index.md
     #   - ZJU System I:
     #     - cs/system/zju_system_I/index.md
     #   - ZJU System II:
     #     - cs/system/zju_system_II/index.md
-    #   - ZJU System III:
-    #     - cs/system/zju_system_III/index.md
+      - ZJU System III:
+        - cs/system/zju_system_III/index.md
+        - Ch.1 Introduction: cs/system/zju_system_III/chapter1.md
+        - Ch.3 ILP: cs/system/zju_system_III/chapter3.md
     #   - NJU PA Lab:
     #     - cs/system/nju_PA_lab/index.md
     #   - CSAPP:
@@ -124,18 +126,21 @@ nav:
       - cs/AI/index.md
       - 人工智能引论:
         - cs/AI/AI_intro/index.md
+    - Database Systems:
+      - cs/DB/index.md
+      - Ch.1 Introduction: cs/DB/chapter1.md
     # - Tools:
     #   - cs/tools/index.md
   - Math & Phys:
     - math_phys/index.md
     - Analysis:
       - math_phys/analysis/index.md
-    - ODE:
-      - math_phys/ODE/index.md
+    # - ODE:
+    #   - math_phys/ODE/index.md
     # - General Physics I:
     #   - math_phys/general_physics_I/index.md
-    - General Physics II:
-      - math_phys/general_physics_II/index.md
+    # - General Physics II:
+    #   - math_phys/general_physics_II/index.md
     - Numerical Analysis:
       - math_phys/numerical_analysis/index.md
       - Ch.1 Mathematical Preliminaries: math_phys/numerical_analysis/chapter1.md
@@ -145,6 +150,8 @@ nav:
       - Ch.6 Direct Methods for Solving Linear Systems: math_phys/numerical_analysis/chapter6.md
       - Ch.7 Iterative Techniques in Matrix Algebra: math_phys/numerical_analysis/chapter7.md
       - Ch.8 Approximation Theory: math_phys/numerical_analysis/chapter8.md
+    - Fundamentals of Quantum Information:
+      - math_phys/FQI/index.md
   - Misc:
     - misc/index.md
 
