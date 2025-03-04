@@ -11,5 +11,7 @@
 
 ## Overview
 
-- [ ] [Chapter 1: Introduction](chapter1.md)
+- [x] [Chapter 1: Introduction](chapter1.md)
+- [x] [Chapter 2: Relation Model](chapter2.md)
+- [x] [Chapter 3: Introduction to SQL](chapter3.md)
 

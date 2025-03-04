@@ -129,6 +129,8 @@ nav:
     - Database Systems:
       - cs/DB/index.md
       - Ch.1 Introduction: cs/DB/chapter1.md
+      - Ch.2 Relation Model: cs/DB/chapter2.md
+      - Ch.3 SQL: cs/DB/chapter3.md
     # - Tools:
     #   - cs/tools/index.md
   - Math & Phys:
