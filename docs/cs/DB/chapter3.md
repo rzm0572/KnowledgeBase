@@ -47,6 +47,29 @@ SQL (Structured Query Language) 包括以下几个部分：
 
 通过 `current_date()`, `current_time()` 可以获得当前日期 / 时间.
 
+#### Large-Object Types
+
+- clob(size): 字符串型大数据对象
+- blob(size): 二进制型大数据对象
+
+一般在数据库中存储 MB 或 GB 级别的对象是非常低效且耗费资源的，因此我们通常在数据库中保存大对象的定位器，宿主语言通过 SQL 得到定位器后，再从文件系统中读取对象.
+
+#### User-Defined Data Types
+
+SQL 支持两种形式的用户定义数据类型：独特类型（Distinct type）和结构化数据类型（Structured data type）.
+
+由于某些用相同的基本类型存储的属性有不同的域，我们可以通过独特类型来区分这些不同的属性：
+
+```sql
+CREATE TYPE MyType AS BasicType FINAL;
+```
+
+不同类型的变量不能相互复制，会导致错误，若需要强制类型转换，可以通过 `CAST` 实现：
+
+```sql
+CAST(variable AS MyType)
+```
+
 ### Create table
 
 ```sql
@@ -81,7 +104,11 @@ CREATE TABLE table_name (
 - default value: 声明该属性的默认值
 - unique: 声明该属性的值必须唯一
 
+也可以按照已有的表的模式创建新表：
 
+```sql
+CREATE TABLE new_table_name LIKE existing_table_name;
+```
 
 ### Drop table
 
@@ -212,7 +239,7 @@ FROM R_1 NATURAL JOIN R_2, R_3
 
 #### Inner join
 
-Inner join 与 Natural join 类似，但是用户可以指定连接条件：
+Natural join 会导致两个表中没有关系但是同名的属性被连接，为解决这个问题我们可以使用 Inner join. Inner join 与 Natural join 类似，但是用户可以指定连接条件：
 
 ```sql
 SELECT *
@@ -227,32 +254,44 @@ FROM R_1, R_2
 WHERE R_1.A1 = R_2.A1;
 ```
 
-`INNER JOIN` 中的 `INNER` 可以省略，`USING` 可以用 `ON` 替代.
+`INNER JOIN` 中的 `INNER` 可以省略，`USING` 可以用 `ON` 替代：
+
+```sql
+SELECT *
+FROM R_1 JOIN R_2 ON R_1.A1 = R_2.A1;
+```
 
 #### Outer join
 
 Natural join 与 Inner join 都会将两个表中无法连接的元组舍弃，若我们需要保留这些丢失的信息，则需要使用 Outer join.
 
-- Left outer join: 保留左表中所有的元组，右表中无法连接的元组用 NULL 填充
+- Left outer join（⟕）: 保留左表中所有的元组，右表中无法连接的元组用 NULL 填充
 
 ```sql
 SELECT *
 FROM R_1 LEFT OUTER JOIN R_2 USING (A1);
 ```
 
-- Right outer join: 保留右表中所有的元组，左表中无法连接的元组用 NULL 填充
+- Right outer join（⟖）: 保留右表中所有的元组，左表中无法连接的元组用 NULL 填充
 
 ```sql
 SELECT *
 FROM R_1 RIGHT OUTER JOIN R_2 USING (A1);
 ```
 
-- Full outer join: 保留左右表中所有的元组，无法连接的元组用 NULL 填充
+- Full outer join（⟗）: 保留左右表中所有的元组，无法连接的元组用 NULL 填充
 
 ```sql
 SELECT *
 FROM R_1 FULL OUTER JOIN R_2 USING (A1);
 ```
+
+!!! note "Join Condition"
+    连接条件（join condition）可由下列语句指定：
+
+    - `NATURAL`: 连接两个表中所有的同名属性
+    - `USING (A1)`: 连接两个表中属性 $A_1$ 相同的元组
+    - `ON Exp1`: 连接两个表中满足表达式 `Exp1` 的元组
 
 !!! tip
     多表连接在数据规模较大时会严重影响性能.
@@ -479,6 +518,9 @@ FROM R1, R3
 WHERE R1.A1 = R3.A1;
 ```
 
+!!! tip
+    `WITH` 子句定义的临时表只能用在 FROM 里面.
+
 ## Modifying Data
 
 ### Delete
@@ -532,3 +574,69 @@ set A1 = CASE
     ELSE Ek
 END
 ```
+
+## view
+
+视图（View）是一种基于查询建立的虚拟关系，不预先计算并存储视图中的数据，而是在使用虚拟关系的时候才通过查询计算出结果. 视图不是逻辑模型的一部分，而是用户层的概念.
+
+!!! advice "视图的优点"
+    - 可以向用户隐藏特定的数据，保护数据安全
+    - 可以简化复杂的查询语句
+    - 可以为用户提供更为直观的数据结构，隐藏逻辑层的复杂性
+
+### View creation and selection
+
+MySQL 中创建视图的语法如下：
+
+```sql
+CREATE VIEW view_name(NEW_A1, NEW_A2, ..., NEW_An) AS <query expression>;
+```
+
+视图不仅可以建立在表上，也可以建立在其他已定义的视图上.
+
+使用视图进行查询的语法与查询普通表的语法一样：
+
+```sql
+SELECT * FROM view_name;
+```
+
+当在视图上查询时，系统会进行视图展开操作，将视图名展开为子查询.
+
+!!! note "物化视图"
+    物化视图（Materialized View）也是一种视图，但是将视图的结果存储在物理表中，以便快速查询.
+
+    物化视图与普通的表的区别是需要跟随源表更新并保持在最新状态，该过程被称为物化视图维护（Materialized View Maintenance），因而物化视图适合需要频繁查询而更新较少的场景，特别是在大关系上的聚合查询，可以减少每次访问视图的开销.
+
+### View update
+
+由于视图查询的结果可能会缺少某些属性值，我们在对视图进行更新时有两种选择：
+
+1. 拒绝操作
+2. 将缺少的属性值设为 null
+
+一般来说，如果定义视图的查询满足以下条件，则该视图是可更新的（Updatable）：
+
+- FROM 子句中只包含一个数据库关系
+- SELECT 子句中只包含关系的属性名，不包含任何表达式、聚合函数或 DISTINCT 关键字
+- 任何未出现在 SELECT 子句中的属性可以取空值
+- 查询中不含 GROUP BY 和 HAVING 子句
+
+若一个视图满足以上限制，则可以像更新普通表一样更新一个视图，系统会自动将视图上的更新应用到源关系上.
+
+## Index
+
+索引（Index）是一种建立在表中某个属性上的数据结构，允许根据该属性快速查询表中的数据，不需要遍历整个表.
+
+索引的创建方法：
+
+```sql
+CREATE INDEX index_name ON table_name (column_name);
+```
+
+## Transaction
+
+
+
+## Integrity Constraints
+
+
