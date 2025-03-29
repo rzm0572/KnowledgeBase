@@ -575,7 +575,7 @@ set A1 = CASE
 END
 ```
 
-## view
+## View
 
 视图（View）是一种基于查询建立的虚拟关系，不预先计算并存储视图中的数据，而是在使用虚拟关系的时候才通过查询计算出结果. 视图不是逻辑模型的一部分，而是用户层的概念.
 
@@ -638,5 +638,8 @@ CREATE INDEX index_name ON table_name (column_name);
 
 
 ## Integrity Constraints
+
+
+## Authorization
 
 
