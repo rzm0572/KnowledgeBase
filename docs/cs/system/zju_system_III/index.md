@@ -5,6 +5,11 @@
 - Memory Hierarchy
     - Cache
     - Main Memory
-- File System
 - DLP and TLP
 - Summary
+
+- Memory Management
+- File System
+
+- Page Table
+- Endurance
