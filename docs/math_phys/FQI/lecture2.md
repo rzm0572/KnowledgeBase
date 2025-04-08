@@ -12,6 +12,8 @@ $$
     \newcommand{\braket}[2]{\left\langle#1\right\vert#2\right\rangle}
 $$
 
+## Photon Polarization
+
 ## Dirac's Bracket Notation
 
 我们使用狄拉克符号（Dirac's Bracket Notation）来表示复矢量：
