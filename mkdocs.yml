@@ -110,8 +110,10 @@ nav:
     #     - cs/system/zju_system_II/index.md
       - ZJU System III:
         - cs/system/zju_system_III/index.md
-        - Ch.1 Introduction: cs/system/zju_system_III/chapter1.md
-        - Ch.3 ILP: cs/system/zju_system_III/chapter3.md
+        - Introduction: cs/system/zju_system_III/chapter1.md
+        - Cache: cs/system/zju_system_III/chapter2.md
+        - ILP: cs/system/zju_system_III/chapter3.md
+        - Memory Management: cs/system/zju_system_III/main_memory.md
     #   - NJU PA Lab:
     #     - cs/system/nju_PA_lab/index.md
     #   - CSAPP:

@@ -98,6 +98,10 @@ $$
 
     ![pEypw01.png](https://s21.ax1x.com/2025/03/31/pEypw01.png)
 
+    多元联系集可以通过引入一个新实体集，并建立新实体集与参与实体集之间的二元关系来代替：
+
+    ![pEgedC4.png](https://s21.ax1x.com/2025/04/08/pEgedC4.png)
+
 ### Attributes
 
 属性可取指的集合被称为属性的域（Domain）或值集（Value Set）.
@@ -205,6 +209,9 @@ $$
 
 ![pEy9IbR.png](https://s21.ax1x.com/2025/03/31/pEy9IbR.png)
 
+!!! tip "弱实体集的判定条件"
+    如果一个实体集中的实体完全依赖于与另一个实体集之间的关系而存在，则可以使用弱实体集来表示该实体集.
+
 !!! note "引入弱实体集的原因"
     TODO
 
@@ -254,8 +261,65 @@ $$
 
 ## Reduction to Relational Schema
 
+实体集和联系集都可以被统一地表示为数据库中的关系模式（Relational Schema）.
+
 ### Entity Sets
 
 #### Strong Entity Sets
 
+将强实体集转化为关系模式只需要将<strong>强实体集的属性</strong>作为关系模式的属性即可，主键即为强实体集的主键.
 
+对于复杂属性：
+
+- 复合属性：分解为多个简单属性
+- 多值属性：创建新的关系模式，包括强实体集的主键和多值属性
+
+!!! example
+    对于 `instructor` 实体集的多值属性 `phone_number`，我们可以建立关系模式 `instructor_phone_number`：
+
+    $$
+        instructor\_phone\_number(\underline{ID}, \underline{phone\_number}).
+    $$
+
+
+#### Weak Entity Sets
+
+将弱实体集转化为关系模式需要将<strong>弱实体集的属性</strong>和<strong>标识实体集的主键</strong>作为关系模式的属性，主键由<strong>标识实体集的主键</strong>与<strong>弱实体集的分辨符</strong>组成.
+
+除此之外，还需要建立从弱实体集对应的关系模式到标识实体集对应的关系模式的外键约束，采用级联删除模式.
+
+### Relationship Sets
+
+假设 $R$ 为建立在 $E_1, E_2, \ldots, E_n$ 上的联系集，具有描述性属性 $b_1, b_2, \ldots, b_m$，则其对应的关系模式的属性集合为
+
+$$
+    \text{primary_key}(E_1) \cup \text{primary_key}(E_2) \cup \cdots \cup \text{primary_key}(E_n) \cup \{b_1, b_2, \ldots, b_m\}.
+$$
+
+二元联系集对应的关系模式的主键选取在 [Primary Key](./#primary-key) 一节中已说明，在此不再赘述.
+
+对于多元联系集，关系模式的主键的选取遵循以下规则：
+
+- 对于没有箭头的 $n$ 元联系集，其主键由 $n$ 个实体集的主键的并集构成.
+- 对于有箭头的 $n$ 元联系集，不在箭头侧的实体集的主键属性作为关系模式的主键.
+
+联系集转化为关系模式时还需要建立外键约束：$R$ 中来自 $E_i$ 主键的属性需要参照关系模式 $E_i$ 的主键.
+
+#### Redundancy of Schemas
+
+弱实体集与强实体集之间的标示性联系，满足以下特性：
+
+- 多对一
+- 无描述性属性
+- 弱联系集的主键包含强实体集的主键
+
+对于这种情况，我们不需要为联系集单独创建一个关系模式，因为这样的关系模式的所有信息都可以从弱实体集的关系模式中获得，故是冗余的.
+
+#### Combination of Schemas
+
+对于满足以下要求的实体集 $A$ 和 $B$，以及建立在 $A$ 与 $B$ 上的联系集 $R$：
+
+- $A$ 相对 $B$ 具有多对一 / 一对一关系
+- $A$ 中的所有实体都参与到 $R$ 中
+
+则我们可以将联系集 $R$ 和实体集 $A$ 合并成一个关系模式，其属性集为 $A$ 的属性集合和 $R$ 的属性集合的并集，主键为 $A$ 的主键.
