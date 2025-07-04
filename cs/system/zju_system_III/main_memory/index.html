@@ -1,0 +1,1986 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Silvermilight 的笔记本">
+      
+      
+        <meta name="author" content="Silvermilight">
+      
+      
+        <link rel="canonical" href="https://rzm0572.github.io/KnowledgeBase/cs/system/zju_system_III/main_memory/">
+      
+      
+        <link rel="prev" href="../chapter3/">
+      
+      
+        <link rel="next" href="../../../HPC/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Memory Management - Silvermilight's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#main-memory" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Silvermilight&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Silvermilight's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Memory Management
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home Page
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../math_phys/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math & Phys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Misc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Silvermilight&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    Silvermilight's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Home Page
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    System
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    ZJU System III
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU System III
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ILP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memory Management
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management-unit-mmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management Unit (MMU)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management Unit (MMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Linking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Allocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contiguous-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contiguous Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Page table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Sharing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure of page table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure of page table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchical Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashed-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashed Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverted-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverted Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-bit-risc-v-linux-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      64-bit RISC-V Linux Paging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demand-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demand Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Demand Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-fault" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Fault
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-on-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copy-on-Write
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-fault-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Fault Handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Page Fault Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Replacement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allocation-of-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allocation of Frames
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-uniform-memory-access-numa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Uniform Memory Access (NUMA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thrashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thrashing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel Memory Allocation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../HPC/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    HPC
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../algorithm/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Algorithm
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../AI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    AI
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../DB/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Database Systems
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../math_phys/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Math & Phys
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../misc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management-unit-mmu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Management Unit (MMU)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management Unit (MMU)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-linking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Linking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Allocation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Allocation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contiguous-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contiguous Allocation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paging
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Page table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memory-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-sharing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Sharing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure-of-page-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure of page table
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure of page table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarchical Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashed-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hashed Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverted-page-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverted Page Tables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-bit-risc-v-linux-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      64-bit RISC-V Linux Paging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demand-paging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Demand Paging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Demand Paging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-fault" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Fault
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-on-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copy-on-Write
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#page-fault-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Fault Handler
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Page Fault Handler">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#page-replacement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Page Replacement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allocation-of-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      Allocation of Frames
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-uniform-memory-access-numa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-Uniform Memory Access (NUMA)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thrashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thrashing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-memory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kernel Memory Allocation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">theory</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+<h1 id="main-memory">Main Memory<a class="headerlink" href="#main-memory" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 2368 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 7 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 8 分钟</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Address Binding</p>
+<ul>
+<li>源代码层面的地址通常用某个符号（变量名）表示</li>
+<li>Compiler 将符号绑定到可重定位的地址</li>
+<li>Linker 将可重定位的地址绑定到绝对地址</li>
+</ul>
+<p>PIE: Position Independent Executable</p>
+<ul>
+<li>PIE 类型的可执行文件中的地址都是相对地址，由 loader 加载到内存中后才确定绝对地址</li>
+</ul>
+</div>
+<p>Logical address: 逻辑地址，CPU 在寻址时使用的地址</p>
+<p>Physical address: 物理地址，实际存储单元的地址</p>
+<h2 id="memory-management-unit-mmu">Memory Management Unit (MMU)<a class="headerlink" href="#memory-management-unit-mmu" title="Permanent link">&para;</a></h2>
+<p>MMU 将逻辑地址转换为物理地址</p>
+<p>最简单的方法是加入一个重定位寄存器，保存 offset. 物理地址 = 逻辑地址 + offset</p>
+<h3 id="dynamic-loading">Dynamic Loading<a class="headerlink" href="#dynamic-loading" title="Permanent link">&para;</a></h3>
+<p>所有的 routine 都以可重定位格式存放在磁盘上，只有某个 routine 被调用时，其代码才会被加载进内存中</p>
+<p>可以提高内存空间的利用率</p>
+<p>由应用程序自行设计，OS 可以提供相关库</p>
+<h3 id="dynamic-linking">Dynamic Linking<a class="headerlink" href="#dynamic-linking" title="Permanent link">&para;</a></h3>
+<p>Static Linking: 编译时链接，将所有代码和数据都链接到可执行文件中</p>
+<p>Dynamic Linking: 运行时链接</p>
+<ul>
+<li>共享库（Shared Library）: 编译时产生，包含多个 routine，可以被多个程序共享</li>
+<li>桩（Stub）</li>
+<li>延迟绑定（Lazy Binding）</li>
+<li>GOT（Global Offset Table）</li>
+</ul>
+<p>loader 加载程序时，先将代码加载到内存中，然后检查 metadata 得知该程序依赖哪些外部库，然后在 <code>LD_PATH</code> 下查找外部依赖库</p>
+<h2 id="memory-allocation">Memory Allocation<a class="headerlink" href="#memory-allocation" title="Permanent link">&para;</a></h2>
+<p>有限的内存资源需要用来支撑 OS 与 Application 的运行，因此需要高效的分配方式.</p>
+<h3 id="contiguous-allocation">Contiguous Allocation<a class="headerlink" href="#contiguous-allocation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>目的：限制程序对超出范围的物理地址的访问</li>
+<li>Base register: 基址寄存器，保存分配起始地址</li>
+<li>Limit register: 限制寄存器，保存分配的内存大小</li>
+<li>MMU 动态映射逻辑地址到物理地址</li>
+</ul>
+<p>寻找可分配空间的算法：</p>
+<ul>
+<li>First-fit: 从基址开始，找到第一个大小足够的空闲空间</li>
+<li>Best-fit: 从基址开始，找到大小最接近要求的空闲空间</li>
+<li>Worst-fit: 从基址开始，找到最大的空闲空间</li>
+</ul>
+<p>Best-fit 和 Worst-fit 都需要扫描整块地址空间.</p>
+<p>以上三种方法具有内存碎片（Fragmentation）问题. First-fit 和 Best-fit 的利用率相对 worst-fit 高.</p>
+<ul>
+<li>External Fragmentation: 外部碎片，分配的内存空间不连续</li>
+<li>Internal Fragmentation: 内部碎片，分配的内存空间大于程序需求的空间</li>
+</ul>
+<h3 id="paging">Paging<a class="headerlink" href="#paging" title="Permanent link">&para;</a></h3>
+<p>分配给一个程序的物理地址可以是不连续的，这样可以解决外部碎片问题，但是仍然有内部碎片问题.</p>
+<p>将物理内存分成多个固定大小的块，称为 Frame
+将逻辑内存分成与 Frame 大小相同的块，称为 Page</p>
+<p>OS 需要跟踪所有的空闲 Frame</p>
+<p>通过页表来维护 Page 和 Frame 的映射关系</p>
+<p>逻辑地址被分为页号（page number）与页内偏移（page offset）两部分</p>
+<p>页号是页表的索引，对应某个 Frame 的编号</p>
+<p>假设页表中页号 p 对应的 Frame 为 f, 则逻辑地址 <span class="arithmatex">\(p + d\)</span> 对应物理地址 <span class="arithmatex">\(f + d\)</span>, 其中 d 为页内偏移</p>
+<p>Frame Table: 标记物理内存中 Frame 的使用情况，通常会维护一个 Free Frame 链表.</p>
+<p><img alt="pEgc9I0.png" src="https://s21.ax1x.com/2025/04/09/pEgc9I0.png" /></p>
+<p>打开 paging 后，程序只能操控 virtual address，而不能直接操控 physical address. 因此，在打开 paging 前，我们需要让页表的虚拟地址与物理地址相等，以便打开 paging 后对页表的访问.</p>
+<h2 id="page-table">Page table<a class="headerlink" href="#page-table" title="Permanent link">&para;</a></h2>
+<p>Page Table 一般存储在内存中，寄存器 PTBR 指向 Page Table 的起始地址，寄存器 PTLR 存储页表的大小.</p>
+<p>我们每条访存指令实际上要访问两次内存：</p>
+<ul>
+<li>第一次从页表中查找逻辑地址对应的物理地址</li>
+<li>第二次从物理地址读取数据</li>
+</ul>
+<p>为了加快访问，我们引入 TLB（Translation Look-aside Buffer），作为页表的缓存</p>
+<p><img alt="pEgckzF.png" src="https://s21.ax1x.com/2025/04/09/pEgckzF.png" /></p>
+<p>TLB 需要保证一致性：</p>
+<ul>
+<li>TLB 与内存中的 Page Table 的一致性</li>
+<li>多核 CPU 中每个 CPU 的 TLB 的一致性</li>
+</ul>
+<p>每个进程都有自己的页表，操作系统内核也有自己的页表. 上下文切换时，需要更新 PTBR 寄存器，使其指向新进程的页表. TLB 也需要更新，此时有两种方式：</p>
+<ul>
+<li>冷启动：进程切换时，将 TLB 全部清空，从页表中重新加载</li>
+<li>将 TLB 中的每个项增加 ASID（Address-Space Identifier）用于区分进程</li>
+</ul>
+<div class="admonition definition">
+<p class="admonition-title">Effective Access Time</p>
+<p>有效访问时间，指考虑页表和 TLB 的情况下，一次访存的平均耗时.</p>
+<div class="arithmatex">\[
+    \text{EAT} = (\text{TLB Hit Ratio} + \text{TLB Miss Rate} \times 2) \times \text{Memory Access Time}
+\]</div>
+</div>
+<p>虚拟内存对应的物理内存不一定已经被分配，在页表中不一定能查到。若查不到，就会产生缺页异常（Page Fault Exception），控制权转移到操作系统，操作系统会先对程序请求访问的地址进行合法性校验，若地址合法，则分配物理内存，并更新页表；若地址不合法，则抛出段错误（Segmentation Fault）.</p>
+<h3 id="memory-protection">Memory Protection<a class="headerlink" href="#memory-protection" title="Permanent link">&para;</a></h3>
+<p>页表项一般包括：</p>
+<ul>
+<li>PFN（Page Frame Number）: Page 对应的物理内存中 Frame 的编号</li>
+<li>valid bits：表示该页表项存储的映射关系是否存在</li>
+<li>permission bits（权限位）：用于控制程序对该 page 对应的物理内存的访问权限，取值由操作系统控制. 根据操作类型（Read、Write、Execution）、指令特权态（Kernel，User）等可设置不同的权限位.</li>
+</ul>
+<p>当程序访问某个 page 时，若在页表中查到了对应的页表项，则会根据权限位确定程序对该地址的访问是否合法，若合法，则可以访问该地址，否则会产生异常.</p>
+<h3 id="page-sharing">Page Sharing<a class="headerlink" href="#page-sharing" title="Permanent link">&para;</a></h3>
+<p>多个进程可以共享同一块物理内存，只需在进程各自的页表中设置对应的映射关系即可. 可能的应用场景包括：</p>
+<ul>
+<li>相同程序启动多个进程，代码段可以共享</li>
+<li>进程间通信使用的共享内存</li>
+<li>公共库（如 libc）的代码</li>
+</ul>
+<p>Linux 在 x86-64 架构上的进程在内核态和用户态之间共享页表</p>
+<h2 id="structure-of-page-table">Structure of page table<a class="headerlink" href="#structure-of-page-table" title="Permanent link">&para;</a></h2>
+<p>如果 Page size 取 4 KB，对于 32 位的系统，每个进程都需要 4 MB 的物理空间来存储页表，并且其中大部分页表项都不会被使用，造成空间浪费.</p>
+<p>为了减少页表占用的空间，有以下几种方法：</p>
+<h3 id="hierarchical-page-tables">Hierarchical Page Tables<a class="headerlink" href="#hierarchical-page-tables" title="Permanent link">&para;</a></h3>
+<p>将页表分成多个层次，高层次的页表存储低层次的页表所在的 Frame id.</p>
+<p><img alt="pEgR0W6.png" src="https://s21.ax1x.com/2025/04/09/pEgR0W6.png" /></p>
+<p>逻辑地址被分为三段：</p>
+<ul>
+<li>page directory number</li>
+<li>page table number</li>
+<li>page offset</li>
+</ul>
+<p>32 位系统中，page directory number 占 10 位，page table number 占 10 位，page offset 占 12 位，共 32 位.</p>
+<p>一次寻址流程如下：</p>
+<ul>
+<li>首先从 outer page table 中根据 page directory number 找到 inner page table 对应的 Frame 的地址</li>
+<li>再从 inner page table 中根据 page table number 找到 page 对应的 Frame 的地址</li>
+<li>最后在 Frame 中根据 page offset 找到数据</li>
+</ul>
+<h3 id="hashed-page-tables">Hashed Page Tables<a class="headerlink" href="#hashed-page-tables" title="Permanent link">&para;</a></h3>
+<p><img alt="pEgRzlT.png" src="https://s21.ax1x.com/2025/04/09/pEgRzlT.png" /></p>
+<h3 id="inverted-page-tables">Inverted Page Tables<a class="headerlink" href="#inverted-page-tables" title="Permanent link">&para;</a></h3>
+<p><img alt="pEgRxpV.png" src="https://s21.ax1x.com/2025/04/09/pEgRxpV.png" /></p>
+<h2 id="64-bit-risc-v-linux-paging">64-bit RISC-V Linux Paging<a class="headerlink" href="#64-bit-risc-v-linux-paging" title="Permanent link">&para;</a></h2>
+<p>SATP（Supervisor Address Translation and Protection）寄存器用于设置虚拟内存分页模式，其结构如下：</p>
+<p><img alt="pEgfpCt.png" src="https://s21.ax1x.com/2025/04/09/pEgfpCt.png" /></p>
+<ul>
+<li>MODE：分页模式</li>
+<li>ASID：地址空间标识符</li>
+<li>PPN：顶层页表的物理页号</li>
+</ul>
+<p>SV39 是 RISCV64 的一种分页模式，采用三级页表</p>
+<h2 id="demand-paging">Demand Paging<a class="headerlink" href="#demand-paging" title="Permanent link">&para;</a></h2>
+<p>Demand Paging 是一种动态内存分配技术，只有当某个 Page 被访问时，系统才会将其加载进内存.</p>
+<p>两种 Demand Paging 的策略：</p>
+<ul>
+<li>Lazy swapper</li>
+<li>Pre-Paging：提前将进程需要的部分或全部 Page 加载进内存</li>
+</ul>
+<h3 id="page-fault">Page Fault<a class="headerlink" href="#page-fault" title="Permanent link">&para;</a></h3>
+<p><img alt="pEghOkd.png" src="https://s21.ax1x.com/2025/04/09/pEghOkd.png" /></p>
+<div class="admonition definition">
+<p class="admonition-title">EAT in demand paging</p>
+<p>Page fault rate <span class="arithmatex">\(p = \dfrac{\text{Page Fault Times}}{\text{Page Access Times}}\)</span></p>
+<p>EAT in demand paging:</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \text{EAT} &amp;= (1 - p) \times \text{Memory Access Time} + p \times (\text{Page Fault Overhead} + \\
+               &amp;{} \quad \text{Swap Page Out Cost} + \text{Swap Page In Cost} + \text{Instruction Restart Overhead}).
+\end{align*}
+\]</div>
+</div>
+<ul>
+<li>Major page fault: 页被访问，但没有在内存中，需要从磁盘加载</li>
+<li>
+<p>Minor page fault: 页被访问，已经在内存中，但页表映射未建立</p>
+<div class="admonition example">
+<p class="admonition-title">Shared library for dynamic linking</p>
+<p>公共库（例如 <code>libc.so</code>）在第一个调用它的进程启动时被加载到内存中，之后其他程序再次调用该公共库时，不需要再次将其加载到内存中，而只需要在新进程的页表中设置映射关系即可.</p>
+</div>
+</li>
+</ul>
+<h3 id="copy-on-write">Copy-on-Write<a class="headerlink" href="#copy-on-write" title="Permanent link">&para;</a></h3>
+<h3 id="page-fault-handler">Page Fault Handler<a class="headerlink" href="#page-fault-handler" title="Permanent link">&para;</a></h3>
+<p>当需要将一个 page 加载进内存时：</p>
+<ul>
+<li>在磁盘上找到该 page</li>
+<li>找 Free Frame：<ul>
+<li>如果存在空闲的 Frame，则分配给进程</li>
+<li>如果不存在，使用页替换策略选择一个 victim frame，如果 victim frame 被修改过，则先将其写回磁盘，然后分配给进程</li>
+</ul>
+</li>
+<li>将 page 内容加载到新分配的 Frame 中</li>
+<li>重启被中断的进程</li>
+</ul>
+<h4 id="page-replacement">Page Replacement<a class="headerlink" href="#page-replacement" title="Permanent link">&para;</a></h4>
+<p>当物理内存不足时，需要将某些 Page 从内存中换出到磁盘，以腾出空间.</p>
+<p>Dirty Bit：当 Page 被修改时，设置 dirty bit，表示 Page 内容与磁盘中的内容不一致，需要被优先替换</p>
+<p>替换算法：</p>
+<ul>
+<li>FIFO</li>
+<li>LRU</li>
+<li>Optimal</li>
+</ul>
+<p>与 Cache 中的 <a href="../chapter2/#block-replacement">Block replacement</a> 策略类似.</p>
+<p>LRU 实现：</p>
+<ul>
+<li>Counter-based</li>
+<li>Stack-based</li>
+</ul>
+<p>精确实现 LRU 的开销较大，我们可以采用 LRU 的近似实现：Additional-Reference-Bit Algorithm.</p>
+<p>Second-chance algorithm</p>
+<p>Page-Buffering algorithm</p>
+<h4 id="allocation-of-frames">Allocation of Frames<a class="headerlink" href="#allocation-of-frames" title="Permanent link">&para;</a></h4>
+<p>Fixed allocation</p>
+<ul>
+<li>equal allocation</li>
+<li>proportional allocation</li>
+</ul>
+<h2 id="non-uniform-memory-access-numa">Non-Uniform Memory Access (NUMA)<a class="headerlink" href="#non-uniform-memory-access-numa" title="Permanent link">&para;</a></h2>
+<h2 id="thrashing">Thrashing<a class="headerlink" href="#thrashing" title="Permanent link">&para;</a></h2>
+<div class="admonition definition">
+<p class="admonition-title">Thrashing</p>
+<p>如果一个进程分配得到的 Page 过少，导致 page fault 频繁发生，就会导致 CPU 利用率降低，</p>
+</div>
+<h2 id="kernel-memory-allocation">Kernel Memory Allocation<a class="headerlink" href="#kernel-memory-allocation" title="Permanent link">&para;</a></h2>
+<p>内核态的内存分配与用户态不同，不能使用 page fault 进行动态内存分配，</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Silvermilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rzm0572/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tracking", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

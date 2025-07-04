@@ -1,0 +1,2894 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Silvermilight 的笔记本">
+      
+      
+        <meta name="author" content="Silvermilight">
+      
+      
+        <link rel="canonical" href="https://rzm0572.github.io/KnowledgeBase/math_phys/analysis/analysis1_assist/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>24-25 数学分析期末复习讲义（下） - Silvermilight's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#24-25" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Silvermilight&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Silvermilight's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              24-25 数学分析期末复习讲义（下）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home Page
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math & Phys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Misc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Silvermilight&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    Silvermilight's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Home Page
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Math & Phys
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../misc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      导数应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="导数应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      微分中值定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      导函数性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taylor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Taylor 公式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      导数与函数性态
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="导数与函数性态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      单调性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      极值点和最值点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      凹凸性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      可积理论
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分的性质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定积分的性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      变限积分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分中值定理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      积分不等式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分的计算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定积分的计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分的应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定积分的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分与极限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      定积分与几何
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      反常积分
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="反常积分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      反常积分的定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      反常积分的性质
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      敛散性判别
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="敛散性判别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      无穷积分
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      压轴题选讲
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      附录
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      常用不等式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="24-25">24-25 数学分析期末复习讲义（下）<a class="headerlink" href="#24-25" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 8892 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 1 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 30 分钟</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>本讲义的主要内容包括导数的应用、定积分、反常积分和压轴题选讲. 同学们也可阅读 <a href="https://rzm0572.github.io/KnowledgeBase/math_phys/analysis/analysis1_assist/">数分讲义网页版</a>，讲义发布之后可能会在这里进行更新和放出习题答案.</p>
+<p>如果发现讲义中有错误或需要改进的地方，欢迎联系我进行修改 (●'◡'●)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">数学分析（甲）I（H）知识结构</p>
+<p><img alt="数学分析（甲）I（H）知识结构" src="/KnowledgeBase/assets/analysis/analysis_outline.png" /></p>
+</div>
+<h2 id="_1">导数应用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">微分中值定理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>为了引入微分中值定理，我们先回顾一下极值点的定义（注意与高中定义的区别）：</p>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 极值点</p>
+<p>若函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x_0\)</span> 的某个去心邻域 <span class="arithmatex">\(\mathring{U}(x_0)\)</span> 内恒有</p>
+<div class="arithmatex">\[
+\newcommand{\dd}[1]{\mathrm{d} #1}
+\newcommand{\intdd}[1]{\, \dd{#1}}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\dsum}{\displaystyle \sum}
+f(x) \leqslant f(x_0) \quad (f(x) \geqslant f(x_0))
+\]</div>
+<p>则称 <span class="arithmatex">\(x_0\)</span> 为 <span class="arithmatex">\(f(x)\)</span> 的极大（小）值点，<span class="arithmatex">\(f(x_0)\)</span> 称为 <span class="arithmatex">\(f(x)\)</span> 的极大（小）值.</p>
+</div>
+<p>有了极值点的定义，我们便可以得到最基础的微分中值定理 —— Fermat 中值定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 费马中值定理，Fermat</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0, \delta)\)</span> 中有定义，若 <span class="arithmatex">\(x_0\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 的极值点，并且 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x_0\)</span> 处可导，则 <span class="arithmatex">\(f'(x_0)=0\)</span>.</p>
+</div>
+<p>将 Fermat 中值定理的条件加强，由极值点处可导加强到区间内连续可导，可以得到 Rolle 中值定理和 Lagrange 中值定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 罗尔中值定理，Rolle</p>
+<p>若函数 <span class="arithmatex">\(f(x)\)</span> 满足以下条件：</p>
+<ul>
+<li><span class="arithmatex">\(f(x)\)</span> 在闭区间 <span class="arithmatex">\([a,b]\)</span> 上连续</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在开区间 <span class="arithmatex">\((a,b)\)</span> 上可导</li>
+<li><span class="arithmatex">\(f(a) = f(b)\)</span></li>
+</ul>
+<p>则 <span class="arithmatex">\(\exists \xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(f'(\xi)=0\)</span>.</p>
+<p>Hint: 三个条件中，如果有一个条件不满足，会发生什么？</p>
+</div>
+<p>将 Rolle 中值定理的条件减弱，去掉端点值相等的条件，可以得到 Lagrange 中值定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 拉格朗日中值定理，Lagrange</p>
+<p>若函数 <span class="arithmatex">\(f(x)\)</span> 满足以下条件：</p>
+<ul>
+<li><span class="arithmatex">\(f(x)\)</span> 在闭区间 <span class="arithmatex">\([a,b]\)</span> 上连续</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在开区间 <span class="arithmatex">\((a,b)\)</span> 上可导</li>
+</ul>
+<p>则 <span class="arithmatex">\(\exists \xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = \dfrac{f(b)-f(a)}{b-a}\)</span>.</p>
+</div>
+<p>最后，我们将 Lagrange 中值定理的分母弱化成一般的函数，得到 Cauchy 中值定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 柯西中值定理，Cauchy</p>
+<p>若函数 <span class="arithmatex">\(f(x)\)</span> 与 <span class="arithmatex">\(g(x)\)</span> 满足以下条件：</p>
+<ul>
+<li><span class="arithmatex">\(f(x), g(x)\)</span> 在闭区间 <span class="arithmatex">\([a,b]\)</span> 上连续</li>
+<li><span class="arithmatex">\(f(x), g(x)\)</span> 在开区间 <span class="arithmatex">\((a,b)\)</span> 上可导</li>
+<li><span class="arithmatex">\(\forall x \in [a,b], \enspace g'(x) \neq 0\)</span></li>
+</ul>
+<p>则 <span class="arithmatex">\(\exists \xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(\dfrac{f'(\xi)}{g'(\xi)} = \dfrac{f(b)-f(a)}{g(b)-g(a)}\)</span>.</p>
+</div>
+<p>与微分中值定理相关的题目的解题方法：</p>
+<ul>
+<li>
+<p>直接利用</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，在 <span class="arithmatex">\((a,b)\)</span> 上可导，且 <span class="arithmatex">\(f(a) \neq f(b)\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \exists \xi, \eta \in (a,b), \enspace f'(\xi) = \frac{a+b}{2\eta} f'(\eta).
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>待证式中含有两个未定量 <span class="arithmatex">\(\xi, \eta\)</span>，考虑使用两次中值定理：</p>
+<p>令 <span class="arithmatex">\(g(x) = x^2\)</span>，由 Cauchy 中值定理，存在 <span class="arithmatex">\(\eta \in (a,b)\)</span>，使得 <span class="arithmatex">\(\dfrac{f'(\eta)}{g'(\eta)} = \dfrac{f(b)-f(a)}{g(b)-g(a)}\)</span>，即</p>
+<div class="arithmatex">\[
+    \frac{f'(\eta)}{2\eta} = \frac{f(b)-f(a)}{b^2-a^2}.
+\]</div>
+<p>该式可变形为</p>
+<div class="arithmatex">\[
+    \frac{a + b}{2\eta} f'(\eta) = \frac{f(b) - f(a)}{b - a}.
+\]</div>
+<p>由 Lagrange 中值定理，存在 <span class="arithmatex">\(\xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = \dfrac{f(b)-f(a)}{b-a} = \dfrac{a+b}{2\eta} f'(\eta)\)</span>，证毕.</p>
+</details>
+</li>
+<li>
+<p>设 k 法</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>已知函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上三阶可导，且 <span class="arithmatex">\(f(0) = -1, f(1) = 0, f'(0) = 0\)</span>，证明：<span class="arithmatex">\(\forall x \in (0,1), \enspace \exists \xi \in (0,1)\)</span>，使得</p>
+<div class="arithmatex">\[
+    f(x) = -1 + x^2 + \frac{x^2 (x-1)}{3!} f'''(\xi).
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>使用设 k 法，当 <span class="arithmatex">\(x\)</span> 给定时，待证式中除了 <span class="arithmatex">\(f'''(\xi)\)</span> 外的部分都为定值，我们先将定值与不定值分离：</p>
+<div class="arithmatex">\[
+    f'''(\xi) = \frac{3! (f(x) + 1 - x^2)}{x^2 (x-1)}.
+\]</div>
+<p>设右边的定值为 <span class="arithmatex">\(k\)</span>，再将定值 <span class="arithmatex">\(x\)</span> 换成变量 <span class="arithmatex">\(t\)</span> 并构造函数：</p>
+<div class="arithmatex">\[
+    g(t) = f(t) + 1 - t^2 - \frac{t^2 (t-1)}{3!} k.
+\]</div>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上三阶可导，<span class="arithmatex">\(g(t)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上也三阶可导，故有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    g'(t)   &amp;= f'(t) - 2t - (\frac{1}{2} t^2 - \frac{1}{3} t)k. \\
+    g''(t)  &amp;= f''(t) - 2 - (t - \frac{1}{3})k. \\
+    g'''(t) &amp;= f'''(t) - k.
+\end{align*}
+\]</div>
+<p>因此我们只需要证明 <span class="arithmatex">\(g'''(t)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上存在一个零点 <span class="arithmatex">\(\xi\)</span> 即可.</p>
+<p>由条件 <span class="arithmatex">\(f(0) = -1, f(1) = 0, f'(0) = 0\)</span>，我们有 <span class="arithmatex">\(g(0) = 0, g(1) = 0, g'(0) = 0\)</span>. 而 <span class="arithmatex">\(g(t)\)</span> 的构造方法隐含了条件 <span class="arithmatex">\(g(x) = 0\)</span>，因此 <span class="arithmatex">\(g(t)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上存在三个零点，由 Rolle 中值定理，<span class="arithmatex">\(g'(t)\)</span> 在 <span class="arithmatex">\((0,x)\)</span> 和 <span class="arithmatex">\((x,1)\)</span> 上各有一个零点 <span class="arithmatex">\(\xi_1\)</span> 和 <span class="arithmatex">\(\xi_2\)</span>，于是 <span class="arithmatex">\(g'(t)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上存在三个零点 <span class="arithmatex">\(0, \xi_1, \xi_2\)</span>，再使用两次 Rolle 中值定理，可得 <span class="arithmatex">\(g''(t)\)</span> 在 <span class="arithmatex">\((0, \xi_1)\)</span> 和 <span class="arithmatex">\((\xi_1, \xi_2)\)</span> 上各有一个零点 <span class="arithmatex">\(\eta_1\)</span> 和 <span class="arithmatex">\(\eta_2\)</span>，<span class="arithmatex">\(g'''(t)\)</span> 在 <span class="arithmatex">\((\eta_1, \eta_2)\)</span> 上有一个零点 <span class="arithmatex">\(\xi\)</span>，证毕.</p>
+</details>
+</li>
+<li>
+<p>构造函数法</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上连续，在 <span class="arithmatex">\((0,1)\)</span> 上可导，<span class="arithmatex">\(f(0) = f(1) = 0\)</span>，并且存在 <span class="arithmatex">\(t_0 \in (0, 1)\)</span>，使得 <span class="arithmatex">\(f(t_0) = \alpha\)</span>. 证明：</p>
+<div class="arithmatex">\[
+    \exists \xi \in (0,1), \enspace f'(\xi) = \alpha.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>构造函数 <span class="arithmatex">\(g(x) = f(x) - \alpha x\)</span>，则 <span class="arithmatex">\(g'(x) = f'(x) - \alpha\)</span>，我们只需证明 <span class="arithmatex">\(g'(x)\)</span> 在 <span class="arithmatex">\((0,1)\)</span> 上存在一个零点即可.</p>
+<p>代入条件，<span class="arithmatex">\(g(0) = 0, g(1) = 1 - \alpha, g(t_0) = \alpha (1 - t_0)\)</span>，其中 <span class="arithmatex">\(t_0 \in (0,1)\)</span>，故由连续函数的零点存在性定理，存在 <span class="arithmatex">\(\eta \in (t_0, 1)\)</span>，使得 <span class="arithmatex">\(g(\eta) = 0 = g(0)\)</span>，于是由 Rolle 中值定理，存在 <span class="arithmatex">\(\xi \in (0, \eta)\)</span>，使得 <span class="arithmatex">\(g'(\xi) = 0\)</span>，证毕.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设奇函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([-1,1]\)</span> 上具有二阶导数，且 <span class="arithmatex">\(f(1) = 1\)</span>，证明：</p>
+<ol>
+<li>
+<p>存在 <span class="arithmatex">\(\xi \in (0, 1)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = 1\)</span>.</p>
+</li>
+<li>
+<p>存在 <span class="arithmatex">\(\eta \in (-1, 1)\)</span>，使得 <span class="arithmatex">\(f''(\eta) + f'(\eta) = 1\)</span>.</p>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(f(x)\)</span> 是奇函数，且在 <span class="arithmatex">\(x=0\)</span> 处有定义，故 <span class="arithmatex">\(f(0) = 0\)</span>. 由 Lagrange 中值定理，存在 <span class="arithmatex">\(\xi \in (0, 1)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = \dfrac{f(1) - f(0)}{1 - 0} = 1\)</span>.</p>
+</li>
+<li>
+<p>我们希望能将待证式转化为证明某个函数的导数在 <span class="arithmatex">\((-1, 1)\)</span> 上存在零点，这样便能使用 Rolle 中值定理来证明. 观察待证式为相邻阶导数相加的形式，考虑构造函数 <span class="arithmatex">\(g(x) = e^x (f'(x) - 1)\)</span>，则 <span class="arithmatex">\(g'(x) = e^x (f''(x) + f'(x) - 1)\)</span>.</p>
+<p>由第一问，<span class="arithmatex">\(g(\xi) = e^{\xi} (f'(\xi) - 1) = 0\)</span>，我们只需再找 <span class="arithmatex">\(g(x)\)</span> 的一个零点即可. 由于 <span class="arithmatex">\(f(x)\)</span> 是奇函数，故 <span class="arithmatex">\(f'(x)\)</span> 是偶函数，进而 <span class="arithmatex">\(f'(-\xi) = 0\)</span>，故 <span class="arithmatex">\(g(-\xi) = 0\)</span>. 由 Rolle 中值定理，存在 <span class="arithmatex">\(\eta \in (-\xi, \xi)\)</span>，使得 <span class="arithmatex">\(g'(\eta) = e^{\eta} (f''(\eta) + f'(\eta) - 1) = 0\)</span>，而 <span class="arithmatex">\(e^{\eta} &gt; 0\)</span>，故 <span class="arithmatex">\(f''(\eta) + f'(\eta) = 1\)</span>，证毕.</p>
+</li>
+</ol>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在闭区间 <span class="arithmatex">\([-2,2]\)</span> 上具有二阶导数，若 <span class="arithmatex">\((f(0))^2 + (f'(0))^2 = 4, |f(x)| \leqslant 1\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \exists \xi \in (-2, 2), \enspace f(\xi) + f''(\xi) = 0.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>根据条件 <span class="arithmatex">\((f(0))^2 + (f'(0))^2 = 4\)</span>，考虑构造函数 <span class="arithmatex">\(g(x) = (f(x))^2 + (f'(x))^2\)</span>，则 <span class="arithmatex">\(g'(x) = 2 f'(x) (f(x) + f''(x))\)</span>，出现了待证式的形式，因此我们需要找 <span class="arithmatex">\(g'(x)\)</span> 在 <span class="arithmatex">\((-2, 2)\)</span> 上的一个零点 <span class="arithmatex">\(\xi\)</span>，并证明 <span class="arithmatex">\(f'(\xi) \neq 0\)</span>.</p>
+<p>要证明某个函数的导函数存在零点，除了使用 Rolle 中值定理外，还可以通过说明函数在某个闭区间上的最值在非区间端点的位置取得，从而这个最值点必为函数的极值点，再由 Fermat 中值定理得到导函数为 0 的结论. 我们这里尝试使用第二种方法：</p>
+<p>由于 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([-2,2]\)</span> 上有二阶导，故 <span class="arithmatex">\(f(x)\)</span> 与 <span class="arithmatex">\(f'(x)\)</span> 必在 <span class="arithmatex">\([-2,2]\)</span> 上连续，进而 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([-2,2]\)</span> 上连续. 我们只需在 <span class="arithmatex">\([-2,2]\)</span> 上取两个点 <span class="arithmatex">\(\eta_1, \eta_2\)</span>，使得 <span class="arithmatex">\(g(\eta_1) &lt; g(0), g(\eta_2) &lt; g(0)\)</span>，这样的话 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([\eta_1, \eta_2]\)</span> 上的最大值存在且必然不在区间端点处取得.</p>
+<p>由 Lagrange 中值定理，存在 <span class="arithmatex">\(\eta_1 \in (-2, 0), \eta_2 \in (0, 2)\)</span>，使得 <span class="arithmatex">\(f'(\eta_1) = \dfrac{f(0) - f(-2)}{2}, f'(\eta_2) = \dfrac{f(2) - f(0)}{2}\)</span>，于是 <span class="arithmatex">\(|f'(\eta_1)| \leqslant \dfrac{|f(0)| + |f(-2)|}{2} \leqslant 1, |f'(\eta_2)| \leqslant \dfrac{|f(2)| + |f(0)|}{2} \leqslant 1\)</span>，进而 <span class="arithmatex">\(g(\eta_1) \leqslant 1 + 1 = 2, g(\eta_2) \leqslant 1 + 1 = 2\)</span>，于是存在 <span class="arithmatex">\(\xi \in (\eta_1, \eta_2)\)</span>，使得 <span class="arithmatex">\(\xi\)</span> 为 <span class="arithmatex">\(g(x)\)</span> 的一个最大值点和极大值点，<span class="arithmatex">\(g'(\xi) = 0, g(\xi) \geqslant g(0) = 4\)</span>，而 <span class="arithmatex">\(|f(\xi)| \leqslant 1\)</span>，故 <span class="arithmatex">\(f'(\xi) \neq 0\)</span>，证毕.</p>
+</details>
+<p>Hint：总结一下各种条件的构造函数方法.</p>
+</li>
+</ul>
+<h3 id="_3">导函数性质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>以微分中值定理为工具，我们可以得到有关导函数性质的两条重要定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 导函数极限定理</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x_0\)</span> 的邻域内连续，在 <span class="arithmatex">\(x_0\)</span> 的去心邻域内可导，则</p>
+<div class="arithmatex">\[
+\begin{align*}
+\lim\limits_{x \to x_0^-} f(x) = A &amp;\implies f'_{-}(x) = A \\
+\lim\limits_{x \to x_0^+} f(x) = A &amp;\implies f'_{+}(x) = A
+\end{align*}
+\]</div>
+<p>即导数的左（右）极限存在 <span class="arithmatex">\(\implies\)</span> 左（右）导数存在.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 导函数介值定理，Darboux</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在闭区间 <span class="arithmatex">\([a,b]\)</span> 上可导，若 <span class="arithmatex">\(f'_{+}(a) &lt; f'_{-}(b)\)</span>，则 <span class="arithmatex">\(\forall \lambda \in (f'_{+}(a), f'_{-}(b))\)</span>，都存在 <span class="arithmatex">\(\xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = \lambda\)</span>.（<span class="arithmatex">\(f'_{+}(a)\)</span> 与 <span class="arithmatex">\(f'_{-}(b)\)</span> 的大小关系调换后同样成立）.</p>
+<p>注意：即使导函数在 <span class="arithmatex">\([a,b]\)</span> 上不连续，导函数介值定理依然成立.</p>
+</div>
+<p>由上述两条定理我们可以得到导函数的一条重要性质：</p>
+<div class="admonition property">
+<p class="admonition-title">Property :: 导函数的间断点性质</p>
+<p>导函数的间断点只可能是第二类间断点.</p>
+</div>
+<p>上述推论是我们判断某个函数是否存在原函数的重要依据.</p>
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<ol>
+<li>
+<p>（23-24 期末 T5）证明导函数介值定理：若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上可导，且 <span class="arithmatex">\(f'(0) &lt; a &lt; f'(1)\)</span>，则存在 <span class="arithmatex">\(\xi \in (0,1)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = a\)</span>.</p>
+</li>
+<li>
+<p>（22-23 期末 T3）已知 <span class="arithmatex">\(g(x)\)</span> 有二阶连续导数，<span class="arithmatex">\(g(0)=1\)</span>，<span class="arithmatex">\(g'(0)=0\)</span>，且</p>
+<div class="arithmatex">\[
+    f(x) = \begin{cases} \dfrac{g(x)-\cos x}{x} &amp;\enspace, x \neq 0 \\ a &amp;\enspace,x=0 \end{cases}
+\]</div>
+<ol>
+<li>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处连续，求 <span class="arithmatex">\(a\)</span>.</p>
+</li>
+<li>
+<p>已知 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处连续，讨论 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处的连续性.</p>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof :: 23-24 期末 T5</summary>
+<p>设 <span class="arithmatex">\(g(x)=f(x)-ax\)</span>，则只需证明 <span class="arithmatex">\(\exists \xi \in (0,1), g'(\xi)=0\)</span>.</p>
+<p><span class="arithmatex">\(g(x)=f(x)-ax \in C[0,1]\)</span>，由闭区间上连续函数的最值定理可知 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上有最小值.</p>
+<p><span class="arithmatex">\(g'(0)=\displaystyle\lim_{x\to 0} \frac{g(x)-g(0)}{x}&lt;0\)</span>，由局部保号性可知 <span class="arithmatex">\(\exists \delta_1&gt;0, \forall x \in (0,\delta_1), g(x)&lt;g(0)\)</span>.</p>
+<p><span class="arithmatex">\(g'(1)=\displaystyle\lim_{x\to 1} \frac{g(x)-g(1)}{x}&gt;0\)</span>，由局部保号性可知 <span class="arithmatex">\(\exists \delta_2&gt;0, \forall x \in (1-\delta_2,1), g(x)&lt;g(0)\)</span>.</p>
+<p>所以 <span class="arithmatex">\(g(0)\)</span> 和 <span class="arithmatex">\(g(1)\)</span> 都不是 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上的最小值，故最小值在 <span class="arithmatex">\((0,1)\)</span> 上的某个点 <span class="arithmatex">\(\xi\)</span> 处取得，<span class="arithmatex">\(\xi\)</span> 同时也是极小值.</p>
+<p>又因为 <span class="arithmatex">\(g(x)\in D[0,1]\)</span>，由 Fermat 引理可知 <span class="arithmatex">\(g'(\xi)=0\)</span>，得证.</p>
+</details>
+<details class="proof">
+<summary>Solution :: 22-23 期末 T3</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(\lim\limits_{x\to 0} f(x) = \lim\limits_{x\to 0} \dfrac{g(0) + g'(0) x + o(x) - 1 + o(x)}{x} = f(0) = a\)</span>，故 <span class="arithmatex">\(a=0\)</span>.</p>
+</li>
+<li>
+<p>通过 Taylor 展开可得 <span class="arithmatex">\(f'(0) = \lim\limits_{x\to 0} \dfrac{f(x) - f(0)}{x} = \lim\limits_{x\to 0} \dfrac{g(x) - \cos x}{x^2} = \dfrac{1}{2} (g''(0) + 1)\)</span>.</p>
+<p>同理有 <span class="arithmatex">\(\lim\limits_{x\to 0} f'(x) = \lim\limits_{x\to 0} \dfrac{(g'(x) + \sin x) x - g(x) + \cos x}{x^2} = \dfrac{1}{2} (g''(0) + 1) = f'(0)\)</span>.</p>
+<p>故 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处连续.</p>
+</li>
+</ol>
+</details>
+<h3 id="taylor">Taylor 公式<a class="headerlink" href="#taylor" title="Permanent link">&para;</a></h3>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Taylor 公式</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0)\)</span> 内 <span class="arithmatex">\(n\)</span> 阶可导，则可将 <span class="arithmatex">\(f(x)\)</span> 展开为</p>
+<div class="arithmatex">\[
+    f(x) = \sum\limits_{k=0}^n \frac{f^{(k)}(x_0)}{k!} x^k + R_n(x),
+\]</div>
+<p>其中 <span class="arithmatex">\(R_n(x)\)</span> 为 Taylor 展开的余项.</p>
+</div>
+<p>Taylor 展开的余项形式：</p>
+<ul>
+<li>
+<p>Peano 型余项：若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0)\)</span> 内 <span class="arithmatex">\(n\)</span> 阶可导，则在该邻域内，满足 <span class="arithmatex">\(R_n(x) = o((x-x_0)^n)\)</span>.</p>
+</li>
+<li>
+<p>Lagrange 型余项：若 <span class="arithmatex">\(f(x) \in C^n[a,b] \cap D^{n+1}(a,b)\)</span>，则对于任意定点 <span class="arithmatex">\(x_0 \in (a,b), \forall x \in (a,b)\)</span>，都有 <span class="arithmatex">\(R_n(x) = \dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^n\)</span>，其中 <span class="arithmatex">\(\xi \in (a,b)\)</span>.</p>
+</li>
+<li>
+<p>Cauchy 型余项：若 <span class="arithmatex">\(f(x) \in C^n[a,b] \cap D^{n+1}(a,b)\)</span>，则对于任意定点 <span class="arithmatex">\(x_0 \in (a,b), \forall x \in (a,b)\)</span>，都有 <span class="arithmatex">\(R_n(x) = \dfrac{f^{(n+1)}(x_0 + \theta (x - x_0))}{n!} (1-\theta)^n (x-x_0)^{n+1}\)</span>, 其中 <span class="arithmatex">\(\theta \in (0,1)\)</span>.</p>
+</li>
+</ul>
+<p>值得注意的是，若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0)\)</span> 内 <span class="arithmatex">\(n\)</span> 阶可导，则满足</p>
+<div class="arithmatex">\[
+    f(x) = \sum\limits_{k=0}^n a_k (x-x_0)^k + o((x-x_0)^n)
+\]</div>
+<p>的展开式是唯一的，其系数 <span class="arithmatex">\(a_k = f^{(k)}(x_0)\)</span> 即为 Taylor 展开式的系数. 这给了我们通过初等函数的泰勒展开推导更复杂形式的函数的泰勒展开式的途径，从而解决一系列计算问题.</p>
+<div class="admonition example">
+<p class="admonition-title">有关 Taylor 公式的计算题</p>
+<ol>
+<li>求 <span class="arithmatex">\(f(x) = \tan x\)</span> 的麦克劳林公式（展开至 <span class="arithmatex">\(x^5\)</span>）.</li>
+<li>若 <span class="arithmatex">\(f(x) = \arctan x\)</span>，求 <span class="arithmatex">\(f^{(n)}(0)\)</span>.</li>
+<li>（23-24 期末）求极限 <span class="arithmatex">\(\lim\limits_{x \to 1} \dfrac{x^x - x}{1 - x + \ln x}\)</span>.</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<ol>
+<li>
+<p>由 <span class="arithmatex">\(f(x) = \tan x = \dfrac{\sin x}{\cos x} = (\sin x)(\cos x)^{-1}\)</span>，将分子分母用 Taylor 公式展开有</p>
+<div class="arithmatex">\[
+    f(x) = (x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5))(1 - \frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5))^{-1}.
+\]</div>
+<p>再将 <span class="arithmatex">\(\left(1 - \dfrac{1}{2}x^2 + \dfrac{1}{24}x^4 + o(x^5)\right)^{-1}\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处展开有</p>
+<div class="arithmatex">\[
+    f(x) = \left(x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5)\right)\left(1 + \left(\frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5)\right) + \left(\frac{1}{2}x^2 + \frac{1}{24}x^4 + o(x^5)\right)^2 + o(x^5)\right).
+\]</div>
+<p>化简后即有 <span class="arithmatex">\(f(x) = x + \dfrac{1}{3}x^3 + \dfrac{2}{15}x^5 + o(x^5)\)</span>，即 <span class="arithmatex">\(f(x)\)</span> 展开至 <span class="arithmatex">\(x^5\)</span> 的麦克劳林公式.</p>
+</li>
+<li>
+<p>对 <span class="arithmatex">\(f(x)\)</span> 求导有 <span class="arithmatex">\(f'(x) = \dfrac{1}{1 + x^2}\)</span>，再对 <span class="arithmatex">\(f'(x)\)</span> 泰勒展开有</p>
+<div class="arithmatex">\[
+    f'(x) = \dsum_{k=0}^{n} (-1)^k x^{2k} + o(x^{2n+1}).
+\]</div>
+<p>两边求积分，并用 <span class="arithmatex">\(f(0) = 0\)</span> 代入得</p>
+<div class="arithmatex">\[
+    f(x) = \dsum_{k=0}^{n} (-1)^k \frac{x^{2k+1}}{2k+1} + o(x^{2n+2}).
+\]</div>
+<p>由 Taylor 展开的唯一性，上式便为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处的 Taylor 展开，故有</p>
+<div class="arithmatex">\[
+    \frac{f^{(n)}(0)}{n!} = \begin{cases}
+        0 \enspace &amp;, n = 2k, k \in \mathbb{N} \\
+        \dfrac{(-1)^{\frac{n - 1}{2}}}{n} \enspace &amp;, n = 2k+1, k \in \mathbb{N}
+    \end{cases}
+\]</div>
+<p>因此，<span class="arithmatex">\(f^{(n)}(0) = \begin{cases}
+    0 \enspace &amp;, n = 2k, k \in \mathbb{N} \\
+    (-1)^{\frac{n-1}{2}} (n-1)! \enspace &amp;, n = 2k+1, k \in \mathbb{N}
+\end{cases}\)</span></p>
+</li>
+<li>
+<p>令 <span class="arithmatex">\(t = x - 1\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \lim\limits_{x \to 1} \dfrac{x^x - x}{1 - x + \ln x}
+    &amp;= \lim\limits_{t \to 0} \dfrac{(t + 1)^{t + 1} - t - 1}{-t + \ln (1 + t)} \\
+    &amp;= \lim\limits_{t \to 0} \dfrac{e^{(t+1)\ln(t+1)} - t - 1}{-t + t - \frac{1}{2} t^2 + o(t^2)} \\
+    &amp;= \lim\limits_{t \to 0} \dfrac{e^{(t + 1)(t - \frac{1}{2} t^2 + o(t^2))} - t - 1}{-\frac{1}{2} t^2 + o(t^2)} \\
+    &amp;= \lim\limits_{t \to 0} \dfrac{1 + (t + \frac{1}{2} t^2 + o(t^2)) + \frac{1}{2} (t + \frac{1}{2} t^2 + o(t^2))^2 + o(t^2) - t - 1}{-\frac{1}{2} t^2 + o(t^2)} \\
+    &amp;= \lim\limits_{t \to 0} \dfrac{t^2 + o(t^2)}{-\frac{1}{2} t^2 + o(t^2)} \\
+    &amp;= -2.
+\end{align*}
+\]</div>
+</li>
+</ol>
+</details>
+<p>在计算问题中我们常用 Peano 型余项来估阶，而在证明问题中则更常用 Lagrange 型余项来确定余项的具体范围. 事实上，Taylor 公式相当于利用了更高阶的导数提供的信息，得到了比 Lagrange 中值定理更强的结论，当题目中出现高阶导数时，通常都会使用 Taylor 展开式来求解.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>
+<p>已知 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((-1, 2)\)</span> 上有二阶导数，且 <span class="arithmatex">\(f'(\frac{1}{2})=0\)</span>. 证明：</p>
+<div class="arithmatex">\[
+    \exists \xi \in (0, 1), \enspace |f''(\xi)| \geqslant 4|f(1) - f(0)|.
+\]</div>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>题目给出条件 <span class="arithmatex">\(f'\left(\frac{1}{2}\right) = 0\)</span>，而待证式中存在二阶导数，我们尝试在 <span class="arithmatex">\(x = \frac{1}{2}\)</span> 处对 <span class="arithmatex">\(f(x)\)</span> 进行 Taylor 展开：</p>
+<div class="arithmatex">\[
+    f(x) = f\left(\frac{1}{2}\right) + \frac{f''(\xi)}{2} \left(x - \frac{1}{2}\right)^2.
+\]</div>
+<p>代入 <span class="arithmatex">\(x = 0\)</span> 与 <span class="arithmatex">\(x = 1\)</span>，有</p>
+<div class="arithmatex">\[
+    \begin{cases}
+        f(0) &amp;= f\left(\dfrac{1}{2}\right) + \dfrac{1}{8} f''(\xi_1). \\[1em]
+        f(1) &amp;= f\left(\dfrac{1}{2}\right) + \dfrac{1}{8} f''(\xi_2).
+    \end{cases}
+\]</div>
+<p>两式相减并取绝对值有</p>
+<div class="arithmatex">\[
+    |f(1) - f(0)| = \frac{1}{8} |f''(\xi_1) + f''(\xi_2)| \leqslant \frac{1}{8} (|f''(\xi_1)| + |f''(\xi_2)|).
+\]</div>
+<p>令 <span class="arithmatex">\(|f''(\xi)| = \max \{|f''(\xi_1)|, |f''(\xi_2)|\}\)</span>，则有</p>
+<div class="arithmatex">\[
+    4|f(1) - f(0)| \leqslant |f''(\xi)|.
+\]</div>
+</details>
+<!-- 泰勒取点在待求点 -->
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上有二阶导数，且 <span class="arithmatex">\(|f(x)| \leqslant A, |f''(x)| \leqslant B\)</span>，证明：<span class="arithmatex">\(\forall x \in [0,1]\)</span>，有</p>
+<div class="arithmatex">\[
+    |f'(x)| \leqslant 2A + \frac{B}{2}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>题目给了区间上任意点的函数值和二阶导数的上界，因此我们考虑在任意点 <span class="arithmatex">\(x\)</span> 处的 Taylor 展开：</p>
+<div class="arithmatex">\[
+    f(x_0) = f(x) + f'(x) (x_0 - x) + \frac{f''(\xi_x)}{2} (x_0 - x)^2.
+\]</div>
+<p>代入区间端点 <span class="arithmatex">\(x_0 = 0\)</span> 和 <span class="arithmatex">\(x_0 = 1\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{cases}
+    f(0) &amp;= f(x) - f'(x) x + \dfrac{f''(\xi_0)}{2} x^2, \\[0.5em]
+    f(1) &amp;= f(x) + f'(x) (1 - x) + \dfrac{f''(\xi_1)}{2} (1 - x)^2.
+\end{cases}
+\]</div>
+<p>两式相减并取绝对值有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    |f'(x)| &amp;= \left| f(1) - f(0) - \dfrac{f''(\xi_1)}{2} (1-x)^2 + \dfrac{f''(\xi_0)} x^2 \right| \\
+            &amp;\leqslant |f(1)| + |f(0)| + \left|\dfrac{f''(\xi_1)}{2} \right| (1-x)^2 + \left|\dfrac{f''(\xi_0)}{2} \right| x^2 \\
+            &amp;\leqslant 2A + \frac{B}{2} ((1-x)^2 + x^2) \\
+            &amp;\leqslant 2A + \frac{B}{2}.
+\end{align*}
+\]</div>
+</details>
+<!-- 泰勒取点在极值点 -->
+
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，在 <span class="arithmatex">\((a,b)\)</span> 上二阶可导，<span class="arithmatex">\(f(a) = f(b) = 0\)</span>，且 <span class="arithmatex">\(|f''(x)| \geqslant m &gt; 0\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \max\limits_{a \leqslant x \leqslant b} |f(x)| \geqslant \frac{m}{8} (b-a)^2.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(f(a) = f(b) = 0\)</span>，由 Rolle 中值定理可知 <span class="arithmatex">\(\exists \xi \in (a,b)\)</span>，使得 <span class="arithmatex">\(f'(\xi) = 0\)</span>.</p>
+<p>由 <span class="arithmatex">\(|f''(x)| \geqslant m &gt; 0\)</span>，据导函数介值定理可知 <span class="arithmatex">\(f''(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上不变号，否则就一定存在 <span class="arithmatex">\(x_0 \in (a,b)\)</span> 使得 <span class="arithmatex">\(f''(x_0) = 0 &lt; m\)</span>.</p>
+<p>因此，<span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上严格单调，故 <span class="arithmatex">\(x = \xi\)</span> 为 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上的唯一零点，<span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上的唯一极值点.</p>
+<p>不妨设 <span class="arithmatex">\(f''(x) &lt; 0\)</span>，则 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上严格单调递减，<span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a, \xi)\)</span> 上严格单调递增，在 <span class="arithmatex">\((\xi, b)\)</span> 上严格单调递减，<span class="arithmatex">\(x = \xi\)</span> 为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上的唯一极大值点.</p>
+<p>因此 <span class="arithmatex">\(\max\limits_{a \leqslant x \leqslant b} |f(x)| = f(\xi)\)</span>，我们只要证 <span class="arithmatex">\(f(\xi) \geqslant \dfrac{m}{8} (b-a)^2\)</span> 即可.</p>
+<p>将 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x = \xi\)</span> 处 Taylor 展开，有</p>
+<div class="arithmatex">\[
+    f(x) = f(\xi) + f'(\xi) (x - \xi) + \frac{f''(\eta_x)}{2} (x - \xi)^2 = f(\xi) + \frac{f''(\eta_x)}{2} (x - \xi)^2.
+\]</div>
+<p>代入 <span class="arithmatex">\(x = a\)</span> 和 <span class="arithmatex">\(x = b\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{cases}
+    0 = f(a) &amp;= f(\xi) + \dfrac{f''(\eta_0)}{2} (a - \xi)^2, \\[0.5em]
+    0 = f(b) &amp;= f(\xi) + \dfrac{f''(\eta_1)}{2} (b - \xi)^2.
+\end{cases}
+\]</div>
+<p>两式相加并取绝对值有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    2|f(\xi)| &amp;= \left|\dfrac{f''(\eta_0)}{2} (a - \xi)^2 + \dfrac{f''(\eta_1)}{2} (b - \xi)^2 \right| \\
+              &amp;\geqslant \left|\dfrac{m}{2} \left((a - \xi)^2 + (b - \xi)^2\right) \right| \\
+              &amp;\geqslant \frac{m}{4} (b-a)^2.
+\end{align*}
+\]</div>
+<p>因而 <span class="arithmatex">\(\max\limits_{a \leqslant x \leqslant b} |f(x)| = f(\xi) \geqslant \dfrac{m}{8} (b-a)^2\)</span>.</p>
+</details>
+<!-- 泰勒取点在区间端点 -->
+
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上二阶可导，设区间 <span class="arithmatex">\([a,b] \subset I\)</span>，满足 <span class="arithmatex">\(f'(a) = f'(b) = 0\)</span>. 证明：存在 <span class="arithmatex">\(\xi \in (a,b)\)</span>，使得</p>
+<div class="arithmatex">\[
+    |f''(\xi)| \geqslant \frac{4}{(b-a)^2} |f(b) - f(a)|.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>利用 <span class="arithmatex">\(f'(a) = f'(b) = 0\)</span> 的条件，在 <span class="arithmatex">\(x=a\)</span> 和 <span class="arithmatex">\(x=b\)</span> 处对 <span class="arithmatex">\(f(x)\)</span> 进行 Taylor 展开，有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    f(x) &amp;= f(a) + \frac{f''(\xi_0)}{2} (x-a)^2,
+    f(x) &amp;= f(b) + \frac{f''(\xi_1)}{2} (x-b)^2.
+\end{align*}
+\]</div>
+<p>粮食相减并取绝对值有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    |f(b) - f(a)| &amp;= \left|\frac{f''(\xi_0)}{2} (x-a)^2 - \frac{f''(\xi_1)}{2} (x-b)^2\right| \\
+                  &amp;\leqslant \frac{|f''(\xi_0)|}{2} (x-a)^2 + \frac{|f''(\xi_1)|}{2} (x-b)^2 \\
+                  &amp;\leqslant \frac{|f''(\xi)|}{2} ((x-a)^2 + (x-b)^2)
+                  &amp;\leqslant \frac{|f''(\xi)|}{4} (b-a)^2.
+\end{align*}
+\]</div>
+</details>
+<h3 id="_4">导数与函数性态<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="_5">单调性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 函数单调性与导数的关系</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，在 <span class="arithmatex">\((a,b)\)</span> 上可导，则：</p>
+<ul>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调递增 <span class="arithmatex">\(\iff \forall x \in [a,b], f'(x) \geqslant 0\)</span>.</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调递减 <span class="arithmatex">\(\iff \forall x \in [a,b], f'(x) \leqslant 0\)</span>.</li>
+</ul>
+</div>
+<p>思考：<span class="arithmatex">\(f(x)\)</span> 严格单调递增如何刻画？</p>
+<h4 id="_6">极值点和最值点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>我们可以使用一阶导数描述函数的极值点：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 极值点判定定理 I</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0)\)</span> 上连续，在 <span class="arithmatex">\(\mathring{U}(x_0)\)</span> 上可导，则</p>
+<ul>
+<li><span class="arithmatex">\(\exists \delta &gt; 0, \forall x \in (x_0 - \delta, x_0)\)</span>，有 <span class="arithmatex">\(f'(x) \geqslant 0\)</span>，而 <span class="arithmatex">\(\forall x \in (x_0, x_0 + \delta)\)</span>，有 <span class="arithmatex">\(f'(x) \leqslant 0 \implies x_0\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 的极小值点.</li>
+<li><span class="arithmatex">\(\exists \delta &gt; 0, \forall x \in (x_0 - \delta, x_0)\)</span>，有 <span class="arithmatex">\(f'(x) \leqslant 0\)</span>，而 <span class="arithmatex">\(\forall x \in (x_0, x_0 + \delta)\)</span>，有 <span class="arithmatex">\(f'(x) \geqslant 0 \implies x_0\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 的极大值点.</li>
+<li><span class="arithmatex">\(f'(x) \geqslant 0\)</span>（或 <span class="arithmatex">\(f'(x) \leqslant 0\)</span>）在 <span class="arithmatex">\(\mathring{U}(x_0)\)</span> 上恒成立 <span class="arithmatex">\(\implies x_0\)</span> 不是 <span class="arithmatex">\(f(x)\)</span> 的极值点.</li>
+</ul>
+</div>
+<p>在补充了高阶可导的条件后，我们可以用 Taylor 公式得到以下判定定理：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 极值点判定定理 II</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(U(x_0)\)</span> 上 <span class="arithmatex">\(n\)</span> 阶可导，且 <span class="arithmatex">\(f'(x_0) = f''(x_0) = \cdots = f^{(n-1)}(x_0) = 0\)</span>，且 <span class="arithmatex">\(f^{(n)}(x_0) \neq 0\)</span>，则：</p>
+<ul>
+<li>若 <span class="arithmatex">\(n\)</span> 为奇数，则 <span class="arithmatex">\(x_0\)</span> 不是 <span class="arithmatex">\(f(x)\)</span> 的极值点.</li>
+<li>若 <span class="arithmatex">\(n\)</span> 为偶数，且 <span class="arithmatex">\(f^{(n)}(x_0) \geqslant 0\)</span>，则 <span class="arithmatex">\(x_0\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 的极小值点.</li>
+<li>若 <span class="arithmatex">\(n\)</span> 为偶数，且 <span class="arithmatex">\(f^{(n)}(x_0) \leqslant 0\)</span>，则 <span class="arithmatex">\(x_0\)</span> 是 <span class="arithmatex">\(f(x)\)</span> 的极大值点.</li>
+</ul>
+</div>
+<p>下面我们讨论函数在给定区间上的最值问题：设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上连续，</p>
+<ol>
+<li>
+<p>若 <span class="arithmatex">\(I = [a,b]\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上的最值必定存在，且只可能在以下几处取得：</p>
+<ul>
+<li><span class="arithmatex">\(x=a\)</span> 或 <span class="arithmatex">\(x=b\)</span></li>
+<li><span class="arithmatex">\(f'(x) = 0\)</span> 的点</li>
+<li><span class="arithmatex">\(f'(x)\)</span> 不存在的点</li>
+</ul>
+<p>即 <span class="arithmatex">\(\max\limits_{x \in I} f(x) = \max \{ f(a), f(b), f(x_i) \mid f'(x_i) = 0 \;\text{or not exist} \}\)</span>.</p>
+</li>
+<li>
+<p>若 <span class="arithmatex">\(I = (a,b)\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上的最值有可能存在，以最大值为例：</p>
+<p>设 <span class="arithmatex">\(M_0 = \max\{f(x_i) \mid f'(x_i) = 0 \;\text{or not exist}\}\)</span>.</p>
+<ul>
+<li>若 <span class="arithmatex">\(\lim\limits_{x \to a^+} f(x) &gt; M_0\)</span> 或 <span class="arithmatex">\(\lim\limits_{x \to b^-} f(x) &gt; M_0\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上的最大值不存在.</li>
+<li>反之则有 <span class="arithmatex">\(\max\limits_{x \in I} f(x) = M_0\)</span>.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>
+<p>（20-21 期末 T6）设函数 <span class="arithmatex">\(f(x)\)</span> 满足方程 <span class="arithmatex">\(\forall x \in \mathbb{R}, \enspace f''(x) + \left[f'(x) \right]^2 = x\)</span>，且 <span class="arithmatex">\(f'(0) = 0\)</span>，证明 <span class="arithmatex">\(x=0\)</span> 不是 <span class="arithmatex">\(f(x)\)</span> 的极值点.</p>
+</li>
+<li>
+<p>（23-24 期末 T4）求函数 <span class="arithmatex">\(f(x) = \dint_{-1}^{1} |x-t| e^{t^2} \intdd{t}\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上的最小值.</p>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof :: 20-21 期末 T6</summary>
+<p>向 <span class="arithmatex">\(f''(x) + \left[f'(x) \right]^2 = x\)</span> 代入 <span class="arithmatex">\(x=0\)</span>，有 <span class="arithmatex">\(f''(0) = 0\)</span>.</p>
+<p>由 <span class="arithmatex">\(f''(x) + \left[f'(x) \right]^2 = x\)</span> 可知 <span class="arithmatex">\(f(x)\)</span> 二阶可导，将该方程变形为</p>
+<div class="arithmatex">\[
+    f''(x) = x - \left[f'(x) \right]^2,
+\]</div>
+<p>则由右边函数可导，知 <span class="arithmatex">\(f''(x)\)</span> 可导，即 <span class="arithmatex">\(f(x)\)</span> 的三阶导函数存在，且 <span class="arithmatex">\(f'''(x) = 1 - 2f(x)f'(x)\)</span>.</p>
+<p>代入 <span class="arithmatex">\(x=0\)</span>，有 <span class="arithmatex">\(f'''(x) = 1 - 0 = 1 &gt; 0\)</span>，而 <span class="arithmatex">\(f''(x) = f'(x) = 0\)</span>，由极值点判定定理 II 可知 <span class="arithmatex">\(x=0\)</span> 不是 <span class="arithmatex">\(f(x)\)</span> 的极值点.</p>
+</details>
+<details class="proof">
+<summary>Solution :: 23-24 期末 T4</summary>
+<p>分以下三种情况讨论：</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(x \geqslant 1\)</span>，则</p>
+<div class="arithmatex">\[
+    f(x) = x\int_{-1}^1 e^{t^2} \intdd{t} - \int_{-1}^1 te^{t^2} \intdd{t}
+                    = x\int_{-1}^1 e^{t^2} \intdd{t} - \frac{1}{2} e^{t^2} \bigg{|}_{-1}^1
+                    \geqslant \int_{-1}^1 e^{t^2} \intdd{t}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(x \leqslant -1\)</span>，则</p>
+<div class="arithmatex">\[
+    f(x) = \int_{-1}^1 te^{t^2} \intdd{t} - x\int_{-1}^1 e^{t^2} \intdd{t}
+                    = \frac{1}{2} e^{t^2} \bigg{|}_{-1}^1 - x\int_{-1}^1 e^{t^2} \intdd{t}
+                    \geqslant \int_{-1}^1 e^{t^2} \intdd{t}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(-1&lt;x&lt;1\)</span>，则</p>
+<div class="arithmatex">\[
+\begin{align*}
+    f(x) &amp;= x\int_{-1}^x e^{t^2} \intdd{t} - \int_{-1}^x te^{t^2} \intdd{t} + \int_x^1 te^{t^2} \intdd{t} - x\int_x^1 e^{t^2} \intdd{t} \\
+            &amp;= x \left(\int_{-1}^x e^{t^2}\intdd{t} - \int_x^1 e^{t^2}\intdd{t} \right) + e - e^{x^2}
+\end{align*}
+\]</div>
+<p>求导可得 <span class="arithmatex">\(f'(x) = \displaystyle\int_{-1}^x e^{t^2}\intdd{t} - \int_x^1 e^{t^2}\intdd{t},\quad f''(x)=2e^{x^2}&gt;0\)</span>，故 <span class="arithmatex">\(f'(x)\)</span> 单调递增.</p>
+<p>由 <span class="arithmatex">\(f''(x)=2e^{x^2}\)</span> 为偶函数，知 <span class="arithmatex">\(f'(0)=0\)</span>，故 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([-1,0]\)</span> 上单调递减，在 <span class="arithmatex">\([0,1]\)</span> 上单调递增，在 <span class="arithmatex">\(x=0\)</span> 处取得最小值 <span class="arithmatex">\(e-1\)</span>.</p>
+</li>
+</ol>
+<p>由于 <span class="arithmatex">\(\displaystyle\int_{-1}^1 e^{t^2} \intdd{t} = 2\int_0^1 e^{t^2} \intdd{t} &gt; 2\int_0^1 te^{t^2} \intdd{t} = e-1\)</span>，故 <span class="arithmatex">\(e-1\)</span> 为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上的最小值.</p>
+</details>
+<h4 id="_7">凹凸性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 凹凸性</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上有定义，若 <span class="arithmatex">\(\forall x_1, x_2 \in I, \forall \lambda \in (0,1)\)</span>，都有</p>
+<div class="arithmatex">\[
+f(\lambda x_1 + (1-\lambda) x_2) \leqslant \lambda f(x_1) + (1-\lambda) f(x_2),
+\]</div>
+<p>则称 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上是凸函数（下凸函数）；反之，若有</p>
+<div class="arithmatex">\[
+f(\lambda x_1 + (1-\lambda) x_2) \geqslant \lambda f(x_1) + (1-\lambda) f(x_2),
+\]</div>
+<p>则称 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上是凹函数（上凸函数）.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 函数凹凸性的等价条件</p>
+<p><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上是下凸函数 <span class="arithmatex">\(\iff \forall x_1, x_2, x_3 \in I, x_1&lt;x_2&lt;x_3\)</span>，都有</p>
+<div class="arithmatex">\[
+    \frac{f(x_2)-f(x_1)}{x_2-x_1} \leqslant \frac{f(x_3)-f(x_1)}{x_3-x_1} \leqslant \frac{f(x_3)-f(x_2)}{x_3-x_2}.
+\]</div>
+</div>
+<p>下面我们来研究具有凹凸性的函数的一些分析性质：</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 为开区间 <span class="arithmatex">\((a,b)\)</span> 上的下凸函数，证明：</p>
+<ol>
+<li><span class="arithmatex">\(\forall x \in (a,b)\)</span>，<span class="arithmatex">\(f'_{\pm}(x)\)</span> 均存在.</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上连续.</li>
+</ol>
+</div>
+<p>注意：函数的凹凸性并不要求函数在 <span class="arithmatex">\(I\)</span> 上可导（甚至没有要求连续），只要满足定义即可.</p>
+<p>在补充了 <span class="arithmatex">\(f(x)\)</span> 的可导性后，凹凸性也可以使用一阶导数或二阶导数来刻画.</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 凹凸性与导数的关系</p>
+<ul>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，在 <span class="arithmatex">\((a,b)\)</span> 上可导，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上是下凸函数 <span class="arithmatex">\(\iff f'(x)\)</span> 在 <span class="arithmatex">\((a,b)\)</span> 上单调递增.</li>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，在 <span class="arithmatex">\((a,b)\)</span> 上二阶可导，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上是下凸函数 <span class="arithmatex">\(\iff \forall x \in (a,b), f''(x) \geqslant 0\)</span>.</li>
+</ul>
+</div>
+<h2 id="_8">定积分<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">可积理论<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 黎曼可积</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 是定义在 <span class="arithmatex">\([a,b]\)</span> 上的函数，若存在实常数 <span class="arithmatex">\(A\)</span>，<span class="arithmatex">\(\forall \varepsilon &gt; 0, \exists \delta &gt; 0\)</span>，使得对于满足 <span class="arithmatex">\(\Vert \Delta \Vert &lt; \delta\)</span> 的任意对 <span class="arithmatex">\([a,b]\)</span> 的分割 <span class="arithmatex">\(\Delta = \{x_0 = a &lt; x_1 &lt; \cdots &lt; x_n = b\}\)</span>，以及任意的介点组 <span class="arithmatex">\(\{\xi\}\)</span>，都有</p>
+<div class="arithmatex">\[
+    |S_{\Delta}(f, \xi) - A| = \left| \sum_{k=1}^n f(\xi_k) \Delta x_k - A \right| &lt; \varepsilon,
+\]</div>
+<p>则称 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积，即 <span class="arithmatex">\(f \in R[a,b]\)</span>. <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上的定积分，记作 <span class="arithmatex">\(A = \dint_{a}^{b} f(x) \intdd{x}\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Riemann 可积的充分必要条件</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上有定义，则下列条件等价：</p>
+<ul>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积.</li>
+<li>Darboux 上积分与 Darboux 下积分相等：<span class="arithmatex">\(\overline{A} = \underline{A}\)</span>.</li>
+<li>振幅之和趋于 0：<span class="arithmatex">\(\forall \varepsilon &gt; 0, \exists \delta &gt; 0\)</span>，对于满足 <span class="arithmatex">\(\Vert \Delta \Vert &lt; \delta\)</span> 的任意分割 <span class="arithmatex">\(\Delta\)</span>，使得 <span class="arithmatex">\(\overline{S}_{\Delta} - \underline{S}_{\Delta} = \dsum\limits_{k=1}^n \omega_k \Delta x_k &lt; \varepsilon\)</span>.</li>
+<li>弱化后的条件：<span class="arithmatex">\(\forall \varepsilon &gt; 0\)</span>，存在分割 <span class="arithmatex">\(\Delta\)</span>，使得 <span class="arithmatex">\(\overline{S}_{\Delta} - \underline{S}_{\Delta} = \dsum\limits_{k=1}^n \omega_k \Delta x_k &lt; \varepsilon\)</span>.</li>
+<li><span class="arithmatex">\(\forall \varepsilon &gt; 0, \forall \sigma &gt; 0\)</span>，存在满足 <span class="arithmatex">\(\Vert \Delta \Vert &lt; \delta\)</span> 的分割 <span class="arithmatex">\(\Delta\)</span>，使得 <span class="arithmatex">\(\dsum\limits_{\omega_k \geqslant \varepsilon} \Delta x_k &lt; \sigma\)</span>.</li>
+</ul>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Riemann 可积的必要条件</p>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上有界.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Riemann 可积的充分条件</p>
+<p>若在 <span class="arithmatex">\([a,b]\)</span> 上有定义且有界的函数 <span class="arithmatex">\(f(x)\)</span> 满足下列任一条件，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积：</p>
+<ul>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续.</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调.</li>
+<li><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上只有有限个不连续点.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">23-24 期末 T7</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上有连续的导函数，证明：</p>
+<div class="arithmatex">\[
+    \lim_{n \to +\infty} \sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right] = \frac{f(1)-f(0)}{2}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>由条件知 <span class="arithmatex">\(f(x) \in C[0,1] \cap D(0,1)\)</span>，据 Lagrange 中值定理，有</p>
+<div class="arithmatex">\[
+    \displaystyle{\sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right] = \frac{1}{2n} \sum_{k=1}^n f'(\xi_k)},
+\]</div>
+<p>且有 <span class="arithmatex">\(\xi_k \in \left( \dfrac{2k-1}{2n},\dfrac{k}{n} \right) \subset \left( \dfrac{k-1}{n}, \dfrac{k}{n} \right)\)</span>.</p>
+<p>取分割 <span class="arithmatex">\(\Delta \colon x_0=0,x_1=\dfrac{1}{n},\ldots,x_k=\dfrac{k}{n},\ldots,x_n=1\)</span> 与介点组 <span class="arithmatex">\(\{\xi_k\}\)</span>，由 <span class="arithmatex">\(f'(x) \in C[0,1]\)</span>，知 <span class="arithmatex">\(f'(x)\)</span> 黎曼可积且有原函数 <span class="arithmatex">\(f(x)\)</span>. 故</p>
+<div class="arithmatex">\[
+    \lim_{n \to +\infty} \sum_{k=1}^n \left[ f\left(\frac{k}{n}\right) - f\left(\frac{2k-1}{2n}\right) \right]
+    = \frac{1}{2} \lim_{\| \Delta \| \to 0} \sum_{k=1}^{n} f'\left(\xi_k\right) \frac{1}{n}
+    = \frac{1}{2} \int_{0}^{1} f'(x) \dd{x}
+    = \frac{f(1)-f(0)}{2}.
+\]</div>
+</details>
+<h3 id="_10">定积分的性质<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="_11">基本性质<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<div class="admonition property">
+<p class="admonition-title">Property :: 定积分的基本性质</p>
+<p>设 <span class="arithmatex">\(f(x), g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Riemann 可积.</p>
+<ul>
+<li>线性性：<span class="arithmatex">\(k_1 f(x) + k_2 g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，且</li>
+</ul>
+<div class="arithmatex">\[
+    \dint_{a}^{b} [k_1 f(x) \intdd{x} + k_2 g(x)] \intdd{x} = k_1 \dint_{a}^{b} f(x) \intdd{x} + k_2 \dint_{a}^{b} g(x) \intdd{x}.
+\]</div>
+<ul>
+<li>保号性：<span class="arithmatex">\(f(x) \leqslant g(x) \implies \dint_{a}^{b} f(x) \intdd{x} \leqslant \dint_{a}^{b} g(x) \intdd{x}\)</span>.</li>
+<li>乘积可积性：<span class="arithmatex">\(f(x)g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积.</li>
+<li>积分区间可加性：若 <span class="arithmatex">\(a &lt; c &lt; b\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,c]\)</span> 和 <span class="arithmatex">\([c,b]\)</span> 上可积 <span class="arithmatex">\(\iff f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，并且</li>
+</ul>
+<div class="arithmatex">\[
+    \dint_{a}^{b} f(x) \intdd{x} = \dint_{a}^{c} f(x) \intdd{x} + \dint_{c}^{b} f(x) \intdd{x}.
+\]</div>
+<ul>
+<li>绝对可积性：<span class="arithmatex">\(|f(x)|\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，且 <span class="arithmatex">\(\left\vert \dint_{a}^{b} f(x) \intdd{x}\right\vert \leqslant \dint_{a}^{b} |f(x)| \intdd{x}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">23-24 期末 T6</p>
+<p>设函数 <span class="arithmatex">\(f(x) \in R[0,1]\)</span>，且 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处右连续. 证明：函数 <span class="arithmatex">\(\varphi(x)=\dint_0^x f(t) \intdd{t} \enspace (0 \leqslant x \leqslant 1)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处的右导数等于 <span class="arithmatex">\(f(0)\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处右连续，故 <span class="arithmatex">\(\forall \varepsilon&gt;0, \exists \delta&gt;0, \forall x \in (0,\delta), |f(x)-f(0)|&lt;\varepsilon\)</span>，即 <span class="arithmatex">\(f(0)-\varepsilon&lt;f(x)&lt;f(0)+\varepsilon\)</span>.</p>
+<p>由定积分保序性，可知 <span class="arithmatex">\(\forall x \in (0,\delta), (f(0)-\varepsilon)x&lt;\varphi(x)&lt;(f(0)+\varepsilon)x\)</span>.</p>
+<p>所以 <span class="arithmatex">\(\forall \varepsilon&gt;0, \exists \delta&gt;0, \forall x \in (0,\delta),  f(0)-\varepsilon&lt;\dfrac{\varphi(x)}{x}&lt;f(0)+\varepsilon\)</span>.</p>
+<p>所以 <span class="arithmatex">\(\varphi'_+(0) = \displaystyle\lim_{x\to 0+} \dfrac{\varphi(x)}{x} = f(0)\)</span>.</p>
+</details>
+<h4 id="_12">变限积分<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 变上限积分</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，称 <span class="arithmatex">\(\dint_{a}^{x} f(t) \intdd{t}\)</span> 为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上的变上限积分.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 变上限积分的性质</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，记 <span class="arithmatex">\(F(x) = \dint_{a}^{x} f(t) \intdd{t}\)</span>，则</p>
+<ul>
+<li><span class="arithmatex">\(F(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上 Lipschitz 连续.</li>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x_0 \in [a,b]\)</span> 上连续，则 <span class="arithmatex">\(F(x)\)</span> 在 <span class="arithmatex">\(x_0\)</span> 处可导.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Corollary</p>
+<p><span class="arithmatex">\(f(x)\)</span> 在区间 <span class="arithmatex">\([a,b]\)</span> 上的原函数存在的一个充分条件是 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续.</p>
+<p>进而，若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，则 Newton-Leibniz 公式成立.</p>
+</div>
+<p>更一般地，我们可以将变限积分写作 <span class="arithmatex">\(F(x) = \dint_{\phi(x)}^{\psi(x)} f(t) \intdd{t}\)</span>，其中 <span class="arithmatex">\(\phi(x)\)</span> 和 <span class="arithmatex">\(\psi(x)\)</span> 分别是 <span class="arithmatex">\(t\)</span> 的上下界.</p>
+<p>在 <span class="arithmatex">\(f(x)\)</span> 连续，<span class="arithmatex">\(\phi(x)\)</span> 和 <span class="arithmatex">\(\psi(x)\)</span> 可导的条件下，<span class="arithmatex">\(F(x)\)</span> 可导，我们可以给出其导数的计算方法：</p>
+<div class="arithmatex">\[
+    \frac{\dd{F(x)}}{\dd{x}} = \frac{\dd{}}{\dd{x}} \int_{\phi(x)}^{\psi(x)} f(t) \intdd{t} = f(\psi(x)) \psi'(x) - f(\phi(x)) \phi'(x).
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">23-24 期末 T2.c</p>
+<p>求极限 <span class="arithmatex">\(\lim\limits_{x \to 0} \dfrac{\dint_{0}^{x^2} t^2 e^{\sin t} \intdd{x}}{\ln (1+x^6)}\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>设 <span class="arithmatex">\(f(x)=\displaystyle\int_0^{x^2} t^2 e^{\sin t} \dd{x}\)</span> ，由于被积函数在 <span class="arithmatex">\(\mathbb{R}\)</span> 上连续，知 <span class="arithmatex">\(f(x) \in D( \mathbb{R} )\)</span> ，且 <span class="arithmatex">\(f'(x)=2x^5 e^{\sin x^2}\)</span>.</p>
+<p>当 <span class="arithmatex">\(x \to 0\)</span> 时，分子和分母都趋向0，可以使用 L'Hospital 法则：</p>
+<div class="arithmatex">\[
+    \text{原式} = \lim_{x \to 0} \frac{2x^5 e^{\sin x^2}}{\frac{6x^5}{1+x^6}}
+                = \lim_{x \to 0} \frac{(1+x^6) e^{\sin x^2}}{3}
+                = \frac{1}{3}.
+\]</div>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上可导，且 <span class="arithmatex">\(0 \leqslant f'(x) \leqslant 1, f(0) = 0\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \left( \int_0^1 f(x) \intdd{x} \right)^2 \geqslant \int_0^1 f^3(x) \intdd{x}.
+\]</div>
+<p>Hint: 将普通积分化为变上限积分.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>构造函数 <span class="arithmatex">\(F(x) = \left( \int_0^x f(t) \intdd{t} \right)^2 - \int_0^x f^3(t) \intdd{t}\)</span>，由于 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上连续可导，故 <span class="arithmatex">\(F(x)\)</span> 可导.</p>
+<div class="arithmatex">\[
+    F'(x) = 2 f(x) \left( \int_0^x f(t) \intdd{t} \right) - f^3(x)
+          = f(x) (2 \int_0^x f(t) \intdd{t} - f^2(x)).
+\]</div>
+<p>设 <span class="arithmatex">\(G(x) = 2 \int_0^x f(t) \intdd{t} - f^2(x)\)</span>，则 <span class="arithmatex">\(G(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上也可导，且</p>
+<div class="arithmatex">\[
+    G'(x) = 2 f(x) - 2 f(x) f'(x) = 2f(x) (1 - f'(x)).
+\]</div>
+<p>由于 <span class="arithmatex">\(0 \leqslant f'(x) \leqslant 1\)</span>，故 <span class="arithmatex">\(f(x) \geqslant f(0) = 0\)</span>，因此 <span class="arithmatex">\(G'(x) \geqslant 0\)</span>，<span class="arithmatex">\(G(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上单调递增，进而有 <span class="arithmatex">\(G(x) \geqslant G(0) = 0\)</span>.</p>
+<p>因此 <span class="arithmatex">\(F'(x) = f(x) G(x) \geqslant 0\)</span>，<span class="arithmatex">\(F(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上单调递增，故 <span class="arithmatex">\(F(1) \geqslant F(0) = 0\)</span>，证毕.</p>
+</details>
+<h4 id="_13">积分中值定理<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 积分第一中值定理</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 和 <span class="arithmatex">\(g(x)\)</span> 都在 <span class="arithmatex">\([a,b]\)</span> 上可积，<span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上不变号，则存在 <span class="arithmatex">\(\eta \in [m,M]\)</span>，使得</p>
+<div class="arithmatex">\[
+    \int_a^bf(x)g(x) \intdd{x} = \eta \int_a^b g(x) \intdd{x}.
+\]</div>
+<p>特别地，如果 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，则存在 <span class="arithmatex">\(\xi \in (a,b)\)</span>，使得</p>
+<div class="arithmatex">\[
+    \int_a^b f(x)g(x) \intdd{x} = f(\xi) \int_a^b g(x) \intdd{x}.
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 积分第二中值定理</p>
+<p>设 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上可积，</p>
+<ul>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调递减且非负，则存在 <span class="arithmatex">\(\xi \in [a,b]\)</span>，使得 <span class="arithmatex">\(\dint_a^b f(x)g(x) \intdd{x} = f(a) \dint_a^{\xi} g(x) \intdd{x}\)</span>.</li>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调递增且非负，则存在 <span class="arithmatex">\(\xi \in [a,b]\)</span>，使得 <span class="arithmatex">\(\dint_a^b f(x)g(x) \intdd{x} = f(b) \dint_{\xi}^b g(x) \intdd{x}\)</span>.</li>
+<li>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调，则存在 <span class="arithmatex">\(\xi \in [a,b]\)</span>，使得 <span class="arithmatex">\(\dint_a^b f(x)g(x) \intdd{x} = f(a) \dint_a^{\xi} g(x) \intdd{x} + f(b) \dint_{\xi}^b g(x) \intdd{x}\)</span>.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0, \pi]\)</span> 上连续，且 <span class="arithmatex">\(\dint_0^{\pi} f(x) \intdd{x} = 0, \dint_0^{\pi} f(x) \cos x \intdd{x} = 0\)</span>，证明：<span class="arithmatex">\(\exists \xi_1, \xi_2 \in (0, \pi)\)</span>，使得 <span class="arithmatex">\(f(\xi_1) = f(\xi_2) = 0\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>直接对 <span class="arithmatex">\(\dint_0^{\pi} f(x) \intdd{x}\)</span> 在 <span class="arithmatex">\([0, \pi]\)</span> 上使用积分第一中值定理只能得到 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,\pi]\)</span> 上存在至少一个根，而无法说明存在两个不等的根. 但这给我们了一个启发：如果我们可以找到 <span class="arithmatex">\([0,\pi]\)</span> 的两个不重叠的子区间，使 <span class="arithmatex">\(f(x)\)</span> 在这两个区间上的定积分均为 <span class="arithmatex">\(0\)</span>，那么这两个区间上分别存在 <span class="arithmatex">\(f(x)\)</span> 的一个根，这就证明了 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,\pi]\)</span> 上存在两个不等的根.</p>
+<p>由 <span class="arithmatex">\(\cos x\)</span> 在 <span class="arithmatex">\([0, \pi]\)</span> 上单调，据积分第二中值定理，存在 <span class="arithmatex">\(\xi \in [0, \pi]\)</span>，使得</p>
+<div class="arithmatex">\[
+    0 = \dint_0^{\pi} f(x) \cos x \intdd{x} = cos 0 \dint_0^{\xi} f(x) \intdd{x} + cos \pi \dint_{\xi}^{\pi} f(x) \intdd{x} = \dint_0^{\xi} f(x) \intdd{x} - \dint_{\xi}^{\pi} f(x) \intdd{x}.
+\]</div>
+<p>而我们又有</p>
+<div class="arithmatex">\[
+    \dint_0^{\xi} f(x) \intdd{x} + \dint_{\xi}^{\pi} f(x) \intdd{x} = \dint_0^{\pi} f(x) \intdd{x} = 0.
+\]</div>
+<p>上两式联立可得 <span class="arithmatex">\(\dint_0^{\xi} f(x) \intdd{x} = \dint_{\xi}^{\pi} f(x) \intdd{x} = 0\)</span>. 分别在 <span class="arithmatex">\([0, \xi]\)</span> 和 <span class="arithmatex">\([\xi, \pi]\)</span> 使用积分第一中值定理，即有 <span class="arithmatex">\(\xi_1, \xi_2 \in (0, \pi)\)</span>，使得 <span class="arithmatex">\(f(\xi_1) = f(\xi_2) = 0\)</span>，证毕.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Riemann-Lebesque 引理</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调，证明：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \lim\limits_{\lambda \to +\infty} \int_{a}^{b} f(x) \cos \lambda x \intdd{x} &amp;= 0, \\
+    \lim\limits_{\lambda \to +\infty} \int_{a}^{b} f(x) \sin \lambda x \intdd{x} &amp;= 0.
+\end{align*}
+\]</div>
+<p>Hint：注意单调条件的运用</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调，使用积分第二中值定理，则存在 <span class="arithmatex">\(\xi \in [a,b]\)</span>，使得</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \left|\int_a^b f(x) \cos \lambda x \intdd{x}\right| &amp;= \left|f(a) \int_a^{\xi} \cos \lambda x \intdd{x} + f(b) \int_{\xi}^b \cos \lambda x \intdd{x} \right| \\
+                                                        &amp;= \left|\frac{1}{\lambda} (f(a) (\sin \lambda \xi - \sin \lambda a) + f(b) (\sin \lambda b - \sin \lambda \xi)) \right| \\
+                                                        &amp;\leqslant \frac{2}{\lambda} (|f(a)| + |f(b)|).
+\end{align*}
+\]</div>
+<p>令 <span class="arithmatex">\(\lambda \to + \infty\)</span>，则上式趋于 0. 同理可证 <span class="arithmatex">\(\lim\limits_{\lambda \to +\infty} \dint_a^b f(x) \sin \lambda x \intdd{x} = 0\)</span>.</p>
+</details>
+<h4 id="_14">积分不等式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>绝对值不等式：<span class="arithmatex">\(\left\vert \dint_a^b f(x) \intdd{x}\right\vert \leqslant \dint_a^b |f(x)| \intdd{x}\)</span>.</p>
+</li>
+<li>
+<p>Cauchy-Schwarz 不等式：<span class="arithmatex">\(\left( \dint_a^b |f(x)g(x)| \intdd{x} \right)^{2} \leqslant \left( \dint_a^b f^2(x) \intdd{x} \right) \left( \dint_a^b g^2(x) \intdd{x} \right)\)</span>.</p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">积分不等式的三种常见解法</p>
+<ul>
+<li>利用保号性对被积函数放缩</li>
+<li>定积分化变上限积分后求导研究</li>
+<li>利用已有积分不等式</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上可积，且 <span class="arithmatex">\(\dint_0^1 g(x) \intdd{x} = 0\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \left[ \int_0^1 x g(x) \intdd{x} \right]^2 \leqslant \frac{1}{12} \int_0^1 g^2(x) \intdd{x}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>观察待证式和条件的结构，发现待证式与 Cauchy-Schwarz 不等式形式相似，尝试直接进行放缩：</p>
+<div class="arithmatex">\[
+    \left[ \int_0^1 x g(x) \intdd{x} \right]^2 \leqslant \left(\int_0^1 x^2 \intdd{x} \right) \left(\int_0^1 g^2(x) \intdd{x} \right) = \frac{1}{3} \int_0^1 g^2(x) \intdd{x},
+\]</div>
+<p>发现放过头，需要进一步调整. 我们现在仍然未使用条件 <span class="arithmatex">\(\int_0^1 g(x) \intdd{x} = 0\)</span>，通过该条件可以对待证式左边进行调整，再利用 Cauchy-Schwarz 不等式进行放缩：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \left[ \int_0^1 x g(x) \intdd{x} \right]^2
+    &amp;= \left[ \int_0^1 (x + a) g(x) \intdd{x} \right]^2 \\
+    &amp;\leqslant \left(\int_0^1 (x + a)^2 \intdd{x} \right) \left(\int_0^1 g^2(x) \intdd{x} \right) \\
+    &amp;= \frac{1}{3} \left[(1-a)^3 + a^3 \right] \int_0^1 g^2(x) \intdd{x} \\
+\end{align*}
+\]</div>
+<p>考虑求 <span class="arithmatex">\(h(a) = \dfrac{1}{3}[(1-a)^3 + a^3] = a^2 - a + \dfrac{1}{3}\)</span> 的最小值，发现当 <span class="arithmatex">\(a = \dfrac{1}{2}\)</span> 时，<span class="arithmatex">\(h(a) = \dfrac{1}{12}\)</span> 取得最小值. 故</p>
+<div class="arithmatex">\[
+    \left[ \int_0^1 x g(x) \intdd{x} \right]^2 = \left[ \int_0^1 \left(x + \dfrac{1}{2}\right) g(x) \intdd{x} \right]^2 \leqslant \frac{1}{12} \int_0^1 g^2(x) \intdd{x}.
+\]</div>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(a&gt;0\)</span> 为常数，证明：</p>
+<div class="arithmatex">\[
+    \int_0^{\pi} x a^{\sin x} \intdd{x} \cdot \int_0^{\frac{\pi}{2}} a^{-\cos x} \geqslant \frac{\pi^3}{4}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>对待证式左边的两个积分分别进行处理：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_0^{\pi} x a^{\sin x} \intdd{x} &amp;= \int_0^{\frac{\pi}{2}} x a^{\sin x} \intdd{x} + \int_{\frac{\pi}{2}}^{\pi} x a^{\sin x} \intdd{x} \\
+                                        &amp;= \int_0^{\frac{\pi}{2}} x a^{\sin x} \intdd{x} + \int_0^{\frac{\pi}{2}} (\pi - x) a^{\sin x} \intdd{x} \\
+                                        &amp;= \pi \int_0^{\frac{\pi}{2}} a^{\sin x} \intdd{x}.
+\end{align*}
+\]</div>
+<div class="arithmatex">\[
+    \int_0^{\frac{\pi}{2}} a^{-\cos x} \intdd{x} = \int_0^{\frac{\pi}{2}} a^{-\sin x} \intdd{x}.
+\]</div>
+<p>故</p>
+<div class="arithmatex">\[
+    \mathrm{LHS} = \pi \int_0^{\frac{\pi}{2}} a^{\sin x} \intdd{x} \int_0^{\frac{\pi}{2}} a^{-\sin x} \intdd{x} \geqslant \pi \left(\int_0^{\frac{\pi}{2}} \intdd{x}\right)^2 = \frac{\pi^3}{4}.
+\]</div>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,a]\)</span> 上的导函数连续，<span class="arithmatex">\(f(0) = 0\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \int_0^a |f(x) f'(x)| \intdd{x} \leqslant \frac{a}{2} \int_0^a (f'(x))^2 \intdd{x}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>令 <span class="arithmatex">\(F(x) = \int_0^a |f'(x)| \intdd{x}\)</span>，则 <span class="arithmatex">\(F'(x) = |f'(x)|\)</span>，并且 <span class="arithmatex">\(F(x) \geqslant \left|\dint_0^a f'(x) \intdd{x}\right| = |f(x)|\)</span>. 利用该不等式，待证式左侧可化为</p>
+<div class="arithmatex">\[
+    \int_0^a |f(x)||f'(x)| \intdd{x} \leqslant \int F(x) F'(x) \intdd{x} = \frac{1}{2} (F^2(a) - F^2(0)) = \frac{1}{2} F^2(a).
+\]</div>
+<p>利用 Cauchy-Schwarz 不等式，有</p>
+<div class="arithmatex">\[
+    \frac{1}{2} F^2(a) = \frac{1}{2} \left( \int_0^a |f'(x)| \intdd{x} \right)^2 \leqslant \frac{a}{2} \int_0^a (f'(x))^2 \intdd{x}.
+\]</div>
+<p>证毕.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续且单调递增，证明：</p>
+<div class="arithmatex">\[
+    \int_a^b x f(x) \intdd{x} \geqslant \frac{a+b}{2} \int_a^b f(x) \intdd{x}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>没有想法时可以尝试做差法，待证式化为</p>
+<div class="arithmatex">\[
+    \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} \geqslant 0.
+\]</div>
+<p>由于 <span class="arithmatex">\(g(x) = x - \frac{a+b}{2}\)</span> 关于 <span class="arithmatex">\([a,b]\)</span> 的中点 <span class="arithmatex">\(\dfrac{a+b}{2}\)</span> 中心对称，有 <span class="arithmatex">\(-\dint_a^{\frac{a+b}{2}} g(x) \intdd{x} = \dint_{\frac{a+b}{2}}^b g(x) \intdd{x} = \dfrac{(b-a)^2}{8} &gt; 0\)</span>.</p>
+<p>根据以上性质，我们尝试将积分区间按照中点 <span class="arithmatex">\(\dfrac{a+b}{2}\)</span> 分割，得到</p>
+<div class="arithmatex">\[
+    \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} = \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} + \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x}.
+\]</div>
+<p>由于 <span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\(\left[a, \dfrac{a+b}{2} \right]\)</span> 和 <span class="arithmatex">\(\left[\dfrac{a+b}{2}, b \right]\)</span> 上分别不变号，利用积分第一中值定理，存在 <span class="arithmatex">\(\xi_1 \in \left(a, \dfrac{a+b}{2} \right)\)</span> 和 <span class="arithmatex">\(\xi_2 \in \left(\dfrac{a+b}{2}, b \right)\)</span>，使得</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_a^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x}
+    &amp;= \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} + \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) f(x) \intdd{x} \\
+    &amp;= f(\xi_1) \int_a^{\frac{a+b}{2}} \left(x - \frac{a+b}{2}\right) \intdd{x} + f(\xi_2) \int_{\frac{a+b}{2}}^b \left(x - \frac{a+b}{2}\right) \intdd{x} \\
+    &amp;= \frac{(b-a)^2}{8}(f(\xi_2) - f(\xi_1)).
+\end{align*}
+\]</div>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上单调递增，有 <span class="arithmatex">\(f(\xi_1) \leqslant f(\xi_2)\)</span>，故上式非负，证毕.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上可导，且 <span class="arithmatex">\(f(x)\)</span> 不恒等于 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(\int_0^1 f(x) \intdd{x} = 0\)</span>，证明：</p>
+<div class="arithmatex">\[
+    \int_0^1 |f(x)| \intdd{x} \cdot \int_0^1 |f'(x)| \intdd{x} \geqslant 2 \int_0^1 f^2(x) \intdd{x}.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>令变上限积分 <span class="arithmatex">\(F(x) = \dint_0^x f(t) \intdd{t}\)</span>，则由条件有 <span class="arithmatex">\(F(0) = F(1) = 0\)</span>. 对待证式右侧进行处理：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \left| \int_0^1 f^2(x) \intdd{x} \right| &amp;= \left| \int_0^1 f(x) \intdd{F(x)} \right| \\
+                                             &amp;= \left| f(x) F(x) \bigg{|}_{0}^{1} - \int_0^1 F(x) f'(x) \intdd{x} \right| \\
+                                             &amp;= \left|\int_0^1 F(x) f'(x) \intdd{x} \right| \\
+                                             &amp;\leqslant \int_0^1 |F(x)| |f'(x)| \intdd{x}.
+\end{align*}
+\]</div>
+<p>再利用积分第一中值定理，存在 <span class="arithmatex">\(\xi \in (0,1)\)</span>，使得</p>
+<div class="arithmatex">\[
+    \left| \int_0^1 f^2(x) \intdd{x} \right| \leqslant |F(\xi)| \int_0^1 |f'(x)| \intdd{x}.
+\]</div>
+<p>下面证明 <span class="arithmatex">\(2|F(\xi)| \leqslant \dint_0^1 |f(x)| \intdd{x}\)</span>. 将右侧以 <span class="arithmatex">\(\xi\)</span> 为分界点拆成两个积分，再利用绝对值不等式进行放缩：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_0^1 |f(x)| \intdd{x} &amp;= \int_0^{\xi} |f(x)| \intdd{x} + \int_{\xi}^1 |f(x)| \intdd{x} \\
+                              &amp;\geqslant \left|\int_0^{\xi} f(x) \intdd{x} \right| + \left|\int_{\xi}^1 f(x) \intdd{x} \right| \\
+                              &amp;= |F(\xi)| + |F(1) - F(\xi)| \\
+                              &amp;= 2|F(\xi)|.
+\end{align*}
+\]</div>
+<p>综上，</p>
+<div class="arithmatex">\[
+    2 \left| \int_0^1 f^2(x) \intdd{x} \right| \leqslant 2 |F(\xi)| \int_0^1 |f'(x)| \intdd{x} \leqslant \int_0^1 |f(x)| \intdd{x} \int_0^1 |f'(x)| \intdd{x}.
+\]</div>
+</details>
+<h3 id="_15">定积分的计算<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h4 id="_16">基本方法<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>对于可以找到原函数的被积函数，我们可以利用微积分基本定理直接进行计算：</p>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Newton-Leibniz 公式</p>
+<p>若函数 <span class="arithmatex">\(f(x)\)</span> 在区间 <span class="arithmatex">\([a,b]\)</span> 上可积且有原函数 <span class="arithmatex">\(F(x)\)</span>，则</p>
+<div class="arithmatex">\[
+    \int_{a}^{b} f(x) \intdd{x} = F(b) - F(a).
+\]</div>
+</div>
+<h5 id="_17">换元积分法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h5>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 定积分的换元积分法</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，<span class="arithmatex">\(\varphi(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上的一阶导连续，并且 <span class="arithmatex">\(\forall t \in (\alpha, \beta), a = \varphi(\alpha) \leqslant \varphi(t) \leqslant \varphi(\beta) = b\)</span>，则</p>
+<div class="arithmatex">\[
+    \int_{a}^{b} f(x) \intdd{x} = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \intdd{t}.
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>计算 <span class="arithmatex">\(\dint_1^2 \dfrac{1}{x^{10} + x} \intdd{x}\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>观察到分母和分子次数相差很大，因此考虑分子分母同乘 <span class="arithmatex">\(x\)</span> 的幂，对分子凑微分后换元降幂.</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_1^2 \frac{1}{x^{10} + x} \intdd{x}
+    &amp;= \int_1^2 \frac{x^8}{x^{18} + x^9} \intdd{x} \\
+    &amp;= \frac{1}{9} \int_1^2 \frac{1}{x^{18} + x^9} \intdd{x^9} \\
+    &amp;= \frac{1}{9} \int_1^{512} \frac{1}{t(t+1)} \intdd{t} \\
+    &amp;= \frac{1}{9} \left(\ln \frac{t}{t+1} \right) \bigg{|}_{1}^{512} \\
+    &amp;= \frac{1}{9} \ln \frac{1024}{513}.
+\end{align*}
+\]</div>
+</details>
+<h5 id="_18">分部积分法<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h5>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 定积分的分部积分法</p>
+<p>设 <span class="arithmatex">\(u(x), v(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上的一阶导连续，则</p>
+<div class="arithmatex">\[
+    \int_{a}^{b} u(x)v'(x) \intdd{x} = (u(x)v(x)) \bigg{|}_{a}^{b} - \int_{a}^{b} u'(x)v(x) \intdd{x}.
+\]</div>
+</div>
+<p>利用分部积分法可以得到几个结论：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(I_n = \dint_{0}^{\frac{\pi}{2}} \sin^n x \intdd{x} = \dint_{0}^{\frac{\pi}{2}} \cos^n x \intdd{x}\)</span> 的通式</p>
+<p>由分部积分法可得 <span class="arithmatex">\(I_n = \dfrac{n-1}{n} I_{n-2}\)</span>，再由 <span class="arithmatex">\(I_0 = \dfrac{\pi}{2}\)</span>，<span class="arithmatex">\(I_1 = 1\)</span> 可得通式：</p>
+<div class="arithmatex">\[
+    I_n = \begin{cases}
+        \dfrac{(n-1)!!}{n!!} \dfrac{\pi}{2} &amp;\enspace ,n = 2k \\[1em]
+        \dfrac{(n-1)!!}{n!!}                &amp;\enspace ,n = 2k+1
+    \end{cases}
+\]</div>
+<p>此式可用于快速求解 <span class="arithmatex">\(\sin^n x\)</span> 和 <span class="arithmatex">\(\cos^n x\)</span> 的积分.</p>
+</li>
+<li>
+<p>Wallis 公式：<span class="arithmatex">\(\lim\limits_{n \to \infty} \left( \dfrac{(2n)!!}{(2n-1)!!} \right)^2 \dfrac{1}{2n+1} = \dfrac{\pi}{2}\)</span>.</p>
+</li>
+<li>
+<p>Stirling 公式：<span class="arithmatex">\(n! \sim \sqrt{2\pi n} \left( \dfrac{n}{e} \right)^n, \enspace n \to \infty\)</span>.</p>
+</li>
+</ul>
+<h4 id="_19">特殊方法<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>定积分计算比不定积分计算更复杂的原因之一：对于一些难以求得原函数的被积函数，我们可以通过一些特殊方法把它在<strong>特定区间</strong>上的定积分求出来.</p>
+<ul>
+<li>
+<p>倒代换：利用被积函数在积分区间上的对称性把难以求得原函数的部分消去.</p>
+<div class="admonition note">
+<p class="admonition-title">倒代换</p>
+<p>能通过倒代换求解的定积分中的被积函数通常都有（部分）对称性，例如：</p>
+<ul>
+<li>被积函数关于区间中点轴对称、中心对称</li>
+<li>幂函数和三角函数组合</li>
+</ul>
+<p>通常来说，如果被积函数含有三角函数项且十分复杂，并且积分区间长度与三角函数周期有关，那么我们可以通过倒代换的方法来求解定积分：</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>计算 <span class="arithmatex">\(\dint_{-\pi}^{\pi} \dfrac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x}\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>设 <span class="arithmatex">\(I = \dint_{-\pi}^{\pi} \dfrac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x}\)</span>，令 <span class="arithmatex">\(t = -x\)</span>，则有</p>
+<div class="arithmatex">\[
+    I = \int_{\pi}^{-\pi} \frac{-t \sin (-t) \cdot \arctan e^{-t}}{1 + \cos^2 (-t)} -\intdd{t}
+      = \int_{-\pi}^{\pi} \frac{t \sin t \cdot \arctan e^{-t}}{1 + \cos^2 t} \intdd{t}.
+\]</div>
+<p>因此有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    I &amp;= \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x \cdot \arctan e^x}{1 + \cos^2 x} \intdd{x} + \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x \cdot \arctan e^{-x}}{1 + \cos^2 x} \intdd{x} \\
+      &amp;= \frac{1}{2} \int_{-\pi}^{\pi} \frac{x \sin x}{1 + \cos^2 x} (\arctan e^x + \arctan e^{-x}) \intdd{x} \\
+      &amp;= \frac{1}{2} \int_{-\pi}^{\pi} \frac{\pi}{2} \frac{x \sin x}{1 + \cos^2 x} \intdd{x}.
+\end{align*}
+\]</div>
+<p>由于 <span class="arithmatex">\(\dfrac{x \sin x}{1 + \cos^2 x}\)</span> 是偶函数，因此</p>
+<div class="arithmatex">\[
+    I = \frac{\pi}{2} \int_{0}^{\pi} \frac{x \sin x}{1 + \cos^2 x} \intdd{x}.
+\]</div>
+<p>设 <span class="arithmatex">\(u = \pi - x\)</span>，则有</p>
+<div class="arithmatex">\[
+    I = \frac{\pi}{2} \int_{0}^{-\pi} \frac{(\pi - u) \sin u}{1 + \cos^2 u} -\intdd{u} = \frac{\pi}{2} \int_{0}^{\pi} \frac{(\pi - u) \sin u}{1 + \cos^2 u} \intdd{u}.
+\]</div>
+<p>上两式相加有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    I &amp;= \frac{\pi}{4} \int_{0}^{\pi} \frac{\pi \sin x}{1 + \cos^2 x} \intdd{x} \\
+      &amp;= -\frac{\pi^2}{4} \int_{0}^{\pi} \frac{\dd{\cos x}}{1 + \cos^2 x} \\
+      &amp;= -\frac{\pi^2}{4} \arctan (\cos x) \bigg{|}_{0}^{\pi} \\
+      &amp;= \frac{\pi^3}{8}.
+\end{align*}
+\]</div>
+</details>
+<p>如果积分区间是 <span class="arithmatex">\([a,b]\)</span>，而被积函数中含有对称的 <span class="arithmatex">\(x\)</span> 与 <span class="arithmatex">\(a+b-x\)</span> 项，那么我们可以通过倒代换后进行组合的方式计算定积分：</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,a]\)</span> 上连续，并且 <span class="arithmatex">\(f(x) + f(a-x) \neq 0\)</span>，求 <span class="arithmatex">\(\dint_{0}^{a} \dfrac{f(x)}{f(x) + f(a-x)} \intdd{x}\)</span>.</p>
+</li>
+<li>
+<p>计算 <span class="arithmatex">\(I = \dint_0^1 \dfrac{\ln (1+x)}{1 + x^2} \intdd{x}\)</span>.</p>
+</li>
+<li>
+<p>计算 <span class="arithmatex">\(I = \dint_{-1}^1 \dfrac{\sqrt{1 - x^2}}{1 - x} \intdd{x}\)</span>.</p>
+</li>
+</ul>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<ol>
+<li><span class="arithmatex">\(\dfrac{a}{2}\)</span>. (Hint: 令 <span class="arithmatex">\(u=a-x\)</span>，换元后得到的被积函数与原来的被积函数相加后等于 <span class="arithmatex">\(1\)</span>)</li>
+<li><span class="arithmatex">\(\dfrac{\pi}{8} \ln 2\)</span>. (Hint: 令 <span class="arithmatex">\(x = \tan t\)</span>，换元后便可以通过倒代换求解)</li>
+<li>
+<p>令 <span class="arithmatex">\(u = -x\)</span>，换元有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    I &amp;= \int_{1}^{-1} \frac{\sqrt{1-u^2}}{1 + u} -\intdd{u} \\
+      &amp;= \int_{-1}^1 \frac{\sqrt{1-u^2}}{1 + u} \intdd{u}.
+\end{align*}
+\]</div>
+<p>与原积分式相加有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    I &amp;= \frac{1}{2} \left(\int_{-1}^1 \frac{\sqrt{1-x^2}}{1 - x} + \int_{-1}^1 \frac{\sqrt{1-x^2}}{1 + x} \right) \\
+      &amp;= \int_{-1}^1 \frac{\sqrt{1 - x^2}}{1 - x^2} \intdd{x} \\
+      &amp;= \arcsin x \bigg{|}_{-1}^1 \\
+      &amp;= \pi.
+\end{align*}
+\]</div>
+</li>
+</ol>
+</details>
+<p>补充：倒代换中常用的三角恒等式：</p>
+<ul>
+<li><span class="arithmatex">\(\sin x = \cos (\dfrac{\pi}{2} - x)\)</span></li>
+<li><span class="arithmatex">\(\tan x \cdot \tan (\dfrac{\pi}{2} - x) = 1\)</span></li>
+<li><span class="arithmatex">\(\tan (\dfrac{\pi}{4} - x) = \dfrac{1 - \tan x}{1 + \tan x}\)</span></li>
+</ul>
+</div>
+</li>
+<li>
+<p>周期函数：对于周期为 <span class="arithmatex">\(T\)</span> 的函数 <span class="arithmatex">\(f(x)\)</span>，有以下公式成立：</p>
+<div class="arithmatex">\[
+    \int_{a}^{a+T} f(x) \intdd{x} = \int_{0}^{T} f(x) \intdd{x}.
+\]</div>
+<p>利用该公式可以将周期函数变换到一个比较容易积分的积分上进行求解.</p>
+</li>
+<li>
+<p>奇偶分离：对于任意一个定义域关于原点对称的函数 <span class="arithmatex">\(f(x)\)</span>，我们可以将其拆分成一个奇函数 <span class="arithmatex">\(g(x)\)</span> 和一个偶函数 <span class="arithmatex">\(h(x)\)</span> 的和，其中</p>
+<div class="arithmatex">\[
+    g(x) = \dfrac{f(x) - f(-x)}{2}, \enspace h(x) = \dfrac{f(x) + f(-x)}{2}.
+\]</div>
+<p>然后利用对称性就可以将 <span class="arithmatex">\(g(x)\)</span> 的积分消去，从而达到化简的目的.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>计算 <span class="arithmatex">\(I = \dint_{-2}^{2} x \ln(1 + e^x) \intdd{x}\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>将被积函数 <span class="arithmatex">\(f(x) = x \ln(1 + e^x)\)</span> 分解为奇函数 $g(x) 和偶函数 <span class="arithmatex">\(h(x)\)</span> 的和，可得</p>
+<div class="arithmatex">\[
+\begin{align*}
+    g(x) &amp;= \frac{f(x) - f(-x)}{2} = \frac{1}{2} x \left( 2\ln (1 + e^x) - x \right), \\
+    h(x) &amp;= \frac{f(x) + f(-x)}{2} = \frac{1}{2} x \ln \frac{1 + e^x}{1 + e^{-x}} = \frac{1}{2} x^2.
+\end{align*}
+\]</div>
+<p>发现分解出的偶函数 <span class="arithmatex">\(h(x)\)</span> 十分简单，而奇函数 <span class="arithmatex">\(g(x)\)</span> 在积分区间 <span class="arithmatex">\([-2,2]\)</span> 上的积分为 <span class="arithmatex">\(0\)</span>，因此有</p>
+<div class="arithmatex">\[
+    \int_{-2}^{2} x \ln(1 + e^x) \intdd{x} = \int_{-2}^{2} \frac{1}{2} x^2 \intdd{x} = \frac{8}{3}.
+\]</div>
+</details>
+</li>
+<li>
+<p>几何意义：利用定积分的几何意义简化计算.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>求定积分 <span class="arithmatex">\(\dint_{0}^{a} \sqrt{a^2 - x^2} \intdd{x}\)</span>，其中 <span class="arithmatex">\(a&gt;0\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>被积函数恰为圆心位于 <span class="arithmatex">\((0,0)\)</span>，半径为 <span class="arithmatex">\(a\)</span> 的圆的上半部分，因此待求定积分恰为该圆在第一象限内的面积，即</p>
+<div class="arithmatex">\[
+    \int_0^a \sqrt{a^2 - x^2} \intdd{x} = \frac{\pi a^2}{4}.
+\]</div>
+</details>
+</li>
+</ul>
+<h3 id="_20">定积分的应用<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h4 id="_21">定积分与极限<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<h5 id="_22">利用定积分计算和式的极限<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h5>
+<p>对于带有以下性质的和式的极限，我们可以将其化为定积分来计算：</p>
+<ul>
+<li>假设和式的下标为 <span class="arithmatex">\(k\)</span>，则每次 <span class="arithmatex">\(k\)</span> 都以 <span class="arithmatex">\(\dfrac{k}{n}\)</span> 的形式出现，对应积分中的 <span class="arithmatex">\(x\)</span>.</li>
+<li>可以提出一个 <span class="arithmatex">\(\dfrac{1}{n}\)</span> 的因子，对应积分中的 <span class="arithmatex">\(\dd{x}\)</span>.</li>
+<li>通过以上两条规则将和式化为定积分后，被积函数应可积.</li>
+</ul>
+<p>这种方法实际上是利用了已知被积函数可积的情况下，分割 <span class="arithmatex">\(\Delta\)</span> 和介点组 <span class="arithmatex">\(\{\xi\}\)</span> 可以任取的性质. 需要注意的是，大多数和式并不会有这么明显的结构，我们需要做一些变形或放缩来构造.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>计算极限 <span class="arithmatex">\(\lim\limits_{n \to +\infty} \dfrac{1}{n} \dsum_{k=1}^n \dfrac{\cos(\dfrac{k}{n})}{1 + \sin(\dfrac{k}{n})}\)</span>.</li>
+<li>计算极限 <span class="arithmatex">\(I = \lim\limits_{n \to +\infty} \dfrac{1}{n^4} \displaystyle\prod_{k=1}^{2n} (n^2 + k^2)^{\frac{1}{n}}\)</span>.</li>
+<li>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上的一阶导数连续，证明：</p>
+<div class="arithmatex">\[
+    \lim\limits_{n \to \infty} \sum_{k=1}^n \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right] = \frac{\ln 2}{2} f'(x).
+\]</div>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<ol>
+<li>
+<p>设函数 <span class="arithmatex">\(f(x) = \dfrac{\cos x}{1 + \sin x}\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上可积，因此</p>
+<div class="arithmatex">\[
+    \lim \limits_{n \to \infty} \dfrac{1}{n} \dsum_{k=1}^n \dfrac{\cos(\dfrac{k}{n})}{1 + \sin(\dfrac{k}{n})} = \int_0^1 \frac{\cos x}{1 + \sin x} \intdd{x} = \ln (1 + \sin x) \bigg{|}_{0}^1 = \ln (1 + \sin 1).
+\]</div>
+</li>
+<li>
+<p>设</p>
+<div class="arithmatex">\[
+\begin{align*}
+    J_n &amp;= \ln \left(\dfrac{1}{n^4} \displaystyle\prod_{k=1}^{2n} (n^2 + k^2)^{\frac{1}{n}}\right) \\
+        &amp;= \dsum_{k=1}^{2n} \frac{1}{n} \ln (n^2 + k^2) - 4 \ln n \\
+        &amp;= \frac{1}{n} \dsum_{k=1}^{2n} \left[\ln \left(1 + \frac{k^2}{n^2}\right) + 2\ln n \right] - 4 \ln n \\
+        &amp;= \frac{1}{n} \dsum_{k=1}^{2n} \ln \left(1 + \frac{k^2}{n^2}\right).
+\end{align*}
+\]</div>
+<p>设函数 <span class="arithmatex">\(f(x) = \ln (1 + x^2)\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0, 2]\)</span> 上可积，因此</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \lim\limits_{n \to +\infty} J_n
+    &amp;= \int_0^2 \ln (1 + x^2) \intdd{x} \\
+    &amp;= (x \ln (1 + x^2)) \bigg{|}_{0}^{2} - \int_0^2 \frac{2x^2}{1+x^2} \intdd{x} \\
+    &amp;= 2 \ln 5 - \int_0^2 2 \intdd{x} + 2 \int_0^2 \frac{1}{1+x^2} \intdd{x} \\
+    &amp;= 2 \ln 5 - 4 + 2 \arctan 2.
+\end{align*}
+\]</div>
+<p>由 <span class="arithmatex">\(g(x) = e^x\)</span> 在 <span class="arithmatex">\(x = 2\ln 5 - 4 + 2 \arctan 2\)</span> 处连续，可得</p>
+<div class="arithmatex">\[
+    I = \lim\limits_{n \to +\infty} e^{J_n} = e^{2 \ln 5 - 4 + 2 \arctan 2} = 25 e^{2 \arctan 2 - 4}.
+\]</div>
+</li>
+<li>
+<p>观察到 <span class="arithmatex">\(\dfrac{k}{n^2 + k^2} \leqslant \frac{1}{2n} \to 0 \enspace (n \to +\infty)\)</span>，因此我们可以尝试将 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x\)</span> 处 Taylor 展开：</p>
+<div class="arithmatex">\[
+    f \left(x + \frac{k}{n^2 + k^2}\right) = f(x) + \frac{k}{n^2 + k^2} f'(x) + o\left(\frac{k}{n^2 + k^2}\right).
+\]</div>
+<p>求和后有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \dsum_{k=1}^n \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right]
+    &amp;= \dsum_{k=1}^n \left[ \frac{k}{n^2 + k^2} f'(x) + \frac{k}{n^2 + k^2} o(1) \right] \\
+    &amp;= \frac{1}{n} \dsum_{k=1}^n \frac{\frac{k}{n}}{1 + \frac{k^2}{n^2}} (f'(x) + o(1)).
+\end{align*}
+\]</div>
+<p>而 <span class="arithmatex">\(g(x) = \dfrac{x}{1 + x^2}\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上可积，因此</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \lim\limits_{n \to \infty} \dsum_{k=1}^{2n} \left[ f\left( x + \frac{k}{n^2 + k^2} \right) - f(x) \right]
+    &amp;= f'(x) \int_0^1 \frac{x}{1 + x^2} \intdd{x} \\
+    &amp;= f'(x) \frac{1}{2} \ln (1 + x^2) \bigg{|}_{0}^1 \\
+    &amp;= \frac{\ln 2}{2} f'(x).
+\end{align*}
+\]</div>
+</li>
+</ol>
+</details>
+<h5 id="_23">极限中的定积分<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h5>
+<p>我们知道定积分是一个数值，如果将其中部分改为参数的话便可以构造数列或者函数. 此时如果对参数求极限，一般情况下我们不能直接将极限符号与积分符号交换，而需要采用分段放缩的方法.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>证明 <span class="arithmatex">\(\lim\limits_{n \to +\infty} \dint_{0}^{\frac{\pi}{2}} \sin^n x \intdd{x} = 0\)</span>.</li>
+<li>求极限 <span class="arithmatex">\(\lim\limits_{n \to +\infty} \left( \dint_1^2 e^{-n t^2} \intdd{t} \right)^{\frac{1}{n}}\)</span>.</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<ol>
+<li>
+<p>当 <span class="arithmatex">\(n \to +\infty\)</span> 时，<span class="arithmatex">\(x = \dfrac{\pi}{2}\)</span> 是 <span class="arithmatex">\(f(x) = \sin^n x\)</span> 的一个异常点，我们设 <span class="arithmatex">\(\delta &gt; 0\)</span>，将积分分为两部分</p>
+<div class="arithmatex">\[
+    \int_0^{\frac{\pi}{2}} \sin^n x \intdd{x} = \int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x} + \int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}.
+\]</div>
+<p><span class="arithmatex">\(\forall \varepsilon &gt; 0\)</span>，要证明 <span class="arithmatex">\(\exists N &gt; 0\)</span>，使得 <span class="arithmatex">\(\forall n &gt; N\)</span>，有 <span class="arithmatex">\(\dint_0^{\frac{\pi}{2}} \sin^n x \intdd{x} &lt; \varepsilon\)</span>.</p>
+<p>对于第一部分，<span class="arithmatex">\(\forall \delta &gt; 0\)</span>，存在 <span class="arithmatex">\(N_1(\delta) &gt; 0\)</span>，使得 <span class="arithmatex">\(\forall n &gt; N_1(\delta)\)</span>，有 <span class="arithmatex">\(|(\sin x)^n| &lt; \dfrac{\varepsilon}{\pi}\)</span>，因此</p>
+<div class="arithmatex">\[
+    \left|\int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x}\right| &lt; \frac{\varepsilon}{\pi} \left(\frac{\pi}{2} - \delta\right) &lt; \frac{\varepsilon}{2}.
+\]</div>
+<p>对于第二部分，取 <span class="arithmatex">\(\delta = \dfrac{\varepsilon}{2}\)</span>，即有</p>
+<div class="arithmatex">\[
+    \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| &lt; \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \intdd{x} \right| = \delta = \frac{\varepsilon}{2}.
+\]</div>
+<p>因此取 <span class="arithmatex">\(N = N_1\left(\dfrac{\varepsilon}{2}\right)\)</span>，则 <span class="arithmatex">\(\forall n &gt; N\)</span>，有</p>
+<div class="arithmatex">\[
+    \left|\int_0^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| &lt; \left|\int_0^{\frac{\pi}{2} - \delta} \sin^n x \intdd{x}\right| + \left|\int_{\frac{\pi}{2} - \delta}^{\frac{\pi}{2}} \sin^n x \intdd{x}\right| &lt; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+\]</div>
+</li>
+</ol>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>分段放缩法的应用：</p>
+<ul>
+<li>证明函数可积</li>
+<li>求极限中的定积分</li>
+</ul>
+</div>
+<h4 id="_24">定积分与几何<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<h5 id="_25">平面图形面积<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h5>
+<ol>
+<li>
+<p>直角坐标系</p>
+<p>在直角坐标系下，定积分的几何意义就是曲边梯形与坐标轴围成的有向面积.</p>
+<ul>
+<li><span class="arithmatex">\(y=f(x)\)</span> 与 <span class="arithmatex">\(x\)</span> 轴围成的有向面积：<span class="arithmatex">\(S_x = \dint_{a}^{b} f(x) \intdd{x}\)</span>.</li>
+<li><span class="arithmatex">\(x=g(y)\)</span> 与 <span class="arithmatex">\(y\)</span> 轴围成的有向面积：<span class="arithmatex">\(S_y = \dint_{c}^{d} g(y) \intdd{y}\)</span>.</li>
+</ul>
+</li>
+<li>
+<p>极坐标系</p>
+<p><span class="arithmatex">\(r=r(\theta)\)</span> 与射线 <span class="arithmatex">\(\theta = \alpha\)</span>，射线 <span class="arithmatex">\(\theta = \beta\)</span> 围成的图形面积：</p>
+<div class="arithmatex">\[
+    S = \int_{\alpha}^{\beta} \frac{1}{2} (r(\theta))^2 \intdd{\theta}.
+\]</div>
+</li>
+<li>
+<p>参数方程</p>
+<p>平面参数曲线 <span class="arithmatex">\(L: \begin{cases} x = \varphi(t) \\ y = \psi(t) \end{cases}\)</span>，起点为 <span class="arithmatex">\((a,c)\)</span>，终点为 <span class="arithmatex">\((b,d)\)</span>，满足 <span class="arithmatex">\(a = \varphi(\alpha), b = \varphi(\beta)\)</span> 以及 <span class="arithmatex">\(c = \psi(\alpha), d = \psi(\beta)\)</span>，则：</p>
+<ul>
+<li><span class="arithmatex">\(L\)</span> 与 <span class="arithmatex">\(x\)</span> 轴围成的有向面积：<span class="arithmatex">\(S_x = \dint_{\alpha}^{\beta} \psi(t) \varphi'(t) \intdd{t}\)</span>.</li>
+<li><span class="arithmatex">\(L\)</span> 与 <span class="arithmatex">\(y\)</span> 轴围成的有向面积：<span class="arithmatex">\(S_y = \dint_{\alpha}^{\beta} \varphi(t) \psi'(t) \intdd{t}\)</span>.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>具有对称性的图形可以只算部分面积，避免正负号处理.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">23-24 期末 T2.e</p>
+<p>求双扭线 <span class="arithmatex">\(r = \sqrt{\cos (2\theta)}\)</span> 所围平面图形的面积.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>双纽线关于 <span class="arithmatex">\(x\)</span> 轴与 <span class="arithmatex">\(y\)</span> 轴对称，故我们可以只计算位于第一象限的部分面积.</p>
+<div class="arithmatex">\[
+    S = 4 \int_{0}^{\frac{\pi}{4}} \frac{1}{2} \cos(2\theta) \dd{\theta}
+      = \sin(2\theta) \bigg{|}_0^{\frac{\pi}{4}}
+      = 1
+\]</div>
+</details>
+<h5 id="_26">旋转体体积<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h5>
+<p>利用截面法可以解决旋转体体积问题：设旋转轴为 <span class="arithmatex">\(x\)</span> 轴，设旋转体垂直 <span class="arithmatex">\(x\)</span> 轴的横截面积为 <span class="arithmatex">\(S(x)\)</span>，横截面半径为 <span class="arithmatex">\(r(x)\)</span>，则</p>
+<div class="arithmatex">\[
+    V = \int_{a}^{b} S(x) \intdd{x} = \int_{a}^{b} \pi r^2(x) \intdd{x}.
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">21-22 期末 T1.d</p>
+<p>求 <span class="arithmatex">\(y=e^x\)</span> 过点 <span class="arithmatex">\((0,0)\)</span> 的切线 <span class="arithmatex">\(L\)</span>，并求 <span class="arithmatex">\(y=e^x\)</span>、<span class="arithmatex">\(L\)</span> 与 <span class="arithmatex">\(y\)</span> 轴所围图形绕 <span class="arithmatex">\(x\)</span> 轴旋转一周的体积.</p>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<div class="arithmatex">\[
+    V = \int_0^1 \pi e^{2x} \intdd{x} - \frac{\pi}{3} e^2 = \frac{\pi e^2}{6} - \frac{\pi}{2}.
+\]</div>
+</details>
+<h5 id="_27">曲线弧长<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>显式曲线：<span class="arithmatex">\(\Gamma: y=f(x), \enspace x \in [a,b]\)</span>，则曲线弧长</p>
+<div class="arithmatex">\[
+    L(\Gamma) = \int_{a}^{b} \sqrt{1 + (f'(x))^2} \intdd{x}.
+\]</div>
+</li>
+<li>
+<p>隐式曲线（参数曲线）：<span class="arithmatex">\(\Gamma: \begin{cases} x = \varphi(t) \\ y = \psi(t) \end{cases}, \enspace t \in [\alpha, \beta]\)</span>，则曲线弧长</p>
+<div class="arithmatex">\[
+    L(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(\varphi'(t))^2 + (\psi'(t))^2} \intdd{t}.
+\]</div>
+</li>
+<li>
+<p>极坐标曲线：<span class="arithmatex">\(\Gamma: r = r(\theta), \enspace \theta \in [\alpha, \beta]\)</span>，则曲线弧长</p>
+</li>
+</ul>
+<div class="arithmatex">\[
+    L(\Gamma) = \int_{\alpha}^{\beta} \sqrt{(r(\theta))^2 + (r'(\theta))^2} \intdd{\theta}.
+\]</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>（22-23 期末 T1.d）求曲线 <span class="arithmatex">\(y = \dint_{-\sqrt{3}}^{x} \sqrt{3 - t^2} \intdd{t}\)</span> 在 <span class="arithmatex">\(x \in [-\sqrt{3}, \sqrt{3}]\)</span> 上的弧长.</li>
+<li>（20-21 期末 T1.e）设 <span class="arithmatex">\(f(x) = \dint_{0}^{x} \sqrt{\cos t} \intdd{t}\)</span>，求曲线 <span class="arithmatex">\(y = f(x)\)</span> 在 <span class="arithmatex">\(x \in [0,1]\)</span> 上的弧长.</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(f(x) = \dint_{-\sqrt{3}}^{x} \sqrt{3 - t^2} \intdd{t}\)</span>，求导有 <span class="arithmatex">\(f'(x) = \sqrt{3 - x^2}\)</span>. 故曲线 <span class="arithmatex">\(y = f(x)\)</span> 在 <span class="arithmatex">\(x \in [-\sqrt{3}, \sqrt{3}]\)</span> 上的弧长为</p>
+<div class="arithmatex">\[
+    L = \int_{-\sqrt{3}}^{\sqrt{3}} \sqrt{1 + (f'(x))^2} \intdd{x}
+      = \int_{-\sqrt{3}}^{\sqrt{3}} \sqrt{4 - x^2} \intdd{x}
+      = \sqrt{3} + 4 \arcsin \frac{\sqrt{3}}{2}.
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(f'(x) = \sqrt{\cos x}\)</span>，故曲线 <span class="arithmatex">\(y = f(x)\)</span> 在 <span class="arithmatex">\(x \in [0,1]\)</span> 上的弧长为</p>
+<div class="arithmatex">\[
+    L = \int_0^1 \sqrt{1 + (f'(x))^2} \intdd{x}
+      = \int_0^1 \sqrt{1 + \cos x} \intdd{x}
+      = \int_0^1 \sqrt{2 \cos^2 \frac{x}{2}} \intdd{x}
+      = 2\sqrt{2} \sin \frac{1}{2}.
+\]</div>
+</li>
+</ol>
+</details>
+<h2 id="_28">反常积分<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="_29">反常积分的定义<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 无穷积分</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, \infty)\)</span> 上有定义，且在任意有限区间 <span class="arithmatex">\([a,b]\)</span> 上可积，若极限</p>
+<div class="arithmatex">\[
+    A = \lim\limits_{b \to \infty} \int_{a}^{b} f(x) \intdd{x}
+\]</div>
+<p>存在，则称无穷积分 <span class="arithmatex">\(\dint_{a}^{\infty} f(x) \intdd{x}\)</span> 收敛到 <span class="arithmatex">\(A\)</span>. 若 <span class="arithmatex">\(A\)</span> 不存在，则称 <span class="arithmatex">\(\dint_{a}^{\infty} f(x) \intdd{x}\)</span> 发散.</p>
+</div>
+<p>另外两类无穷积分：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((-\infty, b]\)</span> 上有定义，且在任意有限区间 <span class="arithmatex">\([a,b]\)</span> 上可积，则</p>
+<div class="arithmatex">\[
+    A = \lim\limits_{a \to -\infty} \dint_{a}^{b} f(x) \intdd{x} \;\text{存在} \iff \dint_{-\infty}^{a} f(x) \intdd{x} \;\text{收敛到}\; A.
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((-\infty, \infty)\)</span> 上有定义，且在任意有限区间 <span class="arithmatex">\([a,b]\)</span> 上可积，则</p>
+<div class="arithmatex">\[
+    A^- = \lim\limits_{a \to -\infty} \dint_{a}^{c} f(x) \intdd{x} \;\text{和}\; A^+ = \lim\limits_{b \to \infty} \dint_{c}^{b} f(x) \intdd{x} \;\text{都存在}\; \iff \dint_{-\infty}^{\infty} f(x) \intdd{x} \;\text{收敛到} A^- + A^+.
+\]</div>
+</li>
+</ul>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 瑕积分</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a, b]\)</span> 上有定义，且 <span class="arithmatex">\(\forall \varepsilon &gt; 0\)</span>，<span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a+\varepsilon,b]\)</span> 上可积，并且 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\((a, a+\varepsilon)\)</span> 上无界，若极限</p>
+<div class="arithmatex">\[
+    A = \lim\limits_{\varepsilon \to 0^+} \int_{a+\varepsilon}^{b} f(x) \intdd{x}
+\]</div>
+<p>存在，则称瑕积分 <span class="arithmatex">\(\dint_{a}^{b} f(x) \intdd{x}\)</span> 收敛到 <span class="arithmatex">\(A\)</span>. 若 <span class="arithmatex">\(A\)</span> 不存在，则称 <span class="arithmatex">\(\dint_{a}^{b} f(x) \intdd{x}\)</span> 发散.</p>
+</div>
+<p>另外两类瑕积分：</p>
+<ul>
+<li><span class="arithmatex">\(b\)</span> 是瑕点，<span class="arithmatex">\(\forall \varepsilon &gt; 0\)</span>，<span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, b-\varepsilon]\)</span> 上可积，而在 <span class="arithmatex">\((b-\varepsilon, b)\)</span> 上无界，若极限</li>
+</ul>
+<div class="arithmatex">\[
+    A = \lim\limits_{\varepsilon \to 0^+} \int_{a}^{b-\varepsilon} f(x) \intdd{x}
+\]</div>
+<p>存在，则称瑕积分 <span class="arithmatex">\(\dint_{a}^{b} f(x) \intdd{x}\)</span> 收敛到 <span class="arithmatex">\(A\)</span>. 若 <span class="arithmatex">\(A\)</span> 不存在，则称 <span class="arithmatex">\(\dint_{a}^{b} f(x) \intdd{x}\)</span> 发散.</p>
+<ul>
+<li><span class="arithmatex">\(a,b\)</span> 均为瑕点，<span class="arithmatex">\(c\)</span> 是 <span class="arithmatex">\((a,b)\)</span> 上任一非瑕点，若瑕积分 <span class="arithmatex">\(\dint_{a}^{c} f(x) \intdd{x}\)</span> 和 <span class="arithmatex">\(\dint_{c}^{b} f(x) \intdd{x}\)</span> 均收敛，则 <span class="arithmatex">\(\dint_{a}^{b} f(x) \intdd{x}\)</span> 收敛，且</li>
+</ul>
+<div class="arithmatex">\[
+    \dint_{a}^{b} f(x) \intdd{x} = \dint_{a}^{c} f(x) \intdd{x} + \dint_{c}^{b} f(x) \intdd{x}.
+\]</div>
+<h3 id="_30">反常积分的性质<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<div class="admonition property">
+<p class="admonition-title">Property :: 反常积分的性质</p>
+<ul>
+<li>线性性：<span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 和 <span class="arithmatex">\(\dint_{a}^{+\infty} g(x) \intdd{x}\)</span> 收敛 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} [k_1 f(x) + k_2 g(x)] \intdd{x} = k_1 \dint_{a}^{+\infty} f(x) \intdd{x} + k_2 \dint_{a}^{+\infty} g(x) \intdd{x}\)</span>.</li>
+<li>
+<p>Newton-Leibniz 公式：</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上有原函数 <span class="arithmatex">\(F(x)\)</span>，并且 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} f(x) \intdd{x} = F(+\infty) - F(a)\)</span>.</p>
+</li>
+<li>
+<p>换元公式：<span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,+\infty)\)</span> 上可积，<span class="arithmatex">\(\varphi(x)\)</span> 是 <span class="arithmatex">\([\alpha, \beta]\)</span> 上的连续可微严格单调函数，且 <span class="arithmatex">\(a = \varphi(\alpha) \leqslant \varphi(t) \leqslant \lim\limits_{t \to \beta^-} \varphi(t) = +\infty\)</span>，则</p>
+<div class="arithmatex">\[
+    \int_{a}^{+\infty} f(x) \intdd{x} = \int_{\alpha}^{\beta} f(\varphi(t)) \varphi'(t) \intdd{t}.
+\]</div>
+</li>
+<li>
+<p>分部积分公式：设 <span class="arithmatex">\(u(x), v(x)\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上的一阶导连续，且极限 <span class="arithmatex">\(\lim\limits_{x \to +\infty} u(x)v(x)\)</span> 存在，则</p>
+<div class="arithmatex">\[
+    \int_{a}^{+\infty} u(x)v'(x) \intdd{x} = (u(x) v(x)) \bigg{|}_{a}^{+\infty} - \int_{a}^{+\infty} u'(x)v(x) \intdd{x}.
+\]</div>
+<p>上式成立要求等号两边的积分均收敛.</p>
+</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ol>
+<li>（23-24 期末 T2.d）求 <span class="arithmatex">\(\dint_{1}^{+\infty} \dfrac{\arctan x}{x^2} \intdd{x}\)</span>.</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Solution</summary>
+<p>先证该反常积分收敛：<span class="arithmatex">\(\dint_{1}^{+\infty} \dfrac{1}{x^2} \intdd{x}\)</span> 收敛，而 <span class="arithmatex">\(f(x) = \arctan x\)</span> 在 <span class="arithmatex">\([1, +\infty)\)</span> 单调有界，由 Abel 判别法可知 <span class="arithmatex">\(\dint_{1}^{+\infty} \dfrac{\arctan x}{x^2} \intdd{x}\)</span> 收敛.</p>
+<p>下面求该反常积分的值：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \text{原式} &amp;= - \int_1^{+\infty} \arctan x \dd(\frac{1}{x}) \\
+                &amp;= - \left( \frac{\arctan x}{x} \right) \bigg{|}_1^{+\infty} + \int_1^{+\infty} \frac{1}{x(1+x^2)} \dd{x} \\
+                &amp;= \frac{\pi}{4} + \frac{1}{2} \int_1^{+\infty} \frac{1}{x^2 (1+x^2)} \dd{x}^2 \\
+                &amp;= \frac{\pi}{4} + \frac{1}{2} \int_1^{+\infty} \left(\frac{1}{x^2}-\frac{1}{1+x^2} \right) \dd{x}^2 \\
+                &amp;= \frac{\pi}{4} + \frac{1}{2} \left(\ln \frac{x^2}{1+x^2} \right) \bigg{|}_1^{+\infty} \\
+                &amp;= \frac{\pi}{4} + \frac{1}{2} \ln 2.
+\end{align*}
+\]</div>
+</details>
+<h3 id="_31">敛散性判别<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<h4 id="_32">无穷积分<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: 收敛类型</p>
+<ul>
+<li>若 <span class="arithmatex">\(\dint_{a}^{+\infty} |f(x)| \intdd{x}\)</span> 收敛，则称 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 绝对收敛.</li>
+<li>若 <span class="arithmatex">\(\dint_{a}^{+\infty} |f(x)| \intdd{x}\)</span> 发散，而 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛，则称 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 条件收敛.</li>
+</ul>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Cauchy 收敛准则</p>
+<p><span class="arithmatex">\(\forall \varepsilon &gt; 0, \exists A &gt; a, \forall c &gt; b &gt; A\)</span>，满足 <span class="arithmatex">\(\left\vert \dint_{b}^{c} f(x) \intdd{x} \right\vert &lt; \varepsilon \iff \dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: 比较判别法</p>
+<ul>
+<li>（比较判别法 I）<ul>
+<li><span class="arithmatex">\(g(x) \geqslant 0\)</span>，若 <span class="arithmatex">\(\exists A &gt; a, \forall x &gt; A, |f(x)| \leqslant g(x)\)</span>，且 <span class="arithmatex">\(\dint_{a}^{+\infty} g(x) \intdd{x}\)</span> 收敛，则 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 绝对收敛.</li>
+<li><span class="arithmatex">\(g(x) \geqslant 0\)</span>，若 <span class="arithmatex">\(\exists A &gt; a, \forall x &gt; A, f(x) \geqslant g(x)\)</span>，且 <span class="arithmatex">\(\dint_{a}^{+\infty} g(x) \intdd{x}\)</span> 发散，则 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 发散.</li>
+</ul>
+</li>
+<li>（比较判别法 II）设 <span class="arithmatex">\(A = \lim\limits_{x \to +\infty} \dfrac{f(x)}{g(x)}\)</span>，其中 <span class="arithmatex">\(A\)</span> 为有限常数或 <span class="arithmatex">\(\pm \infty\)</span>，<span class="arithmatex">\(g(x) \geqslant 0\)</span><ul>
+<li><span class="arithmatex">\(0 \leqslant A &lt; +\infty, \dint_{a}^{+\infty} g(x) \intdd{x}\)</span> 收敛 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛.</li>
+<li><span class="arithmatex">\(0 &lt; A \leqslant +\infty, \dint_{a}^{+\infty} g(x) \intdd{x}\)</span> 发散 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 发散.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition eg">
+<p class="admonition-title">比较判别法的几个常用基准</p>
+<ul>
+<li><span class="arithmatex">\(\dint_{1}^{+\infty} \dfrac{1}{x^p} \intdd{x}\)</span>：当 <span class="arithmatex">\(p &gt; 1\)</span> 时收敛，当 <span class="arithmatex">\(0 &lt; p \leqslant 1\)</span> 时发散.</li>
+<li><span class="arithmatex">\(\dint_{e}^{+\infty} \dfrac{1}{x \ln^p x} \intdd{x}\)</span>：当 <span class="arithmatex">\(p &gt; 1\)</span> 时收敛，当 <span class="arithmatex">\(0 &lt; p \leqslant 1\)</span> 时发散.</li>
+</ul>
+</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Dirichlet / Abel 判别法</p>
+<ul>
+<li>（Dirichlet 判别法）<span class="arithmatex">\(F(x) = \dint_{a}^{x} f(t) \intdd{t}\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上有界，<span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上单调趋于 0 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} f(x)g(x) \intdd{x}\)</span> 收敛.</li>
+<li>（Abel 判别法）<span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛，<span class="arithmatex">\(g(x)\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上单调有界 <span class="arithmatex">\(\implies \dint_{a}^{+\infty} f(x)g(x) \intdd{x}\)</span> 收敛.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">21-22 期末 T7</p>
+<p>设函数</p>
+<div class="arithmatex">\[
+    f(x) = \begin{cases}
+        \dfrac{\sin x}{x} &amp;, x \neq 0 \\
+        \,1               &amp;, x = 0
+    \end{cases}
+\]</div>
+<p>证明 <span class="arithmatex">\(\dint_{0}^{+\infty} f(x) \intdd{x}\)</span> 与 <span class="arithmatex">\(\dint_{0}^{+\infty} f^2(x) \intdd{x}\)</span> 均收敛，且收敛到同一值.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>由 <span class="arithmatex">\(\dint_0^x \sin t \intdd{t} = 1 -\cos x\)</span> 在 <span class="arithmatex">\([0, +\infty)\)</span> 上有界，<span class="arithmatex">\(\dfrac{1}{x}\)</span> 在 <span class="arithmatex">\(x \to +\infty\)</span> 时单调趋于 <span class="arithmatex">\(0\)</span>，据 Dirichlet 判别法可知 <span class="arithmatex">\(\dint_0^{+\infty} \dfrac{\sin x}{x} \intdd{x}\)</span> 收敛.</p>
+<p>要证 <span class="arithmatex">\(\dint_0^{+\infty} f^2(x) \intdd{x}\)</span> 收敛，且与 <span class="arithmatex">\(\dint_0^{+\infty} f(x) \intdd{x}\)</span> 收敛到同一值，只需证明 <span class="arithmatex">\(\dint_0^{+\infty} (f(x) - f^2(x)) \intdd{x}\)</span> 收敛到 <span class="arithmatex">\(0\)</span> 即可.</p>
+<p>由 <span class="arithmatex">\(\dint_0^{+\infty} f(x) \intdd{x}\)</span> 收敛，令 <span class="arithmatex">\(x = 2u\)</span>，使用换元公式得</p>
+<div class="arithmatex">\[
+    \int_0^{+\infty} \frac{\sin x}{x} \intdd{x}
+    = \int_0^{+\infty} \frac{\sin 2u}{2u} 2\intdd{u}
+    = \int_0^{+\infty} \frac{\sin 2x}{x} \intdd{x}.
+\]</div>
+<p>对于任意 <span class="arithmatex">\(M \in (0, +\infty)\)</span>，</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_0^{M} f(x) - f^2(x) \intdd{x}
+    &amp;= \int_0^{M} \left( \frac{\sin 2x}{x} - \frac{\sin x^2}{x^2} \right) \intdd{x} \\
+    &amp;= \int_0^{M} \frac{x \sin 2x - \sin^2 x}{x^2} \intdd{x} \\
+    &amp;= \int_0^{M} \intdd{\left(\frac{\sin^2 x}{x}\right)} \\
+    &amp;= \left( \frac{\sin^2 x}{x} \right) \bigg{|}_0^{M} \\
+    &amp;= \frac{\sin^2 M}{M} - \lim\limits_{x \to 0^+} \frac{\sin^2 x}{x} \\
+    &amp;= \frac{\sin^2 M}{M}.
+\end{align*}
+\]</div>
+<p>令 <span class="arithmatex">\(M \to +\infty\)</span>，可得</p>
+<div class="arithmatex">\[
+    \int_0^{+\infty} (f(x) - f^2(x)) \intdd{x}
+    = \lim\limits_{M \to +\infty} \int_0^{M} (f(x) - f^2(x)) \intdd{x}
+    = \lim\limits_{M \to +\infty} \frac{\sin^2 M}{M}
+    = 0.
+\]</div>
+<p>证毕.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(\dint_{a}^{+\infty} f(x) \intdd{x}\)</span> 收敛，且 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, +\infty)\)</span> 上一致连续，证明 <span class="arithmatex">\(\lim\limits_{x \to +\infty} f(x) = 0\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(\forall \varepsilon &gt; 0\)</span>，要证 <span class="arithmatex">\(\exists M &gt; a\)</span>，使得 <span class="arithmatex">\(\forall x &gt; M\)</span>，有 <span class="arithmatex">\(|f(x)| &lt; \varepsilon\)</span>.</p>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, + \infty)\)</span> 上一致连续，取 <span class="arithmatex">\(\varepsilon_0 = \dfrac{\varepsilon}{2}\)</span>，则存在 <span class="arithmatex">\(\delta &gt; 0\)</span>，使得 <span class="arithmatex">\(\forall x_1, x_2 \in [a, +\infty)\)</span> 且 <span class="arithmatex">\(|x_1-x_2| &lt; \delta\)</span>，有 <span class="arithmatex">\(|f(x_1) - f(x_2)| &lt; \varepsilon_0\)</span>.</p>
+<p>由 <span class="arithmatex">\(\dint_a^{+\infty} f(x) \intdd{x}\)</span> 收敛，根据 Cauchy 收敛原理，<span class="arithmatex">\(\forall \varepsilon_1 &gt; 0\)</span>，存在 <span class="arithmatex">\(M_1(\varepsilon_1) &gt; a\)</span>，使得 <span class="arithmatex">\(\forall c, d &gt; M_1(\varepsilon_1)\)</span>，有</p>
+<div class="arithmatex">\[
+    \left| \int_c^d f(x) \intdd{x} \right| \leqslant \varepsilon_1.
+\]</div>
+<p><span class="arithmatex">\(\forall x_0 \in (c, d)\)</span>，我们可以将上式化为</p>
+<div class="arithmatex">\[
+    \left |\int_c^d (f(x) - f(x_0)) \intdd{x} + f(x_0) (d - c) \right| &lt; \varepsilon_1.
+\]</div>
+<p>我们取 <span class="arithmatex">\(d - c = \delta\)</span>，则 <span class="arithmatex">\(|f(x) - f(x_0)| &lt; \varepsilon_0\)</span>，利用绝对值不等式，有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    |f(x_0) (d-c)|
+    &amp;&lt; \varepsilon_1 + \left| \int_c^d (f(x) - f(x_0)) \intdd{x} \right| \\
+    &amp;\leqslant \varepsilon_1 + \int_c^d |f(x) - f(x_0)| \intdd{x} \\
+    &amp;\leqslant \varepsilon_1 + (d-c) \varepsilon_0.
+\end{align*}
+\]</div>
+<p>即 <span class="arithmatex">\(|f(x_0)| &lt; \dfrac{\varepsilon_1}{\delta} + \varepsilon_0\)</span>. 故取 <span class="arithmatex">\(\varepsilon_1 = \dfrac{\varepsilon}{2}\)</span>，并取 <span class="arithmatex">\(M = M_1(\varepsilon_1)\)</span>，即可证明 <span class="arithmatex">\(\forall x &gt; M\)</span>，有 <span class="arithmatex">\(|f(x)| &lt; \varepsilon\)</span>，证毕.</p>
+</details>
+<h2 id="_33">压轴题选讲<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">23-24 期末 T8</p>
+<p>设函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上有二阶连续的导函数，且存在常数 <span class="arithmatex">\(C&gt;0\)</span>，使得</p>
+<div class="arithmatex">\[
+    \sup_{x \in \mathbb{R}} \left( |x|^2 |f(x)| + |f''(x)| \right) \leqslant C
+\]</div>
+<p>证明：存在常数 <span class="arithmatex">\(M&gt;0\)</span>，使得 <span class="arithmatex">\(\sup\limits_{x \in \mathbb{R}} \left(|xf'(x)|\right) \leqslant M\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(|x|\leqslant 1\)</span></p>
+<p><span class="arithmatex">\(f(x)\)</span> 有二阶连续导数，故 <span class="arithmatex">\(f'(x) \in C[-1,1]\)</span>，进而 <span class="arithmatex">\(xf'(x) \in C[-1,1]\)</span>，
+由有界性定理可知 <span class="arithmatex">\(\exists M_1&gt;0, \forall x \in [-1,1], |xf'(x)|\leqslant M_1\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(|x|&gt;1\)</span></p>
+<p><span class="arithmatex">\(f(x)\)</span> 有二阶连续导数，<span class="arithmatex">\(\forall |x_0|&gt;1\)</span>，</p>
+<div class="arithmatex">\[
+\begin{equation}
+    f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(\xi)}{2}(x-x_0)^2
+\end{equation}
+\]</div>
+<p>代入 <span class="arithmatex">\(x=x_0+\dfrac{1}{x_0}\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{equation}
+    f(x_0+\frac{1}{x_0}) = f(x_0) + \frac{f'(x_0)}{x_0} + \frac{f''(\xi)}{2x_0^2}
+\end{equation}
+\]</div>
+<p>两边同乘 <span class="arithmatex">\(x_0^2\)</span>，移项得</p>
+<div class="arithmatex">\[
+\begin{equation}
+    x_0 f'(x_0) = x_0^2 f(x_0+\frac{1}{x_0}) - x_0^2 f(x_0) - \frac{f''(\xi)}{2}  \label{eq:result1}
+\end{equation}
+\]</div>
+<p>等式右边第二项与第三项都是有界量，故只需证明第一项也为有界量，考虑利用有界量 <span class="arithmatex">\((x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0})\)</span> 进行估计：</p>
+<div class="arithmatex">\[
+\begin{equation} \label{eq:result2}
+    \begin{aligned}
+    \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| &amp;= \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) - 2f(x_0+\frac{1}{x_0}) - \frac{f(x_0+\frac{1}{x_0})}{x_0^2} \right| \\
+                                                &amp;\leqslant \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) \right| + \left| 2f(x_0+\frac{1}{x_0}) \right| + \left| \frac{f(x_0+\frac{1}{x_0})}{x_0^2} \right| \\
+                                                &amp;&lt; \left| (x_0+\frac{1}{x_0})^2 f(x_0+\frac{1}{x_0}) \right| + 3 \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| \\
+                                                &amp;\leqslant 4C
+    \end{aligned}
+\end{equation}
+\]</div>
+<p>利用上两式可得</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \left| x_0 f'(x_0) \right| &amp;\leqslant \left| x_0^2 f(x_0+\frac{1}{x_0}) \right| + \left| x_0^2 f(x_0) \right| + \frac{\left|f''(\xi)\right|}{2} \\
+                                &amp;\leqslant 4C + C + \frac{C}{2} \\
+                                &amp;= \frac{11C}{2}
+\end{align*}
+\]</div>
+</li>
+</ol>
+<p>综上，取 <span class="arithmatex">\(M=\max\left\{M_1,\frac{11C}{2}\right\}\)</span>，则 <span class="arithmatex">\(\forall x\in \mathbb{R}, |xf'(x)|\leqslant M\)</span>，
+故 <span class="arithmatex">\(M\)</span> 为 <span class="arithmatex">\(|xf'(x)|\)</span> 的一个上界，必然不小于其上确界，因此 <span class="arithmatex">\(\sup\limits_{x \in \mathbb{R}} \left(|xf'(x)|\right) \leqslant M\)</span>.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">22-23 期末 T8</p>
+<p>已知 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0, 1]\)</span> 上有二阶连续导数，证明：</p>
+<div class="arithmatex">\[
+    \dint_0^1 x^nf(x) \intdd{x} = \dfrac{f(1)}{n} -\dfrac{f(1) + f'(1)}{n^2}+ o\left(\dfrac{1}{n^2}\right) \enspace (n\to+\infty).
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>这边提供一个与网站上的答案不同的方法：对待证式左侧多次使用分部积分，有</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \int_0^1 x^nf(x) \intdd{x}
+    &amp;= \frac{1}{n} \int_0^1 xf(x) \intdd{x^{n}} \\
+    &amp;= \frac{f(1)}{n} - \frac{1}{n} \int_0^1 (x^n f(x) + x^{n+1} f'(x)) \intdd{x} \\
+    &amp;= \frac{f(1)}{n} - \frac{1}{n^2} \left(\int_0^1 xf(x) \intdd{x^n} + \int_0^1 x^2 f'(x) \intdd{x^n} \right) \\
+    &amp;= \frac{f(1)}{n} - \frac{1}{n^2} \left(f(1) - \int_0^1 (x^n f(x) + x^{n+1} f'(x)) \intdd{x} \right) \\
+    &amp;\quad\; - \frac{1}{n^2} \left(f'(1) - \int_0^1 (2x^{n+1}f'(x) + x^{n+2} f''(x)) \intdd{x} \right) \\
+    &amp;= \frac{f(1)}{n} - \frac{f(1)+f'(1)}{n^2} + \frac{1}{n^2} \left(\int_0^1 (x^n f(x) + 3x^{n+1} f'(x) + x^{n+2} f''(x)) \intdd{x} \right).
+\end{align*}
+\]</div>
+<p>由可积函数必有界，知 <span class="arithmatex">\(f(x), f'(x), f''(x)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上均为有界函数，设 <span class="arithmatex">\(M = \max \left\{\sup\limits_{x\in[0,1]}|f(x)|, \sup\limits_{x\in[0,1]}|f'(x)|, \sup\limits_{x\in[0,1]}|f''(x)| \right\}\)</span>，则余项</p>
+<div class="arithmatex">\[
+\begin{align*}
+    \frac{1}{n^2} \left|\int_0^1 (x^n f(x) + 3x^{n+1} f'(x) + x^{n+2} f''(x)) \intdd{x}\right|
+    &amp;\leqslant \frac{M}{n^2} \left |\int_0^1 (x^n + 3x^{n+1} + x^{n+2}) \intdd{x}\right| \\
+    &amp;= \frac{M}{n^2} \left(\frac{1}{n+1} + \frac{3}{n+2} + \frac{1}{n+3} \right) \\
+    &amp;\in o \left(\frac{1}{n^2}\right).
+\end{align*}
+\]</div>
+<p>故当 <span class="arithmatex">\(n \to +\infty\)</span> 时，</p>
+<div class="arithmatex">\[
+    \int_0^1 x^nf(x) \intdd{x} = \frac{f(1)}{n} -\dfrac{f(1) + f'(1)}{n^2}+ o \left(\dfrac{1}{n^2} \right)
+\]</div>
+<p>成立.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">21-22 期末 T8</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 三阶可导，<span class="arithmatex">\(f(0)=f'(0)=f''(0)=0\)</span>，<span class="arithmatex">\(f'''(0)&gt;0\)</span>，<span class="arithmatex">\(x\in(0,1)\)</span> 时 <span class="arithmatex">\(f(x) \in (0,1)\)</span>，且数列 <span class="arithmatex">\(\{x_n\}\)</span> 满足</p>
+<div class="arithmatex">\[
+    x_{n+1}=x_n(1-f(x_n)).
+\]</div>
+<ol>
+<li>
+<p>证明：<span class="arithmatex">\(\lim\limits_{n \to +\infty} x_n = 0\)</span>;</p>
+</li>
+<li>
+<p>证明：存在 <span class="arithmatex">\(\alpha &gt;0\)</span> 和常数 <span class="arithmatex">\(c\neq 0\)</span>，使 <span class="arithmatex">\(\lim\limits_{n \to +\infty} cn^{\alpha} x_n = 1\)</span>.</p>
+</li>
+</ol>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>见 <a href="https://ckc-agc.bowling233.top/analysis/analysis1_paper/21exam_answer.pdf">21-22 数分期末答案</a>，此处略.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 是 <span class="arithmatex">\(\mathbb{R}\)</span> 上具有连续导数的非负函数，且存在 <span class="arithmatex">\(M&gt;0\)</span>，使得 <span class="arithmatex">\(\forall x,y \in \mathbb{R}\)</span>，有 <span class="arithmatex">\(|f'(x) - f'(y)| \leqslant M|x-y|\)</span>.</p>
+<p>证明：<span class="arithmatex">\(\forall x \in \mathbb{R}\)</span>，有</p>
+<div class="arithmatex">\[
+    (f'(x))^2 \leqslant 2M|f(x)|.
+\]</div>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(\mathbb{R}\)</span> 上有连续导函数，<span class="arithmatex">\(\forall x, h \in \mathbb{R}\)</span>，有</p>
+<div class="arithmatex">\[
+    f(x+h) - f(x) = \int_{x}^{x+h} f'(t) \intdd{t}.
+\]</div>
+<p>为了构造出条件中两导数差的形式，可对右侧积分进行拆解：</p>
+<div class="arithmatex">\[
+    f(x+h) = f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} + f'(x)h.
+\]</div>
+<p>而 <span class="arithmatex">\(f(x+h)\geqslant 0\)</span> 恒成立，将其放掉后移项有</p>
+<div class="arithmatex">\[
+    -hf'(x) \leqslant f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t}
+\]</div>
+<p>现在希望在两边加绝对值，以用积分绝对值不等式放出 |f'(t) - f'(x)| 的形式，为了保证放缩的方向，我们必须保证 <span class="arithmatex">\(-hf'(x) \geqslant 0\)</span>，由于 <span class="arithmatex">\(h \in \mathbb{R}\)</span>，这是可以做到的. 于是我们有</p>
+<div class="arithmatex">\[
+\begin{align*}    
+    |-hf'(x)| = -hf'(x) &amp;\leqslant \left|f(x) + \int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} \right| \\
+                        &amp;\leqslant f(x) + \left|\int_{x}^{x+h} (f'(t) - f'(x)) \intdd{t} \right| \\
+                        &amp;\leqslant f(x) + M \int_{x}^{x+h} |t - x| \intdd{t} \\
+                        &amp;= f(x) + \frac{M}{2}h^2.
+\end{align*}
+\]</div>
+<p>于是</p>
+<div class="arithmatex">\[
+    |f'(x)| = \frac{f(x)}{|h|} + \frac{M|h|}{2}
+\]</div>
+<p>对所有满足 <span class="arithmatex">\(-hf'(x) \geqslant 0\)</span> 的 <span class="arithmatex">\(h\)</span> 成立，故 <span class="arithmatex">\(|f'(x)|\)</span> 不大于右侧的最小值，即 <span class="arithmatex">\(2\sqrt{\dfrac{Mf(x)}{2}}\)</span>. 两边平方，</p>
+<div class="arithmatex">\[
+    (f'(x))^2 \leqslant 2Mf(x)
+\]</div>
+<p>成立.</p>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处存在二阶导数，且 <span class="arithmatex">\(\forall n \in \mathbb{N}^+, f(2^{-n}) = 0\)</span>，证明 <span class="arithmatex">\(f''(0) = 0\)</span>.</p>
+</div>
+<details class="proof">
+<summary>Proof</summary>
+<p><span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处二阶可导，说明存在 <span class="arithmatex">\(\delta &gt; 0\)</span>，使得 <span class="arithmatex">\(f(x)\)</span> 在邻域 <span class="arithmatex">\(U(0, \delta)\)</span> 内的一阶导数连续，其本身也连续.</p>
+<p>取 <span class="arithmatex">\(N = \lfloor - \log_2 \delta \rfloor + 1\)</span>，并设数列 <span class="arithmatex">\(x_n = 2^{-(n+N)}\)</span>，则由 Rolle 中值定理，<span class="arithmatex">\(\forall k \in \mathbb{N}^+\)</span>，存在 <span class="arithmatex">\(\xi_k \in (x_k, x_{k+1})\)</span>，使得 <span class="arithmatex">\(f'(\xi_k) = 0\)</span>，新构成的数列 <span class="arithmatex">\(\{\xi_n\}\)</span> 满足 <span class="arithmatex">\(\xi_n \to 0, \enspace n \to +\infty\)</span>.</p>
+<p>由 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处连续，知 <span class="arithmatex">\(\lim\limits_{x \to 0} f'(x) = f'(0)\)</span> 存在，故由 Heine 定理，</p>
+<div class="arithmatex">\[
+    f'(0) = \lim\limits_{x \to 0} = \lim\limits_{n \to +\infty} f'(\xi_n) = 0.
+\]</div>
+<p>由 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处二阶可导，<span class="arithmatex">\(f''(0) = \lim\limits_{x \to 0} \dfrac{f'(x) - f'(0)}{x} = \lim\limits_{x \to 0} \dfrac{f'(x)}{x}\)</span>.</p>
+<p>由 <span class="arithmatex">\(f'(x)\)</span> 在 <span class="arithmatex">\((0, \delta)\)</span> 内连续，知 <span class="arithmatex">\(\dfrac{f'(x)}{x}\)</span> 在 <span class="arithmatex">\((0, \delta)\)</span> 内连续，故由 Heine 定理，</p>
+<div class="arithmatex">\[
+    f''(0) = \lim\limits_{x \to 0} \frac{f'(x)}{x} = \lim\limits_{n \to +\infty} \frac{f'(\xi_n)}{\xi_n} = 0.
+\]</div>
+</details>
+<h2 id="_34">附录<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h3 id="_35">常用不等式<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: 均值不等式</p>
+<p>设 <span class="arithmatex">\(n \in \mathbb{N}^+, a_i&gt;0 \enspace (i=1,2,\cdots,n)\)</span>，则</p>
+<div class="arithmatex">\[
+    \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}} \leqslant \sqrt[n]{a_1 a_2 \cdots a_n} \leqslant \frac{a_1 + a_2 + \cdots + a_n}{n} \leqslant \sqrt{\frac{a_1^2 + a_2^2 + \cdots + a_n^2}{n}}.
+\]</div>
+<p>等号成立的充要条件是 <span class="arithmatex">\(a_1 = a_2 = \cdots = a_n\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: Bernoulli 不等式</p>
+<p>设 <span class="arithmatex">\(x&gt;-1\)</span>，</p>
+<ul>
+<li>若 <span class="arithmatex">\(0&lt; \alpha &lt; 1\)</span>，则 <span class="arithmatex">\((1 + x)^{\alpha} \leqslant 1 + \alpha x\)</span>.</li>
+<li>若 <span class="arithmatex">\(\alpha &lt; 0\)</span> 或 <span class="arithmatex">\(\alpha &gt; 1\)</span>，则 <span class="arithmatex">\((1 + x)^{\alpha} \geqslant 1 + \alpha x\)</span>.</li>
+</ul>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: Young 不等式</p>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([0, +\infty)\)</span> 上严格单调递增，且 <span class="arithmatex">\(f(0)=0\)</span>，则 <span class="arithmatex">\(\forall a, b &gt; 0\)</span>，有</p>
+<div class="arithmatex">\[
+    ab \leqslant \int_0^a f(x) \intdd{x} + \int_0^{b} f^{-1}(y) \intdd{y}.
+\]</div>
+<p>等号成立的充要条件是 <span class="arithmatex">\(b=f(a)\)</span>.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: Holder 不等式</p>
+<p>若 <span class="arithmatex">\(f(x), g(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上连续，且 <span class="arithmatex">\(p,q&gt;0, \dfrac{1}{p}+\dfrac{1}{q}=1\)</span>，则</p>
+<div class="arithmatex">\[
+    \int_a^b |f(x)g(x)| \intdd{x} \leqslant \left(\int_a^b |f(x)|^p \intdd{x}\right)^{\frac{1}{p}} \left(\int_a^b |g(x)|^q \intdd{x}\right)^{\frac{1}{q}}.
+\]</div>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: Jensen 不等式</p>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 是区间 <span class="arithmatex">\(I\)</span> 上的下凸函数，则对于任意 <span class="arithmatex">\(x_i \in I\)</span> 和满足 <span class="arithmatex">\(\dsum_{i=1}^n \lambda_i = 1\)</span> 的 <span class="arithmatex">\(\lambda_i \geqslant 0\)</span>，有</p>
+<div class="arithmatex">\[
+    f \left(\dsum_{i=1}^n \lambda_i x_i\right) \leqslant \dsum_{i=1}^n \lambda_i f(x_i).
+\]</div>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 是区间 <span class="arithmatex">\(I\)</span> 上的上凸函数，则不等号方向相反.</p>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">theorem :: Hadamard 不等式</p>
+<p>若 <span class="arithmatex">\(f(x)\)</span> 是 <span class="arithmatex">\([a,b]\)</span> 上的连续下凸函数，则成立</p>
+<div class="arithmatex">\[
+    f \left(\frac{a+b}{2}\right) (b-a) \leqslant \int_{a}^{b} f(x) \intdd{x} \leqslant \frac{f(a) + f(b)}{2} (b-a).
+\]</div>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Silvermilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rzm0572/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tracking", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

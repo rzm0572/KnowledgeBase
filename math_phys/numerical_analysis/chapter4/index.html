@@ -1,0 +1,1528 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Silvermilight 的笔记本">
+      
+      
+        <meta name="author" content="Silvermilight">
+      
+      
+        <link rel="canonical" href="https://rzm0572.github.io/KnowledgeBase/math_phys/numerical_analysis/chapter4/">
+      
+      
+        <link rel="prev" href="../chapter3/">
+      
+      
+        <link rel="next" href="../chapter6/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Ch.4 Numerical Differentiation and Integration - Silvermilight's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#numerical-differentiation-and-integration" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Silvermilight&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Silvermilight's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ch.4 Numerical Differentiation and Integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home Page
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../cs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math & Phys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Misc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Silvermilight&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    Silvermilight's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Home Page
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../cs/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Computer Science
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Math & Phys
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Math & Phys
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../analysis/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Analysis
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Numerical Analysis
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Numerical Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.1 Mathematical Preliminaries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.2 Solution of Equations in One Variable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.3 Interpolation and Polynomial Approximation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ch.4 Numerical Differentiation and Integration
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.4 Numerical Differentiation and Integration
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical Differentiation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical Differentiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-lagrange-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Lagrange Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-taylor-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Taylor Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#richardson-extrapolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Richardson Extrapolation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-integration-numerical-quadrature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical Integration (Numerical Quadrature)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical Integration (Numerical Quadrature)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadrature-based-on-lagrange-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadrature based on Lagrange Interpolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-numerical-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composite Numerical Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#romberg-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Romberg Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-quadrature-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Quadrature Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.6 Direct Methods for Solving Linear Systems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.7 Iterative Techniques in Matrix Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ch.8 Approximation Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../FQI/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Fundamentals of Quantum Information
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../misc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical Differentiation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical Differentiation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-lagrange-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Lagrange Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-taylor-polynomial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Taylor Polynomial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#richardson-extrapolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Richardson Extrapolation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-integration-numerical-quadrature" class="md-nav__link">
+    <span class="md-ellipsis">
+      Numerical Integration (Numerical Quadrature)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical Integration (Numerical Quadrature)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadrature-based-on-lagrange-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quadrature based on Lagrange Interpolation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composite-numerical-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composite Numerical Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#romberg-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Romberg Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-quadrature-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adaptive Quadrature Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+        <span class="md-tag">Theory</span>
+      
+    
+  </nav>
+
+
+  
+  
+
+
+<h1 id="numerical-differentiation-and-integration">Numerical Differentiation and Integration<a class="headerlink" href="#numerical-differentiation-and-integration" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 1540 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 5 分钟</p>
+</div>
+<h2 id="numerical-differentiation">Numerical Differentiation<a class="headerlink" href="#numerical-differentiation" title="Permanent link">&para;</a></h2>
+<h3 id="use-lagrange-polynomial">Use Lagrange Polynomial<a class="headerlink" href="#use-lagrange-polynomial" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Forward-difference formula &amp; Backward-difference formula:</li>
+</ul>
+<div class="arithmatex">\[
+\newcommand{\dd}[1]{\mathrm{d}#1}
+\newcommand{\intdd}[1]{\,\dd{#1}}
+\begin{align*}
+    f'(x) &amp;= \frac{f(x + h) - f(x)}{h} - \frac{h}{2}f''(\xi), \\
+    f'(x) &amp;= \frac{f(x) - f(x - h)}{h} + \frac{h}{2}f''(\xi).
+\end{align*}
+\]</div>
+<ul>
+<li>(n+1)-Point formula:</li>
+</ul>
+<div class="arithmatex">\[
+\begin{align*}
+    f(x) &amp;= \sum_{i=0}^n f(x_i) L_i(x) + \frac{\prod_{i=0}^n (x-x_i)}{(n+1)!} f^{(n+1)}(\xi), \\
+    f'(x_j) &amp;= \sum_{i=0}^n f(x_i) L_i'(x_j) + \frac{\prod_{i \neq j} (x_j - x_i)}{(n+1)!} f^{(n+1)}(\xi_j)
+\end{align*}
+\]</div>
+<h3 id="use-taylor-polynomial">Use Taylor Polynomial<a class="headerlink" href="#use-taylor-polynomial" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\begin{gather*}
+    &amp;{} \begin{cases}
+        f(x+h) = f(x) + f'(x) h + \frac{1}{2} f''(x) h^2 + \frac{1}{3!} f'''(x) h^3 + \frac{1}{4!} f^{(4)}(\xi_1) h^4 \\
+        f(x-h) = f(x) - f'(x) h + \frac{1}{2} f''(x) h^2 - \frac{1}{3!} f'''(x) h^3 + \frac{1}{4!} f^{(4)}(\xi_2) h^4
+    \end{cases} \\
+    \implies &amp;{} f''(x) = \frac{1}{h^2} [f(x-h) - 2f(x) + f(x+h)] - \frac{1}{12} f^{(4)}(\xi) h^2
+\end{gather*}
+\]</div>
+<h3 id="richardson-extrapolation">Richardson Extrapolation<a class="headerlink" href="#richardson-extrapolation" title="Permanent link">&para;</a></h3>
+<p>假设我们有 <span class="arithmatex">\(M\)</span> 的如下估计式：</p>
+<div class="arithmatex">\[
+    M = N_1(h) + \sum\limits_{i=1}^{\infty} K_{1i} h^i
+\]</div>
+<p>其中 <span class="arithmatex">\(N_1(h)\)</span> 后面的项为估计式 <span class="arithmatex">\(N_1(h)\)</span> 的截断误差 <span class="arithmatex">\(R_1(h)\)</span>，可以看到 <span class="arithmatex">\(R_1(h) \in O(h)\)</span>，下面我们使用 Richardson 外推法构造一个截断误差更小的估计式 <span class="arithmatex">\(N_2(h)\)</span>：</p>
+<div class="arithmatex">\[
+\begin{gather*}
+    \begin{cases}
+        M = N_1(h) + K_{11} h + K_{12} h^2 + \cdots \\
+        M = N_1\left(\frac{h}{2}\right) + K_{11} \frac{h}{2} + K_{12} \frac{h^2}{4} + \cdots
+    \end{cases} \\
+    \implies M = 2N_1\left(\frac{h}{2}\right) - N_1(h) + \sum\limits_{i=2}^{\infty} \left( \frac{1}{2^{i-1}} - 1 \right) K_{1i} h^i
+\end{gather*}
+\]</div>
+<p>令 <span class="arithmatex">\(N_2(h) = 2N_1\left(\frac{h}{2}\right) - N_1(h)\)</span>，<span class="arithmatex">\(K_{2i} = \left( \dfrac{1}{2^{i-1}} - 1 \right) K_{1i}\)</span>，则有</p>
+<div class="arithmatex">\[
+    M = N_2(h) + K_{22} h^2 + K_{23} h^3 + \cdots
+\]</div>
+<p>由于 <span class="arithmatex">\(|K_{2i}| \leq |K_{1i}|\)</span>，我们有 <span class="arithmatex">\(R_2(h) \in O(h^2)\)</span>，以此类推，我们可以构造出估计式 <span class="arithmatex">\(R_m(h)\)</span>，使得 <span class="arithmatex">\(R_m(h) \in O(h^{2^{m-1}})\)</span>. 因此我们只需要几次外推就可以得到一个截断误差很小的估计式.</p>
+<p>外推法特别适合用在使用 Taylor 展开来估计函数导数的情形.</p>
+<h2 id="numerical-integration-numerical-quadrature">Numerical Integration (Numerical Quadrature)<a class="headerlink" href="#numerical-integration-numerical-quadrature" title="Permanent link">&para;</a></h2>
+<p>目标：求 <span class="arithmatex">\(I = \int_a^b f(x) \intdd{x}\)</span> 满足给定精度的近似解.</p>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: Degree of accuracy / precision</p>
+<p>称满足下列条件的最大正整数 <span class="arithmatex">\(n\)</span> 为数值积分方法的精确度（degree of accuracy / Precision）：</p>
+<p>设 <span class="arithmatex">\(G(f, a, b)\)</span> 为函数 <span class="arithmatex">\(f(x)\)</span> 在区间 <span class="arithmatex">\([a, b]\)</span> 上的定积分 <span class="arithmatex">\(\int_a^b f(x) \intdd{x}\)</span> 的近似值，对于任意 <span class="arithmatex">\(k = 0, 1, \cdots, n\)</span>，满足</p>
+<div class="arithmatex">\[
+    G(x^k, a, b) = \int_a^b x^k \intdd{x}
+\]</div>
+</div>
+<h3 id="quadrature-based-on-lagrange-interpolation">Quadrature based on Lagrange Interpolation<a class="headerlink" href="#quadrature-based-on-lagrange-interpolation" title="Permanent link">&para;</a></h3>
+<p>基本思路：</p>
+<ul>
+<li>在区间 <span class="arithmatex">\([a, b]\)</span> 上取 <span class="arithmatex">\(n+1\)</span> 个点 <span class="arithmatex">\(x_0, x_1, \cdots, x_n\)</span>，满足 <span class="arithmatex">\(a = x_0 &lt; x_1 &lt; \cdots &lt; x_n = b\)</span>.</li>
+<li>以这 <span class="arithmatex">\(n+1\)</span> 个点为插值点，计算 Lagrange 基函数 <span class="arithmatex">\(L_i(x)\)</span>.</li>
+<li>
+<p>将 Lagrange 插值多项式的积分作为 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a, b]\)</span> 上的定积分近似值，即</p>
+<div class="arithmatex">\[
+    \int_a^b f(x) \intdd{x} \approx \sum\limits_{i=0}^n f(x_i) L_i(x) \intdd{x}.
+\]</div>
+</li>
+<li>
+<p>积分的误差为 Lagrange 插值的余项的积分，即</p>
+<div class="arithmatex">\[
+    R[f] = \int_a^b \frac{f^{(n+1)}(\xi_x)}{(n+1)!} \prod_{i=0}^n (x-x_i) \intdd{x}.
+\]</div>
+</li>
+</ul>
+<div class="admonition definition">
+<p class="admonition-title">Definition :: Newton-Cotes formulae</p>
+<p>特别地，我们通常会在 <span class="arithmatex">\([a, b]\)</span> 上等间距地取点，即 <span class="arithmatex">\(x_i = a + i h\)</span>，其中 <span class="arithmatex">\(h = \dfrac{b - a}{n}\)</span>，则有</p>
+<div class="arithmatex">\[
+    A_i = \int_a^b \prod_{j \neq i} \frac{(x - x_j)}{(x_i - x_j)} \intdd{x}
+        = \int_0^n \prod_{j \neq i} \frac{(t-j)h}{(i-j)h} h \intdd{t}
+        = \frac{(b-a) (-1)^{n-1}}{n! (n-i)!} \int_0^n \prod_{j \neq i} (t-j) \intdd{t}.
+\]</div>
+<p>式 <span class="arithmatex">\(C_i^{(n)} = \dfrac{(-1)^{n-1}}{n! (n-i)!} \int_0^n \prod_{j \neq i} (t-j) \intdd{t}\)</span> 被称为 Cotes 系数，只与 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(i\)</span> 有关.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">some common Newton-Cotes formulae</p>
+<ul>
+<li>
+<p>Trapezoidal rule (<span class="arithmatex">\(n=1\)</span>): <span class="arithmatex">\(P = 1\)</span></p>
+<div class="arithmatex">\[
+    \int_a^b f(x) \intdd{x} = \frac{b-a}{2} (f(a) + f(b)) - \frac{1}{12} h^3 f''(\xi), \enspace h = b-a.
+\]</div>
+</li>
+<li>
+<p>Simpson rule (<span class="arithmatex">\(n=2\)</span>): <span class="arithmatex">\(P = 3\)</span></p>
+<div class="arithmatex">\[
+    \int_a^b f(x) \intdd{x} = \frac{b-a}{6} (f(a) + 4f(\frac{a+b}{2}) + f(b)) - \frac{1}{90} h^5 f^{(4)}(\xi), \enspace h = \frac{b-a}{2}.
+\]</div>
+</li>
+<li>
+<p>Simpson's &#8540; rule (<span class="arithmatex">\(n=3\)</span>): <span class="arithmatex">\(P = 3\)</span></p>
+<div class="arithmatex">\[
+    R[f] = -\frac{3}{80} h^5 f^{(5)}(\xi), \enspace h = \frac{b-a}{3}.
+\]</div>
+</li>
+<li>
+<p>Cotes Rule (<span class="arithmatex">\(n=4\)</span>): <span class="arithmatex">\(P = 5\)</span></p>
+<div class="arithmatex">\[
+    R[f] = - \frac{8}{945} h^7 f^{(6)}(\xi), \enspace h = \frac{b-a}{4}.
+\]</div>
+</li>
+</ul>
+</div>
+<div class="admonition theorem">
+<p class="admonition-title">Theorem :: Remainder of Newton-Cotes formulae</p>
+<p>对于闭区间 <span class="arithmatex">\([a,b]\)</span> 上 <span class="arithmatex">\(n+1\)</span> 阶的 Newton-Cotes 公式，存在 <span class="arithmatex">\(\xi \in (a, b)\)</span> 使得</p>
+<div class="arithmatex">\[
+    R[f] = \begin{cases}
+        \dfrac{h^{n+3} f^{(n+2)}(\xi)}{(n+2)!} \int_0^n t^2 (t-1) \cdots (t-n) \intdd{t}, &amp; n = 2k, \enspace f \in C^{n+2}[a, b]\\
+        \dfrac{h^{n+2} f^{(n+1)}(\xi)}{(n+1)!} \int_0^n t (t-1) \cdots (t-n) \intdd{t}, &amp; n = 2k+1, \enspace f \in C^{n+1}[a, b]
+    \end{cases}
+\]</div>
+<p>其中 <span class="arithmatex">\(h = \dfrac{b - a}{n}\)</span>.</p>
+</div>
+<h3 id="composite-numerical-integration">Composite Numerical Integration<a class="headerlink" href="#composite-numerical-integration" title="Permanent link">&para;</a></h3>
+<p>在上节中，我们发现若使用 Newton-Cotes 公式，为了提高数值积分的精度就必须增加 Lagrange 插值多项式的阶数 <span class="arithmatex">\(n\)</span>，然而对于一些函数，当 <span class="arithmatex">\(n\)</span> 较大时，其 Lagrange 插值多项式会出现振荡现象，导致误差增大. 下面我们将通过分段插值的方法解决这个问题，该方法被称作复合数值积分法.</p>
+<p>基本思路：</p>
+<ul>
+<li>将区间 <span class="arithmatex">\([a, b]\)</span> 均分为 <span class="arithmatex">\(n\)</span> 个子区间 <span class="arithmatex">\([x_i, x_{i+1}]\)</span></li>
+<li>在每个子区间上使用 Newton-Cotes 公式计算积分近似值.</li>
+<li>将结果累加得到最终结果.</li>
+</ul>
+<p>复合数值积分法是稳定的，其采样点 <span class="arithmatex">\(f(x_i)\)</span> 的误差上界 <span class="arithmatex">\(\varepsilon\)</span> 和最后的积分值 <span class="arithmatex">\(I\)</span> 的误差上界 <span class="arithmatex">\(\varepsilon_I\)</span> 满足线性关系，即 <span class="arithmatex">\(\varepsilon_I \leq (b-a) \varepsilon\)</span>.</p>
+<div class="admonition example">
+<p class="admonition-title">Composite Trapezoidal rule</p>
+<p>将区间 <span class="arithmatex">\([a, b]\)</span> 均分为 <span class="arithmatex">\(n\)</span> 个子区间 <span class="arithmatex">\([x_i, x_{i+1}]\)</span>，其中 <span class="arithmatex">\(x_k = a + k h, \enspace h = \dfrac{b - a}{n}\)</span>，则 <span class="arithmatex">\(I\)</span> 的估计式 <span class="arithmatex">\(T_n\)</span> 和余项 <span class="arithmatex">\(R[f]\)</span> 可表示为</p>
+<div class="arithmatex">\[
+\begin{align*}
+    T_n &amp;= \sum\limits_{k=0}^{n-1} \frac{h}{2} (f(x_k) + f(x_{k+1})) = \frac{h}{2} \left( f(a) + 2 \sum\limits_{k=1}^{n-1} f(x_k) + f(b) \right), \\
+    R[f] &amp;= \sum\limits_{k=0}^{n-1} \left( -\frac{h^3}{12} f''(\xi_k) \right) = -\frac{h^2}{12} (b-a) f''(\xi).
+\end{align*}
+\]</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Composite Simpson's rule</p>
+<p>将区间 <span class="arithmatex">\([a, b]\)</span> 均分为 <span class="arithmatex">\(n\)</span> 个子区间 <span class="arithmatex">\([x_i, x_{i+1}]\)</span>，其中 <span class="arithmatex">\(x_k = a + k h, \enspace h = \dfrac{b - a}{n}\)</span>，则 <span class="arithmatex">\(I\)</span> 的估计式 <span class="arithmatex">\(S_n\)</span> 和余项 <span class="arithmatex">\(R[f]\)</span> 可表示为</p>
+<div class="arithmatex">\[
+\begin{align*}
+    S_n &amp;= \sum\limits_{k=0}^{n-1} \frac{h/2}{3} \left( f(x_k) + 4f(x_{k + \frac{1}{2}}) + f(x_{k+1}) \right)
+         = \frac{h}{6} \left( f(a) + f(b) + 2 \sum\limits_{k=1}^{n-1} f(x_k) + 4 \sum\limits_{k=0}^{n-1} f(x_{k + \frac{1}{2}}) \right), \\
+    R[f] &amp;= \sum\limits_{k=0}^{n-1} -\frac{(h/2)^5}{90} f^{(4)}(\xi_k)
+          = -\frac{b-a}{180} \left( \frac{h}{2} \right)^4 f^{(4)}(\xi).
+\end{align*}
+\]</div>
+<p>令 <span class="arithmatex">\(h' = \dfrac{h}{2}, \enspace x_k = a + k h'\)</span>，则有</p>
+<div class="arithmatex">\[
+    S_n = \frac{h'}{3} \left( f(a) + f(b) + 2 \sum\limits_{k=1}^{n-1} f(x_{2k}) + 4 \sum\limits_{k=0}^{n-1} f(x_{2k+1}) \right).
+\]</div>
+</div>
+<p>在实际应用中，我们常常取 <span class="arithmatex">\(n=2^k\)</span> 作为分段数.</p>
+<h3 id="romberg-integration">Romberg Integration<a class="headerlink" href="#romberg-integration" title="Permanent link">&para;</a></h3>
+<h3 id="adaptive-quadrature-methods">Adaptive Quadrature Methods<a class="headerlink" href="#adaptive-quadrature-methods" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年7月4日 16:28:47 UTC">2025年7月4日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Silvermilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rzm0572/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tracking", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
