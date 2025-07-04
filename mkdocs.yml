@@ -159,4 +159,9 @@ nav:
       - math_phys/FQI/index.md
   - Misc:
     - misc/index.md
+    - 数据要素交易基础:
+      - 非合作博弈: misc/data_market/lecture3.md
+      - 合作博弈: misc/data_market/lecture5.md
+      - 多臂老虎机算法: misc/data_market/lecture6.md
+      - 拍卖与机制设计: misc/data_market/lecture7.md
 
