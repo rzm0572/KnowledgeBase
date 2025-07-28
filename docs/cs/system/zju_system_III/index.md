@@ -1,15 +1,8 @@
 # ZJU System III
 
-- Fundamental
-- ILP
-- Memory Hierarchy
-    - Cache
-    - Main Memory
-- DLP and TLP
-- Summary
-
-- Memory Management
-- File System
-
-- Page Table
-- Endurance
+- [x] [Architecture Fundamentals and Quantitative Approaches](intro.md)
+- [x] [ILP](ILP.md)
+- [x] [Memory Hierarchy](cache.md)
+- [ ] DLP and TLP
+- [x] [Memory Management](main_memory.md)
+- [x] [File System](file_system.md)

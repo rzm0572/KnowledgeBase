@@ -110,10 +110,11 @@ nav:
     #     - cs/system/zju_system_II/index.md
       - ZJU System III:
         - cs/system/zju_system_III/index.md
-        - Introduction: cs/system/zju_system_III/chapter1.md
-        - Cache: cs/system/zju_system_III/chapter2.md
-        - ILP: cs/system/zju_system_III/chapter3.md
+        - Introduction: cs/system/zju_system_III/intro.md
+        - Cache: cs/system/zju_system_III/cache.md
+        - ILP: cs/system/zju_system_III/ILP.md
         - Memory Management: cs/system/zju_system_III/main_memory.md
+        - File System: cs/system/zju_system_III/file_system.md
     #   - NJU PA Lab:
     #     - cs/system/nju_PA_lab/index.md
     #   - CSAPP:
@@ -134,6 +135,14 @@ nav:
       - Ch.2 Relation Model: cs/DB/chapter2.md
       - Ch.3 SQL: cs/DB/chapter3.md
       - Ch.6 E-R Model: cs/DB/chapter6.md
+    - Theory:
+      - 数据要素交易基础:
+        - cs/theory/data_market/index.md
+        - 非合作博弈: cs/theory/data_market/lecture3.md
+        - 合作博弈: cs/theory/data_market/lecture5.md
+        - 多臂老虎机算法: cs/theory/data_market/lecture6.md
+        - 拍卖与机制设计: cs/theory/data_market/lecture7.md
+        - 贝叶斯劝说: cs/theory/data_market/lecture9.md
     # - Tools:
     #   - cs/tools/index.md
   - Math & Phys:
@@ -157,11 +166,11 @@ nav:
       - Ch.8 Approximation Theory: math_phys/numerical_analysis/chapter8.md
     - Fundamentals of Quantum Information:
       - math_phys/FQI/index.md
+  - Quantum Computing:
+    - 量子信息基础:
+      - QC/FQI/index.md
+    - 量子纠错:
+      - 表面码: QC/QEC/surface_code.md
   - Misc:
     - misc/index.md
-    - 数据要素交易基础:
-      - 非合作博弈: misc/data_market/lecture3.md
-      - 合作博弈: misc/data_market/lecture5.md
-      - 多臂老虎机算法: misc/data_market/lecture6.md
-      - 拍卖与机制设计: misc/data_market/lecture7.md
 
