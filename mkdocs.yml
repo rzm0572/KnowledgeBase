@@ -91,6 +91,11 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
       toc_depth: 4
@@ -110,7 +115,7 @@ nav:
     #     - cs/system/zju_system_II/index.md
       - ZJU System III:
         - cs/system/zju_system_III/index.md
-        - Introduction: cs/system/zju_system_III/intro.md
+        - Introduction: cs/system/zju_system_III/introduction.md
         - Cache: cs/system/zju_system_III/cache.md
         - ILP: cs/system/zju_system_III/ILP.md
         - Memory Management: cs/system/zju_system_III/main_memory.md
@@ -149,6 +154,7 @@ nav:
     - math_phys/index.md
     - Analysis:
       - math_phys/analysis/index.md
+      - 数分 I 期末辅学讲义: math_phys/analysis/analysis1_assist.md
     # - ODE:
     #   - math_phys/ODE/index.md
     # - General Physics I:
@@ -164,13 +170,12 @@ nav:
       - Ch.6 Direct Methods for Solving Linear Systems: math_phys/numerical_analysis/chapter6.md
       - Ch.7 Iterative Techniques in Matrix Algebra: math_phys/numerical_analysis/chapter7.md
       - Ch.8 Approximation Theory: math_phys/numerical_analysis/chapter8.md
-    - Fundamentals of Quantum Information:
-      - math_phys/FQI/index.md
-  - Quantum Computing:
-    - 量子信息基础:
-      - QC/FQI/index.md
-    - 量子纠错:
-      - 表面码: QC/QEC/surface_code.md
+  - Quantum Computing: 
+    - QC/index.md
+    # - 量子信息基础: QC/FQI/index.md
+    - 量子纠错: QC/QEC/index.md
+      # - 表面码: QC/QEC/surface_code.md
+    - 量子算法: QC/algorithm/index.md
   - Misc:
     - misc/index.md
 
