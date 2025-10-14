@@ -10,3 +10,8 @@
     - Reconstruction. (Lec.05 – Lec.08)
     - Understanding. (Lec.09 – Lec.11)
     - Synthesis. (Lec. 12 – Lec.13)
+
+**Chapter**
+
+- [x] [Lecture 2: Image Formation](./formation.md)
+- [x] [Lecture 3: Image Processing](./processing.md)

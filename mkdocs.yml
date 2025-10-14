@@ -140,7 +140,17 @@ nav:
       - Ch.2 Relation Model: cs/DB/chapter2.md
       - Ch.3 SQL: cs/DB/chapter3.md
       - Ch.6 E-R Model: cs/DB/chapter6.md
+    - Vision Computing:
+      - Introduction of Computer Vision:
+        - cs/AI/CVI/index.md
+        - Image Formation: cs/AI/CVI/formation.md
+        - Image Processing: cs/AI/CVI/processing.md
+      - Computer Graphics:
+        - cs/CG/index.md
+        - Rasterization: cs/CG/rasterization.md
     - Theory:
+      - TCS:
+        - Encoding: cs/theory/TCS/lecture1.md
       - 数据要素交易基础:
         - cs/theory/data_market/index.md
         - 非合作博弈: cs/theory/data_market/lecture3.md
