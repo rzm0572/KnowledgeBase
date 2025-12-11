@@ -71,8 +71,6 @@ markdown_extensions:
   - md_in_html
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.betterem:
-      smart_enable: all
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
@@ -145,9 +143,13 @@ nav:
         - cs/AI/CVI/index.md
         - Image Formation: cs/AI/CVI/formation.md
         - Image Processing: cs/AI/CVI/processing.md
+        - Optimization: cs/AI/CVI/optimization.md
+        - Matching: cs/AI/CVI/matching.md
       - Computer Graphics:
         - cs/CG/index.md
         - Rasterization: cs/CG/rasterization.md
+        - Viewing: cs/CG/viewing.md
+        - Curves & Surfaces: cs/CG/curves_surfaces.md
     - Theory:
       - TCS:
         - Encoding: cs/theory/TCS/lecture1.md
