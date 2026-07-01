@@ -1,0 +1,2364 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Silvermilight 的笔记本">
+      
+      
+        <meta name="author" content="Silvermilight">
+      
+      
+        <link rel="canonical" href="https://rzm0572.github.io/KnowledgeBase/cs/AI/CVI/formation/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../processing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Image Formation - Silvermilight's Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#image-formation" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Silvermilight&#39;s Knowledge Base" class="md-header__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Silvermilight's Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Image Formation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home Page
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../math_phys/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math & Phys
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../QC/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Quantum Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../misc/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Misc
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Silvermilight&#39;s Knowledge Base" class="md-nav__button md-logo" aria-label="Silvermilight's Knowledge Base" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.59 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m6 14c0 .5-2.13 2-6 2s-6-1.5-6-2v-2.23c1.61.78 3.72 1.23 6 1.23s4.39-.45 6-1.23zm0-4.55c-1.3.95-3.58 1.55-6 1.55s-4.7-.6-6-1.55V9.64c1.47.83 3.61 1.36 6 1.36s4.53-.53 6-1.36zM12 9C8.13 9 6 7.5 6 7s2.13-2 6-2 6 1.5 6 2-2.13 2-6 2"/></svg>
+
+    </a>
+    Silvermilight's Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rzm0572/KnowledgeBase/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rzm0572/KnowledgeBase
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../.." class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home Page
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../system/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../HPC/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPC
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../algorithm/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../DB/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Systems
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Computing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Vision Computing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction of Computer Vision
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7_1" id="__nav_2_7_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction of Computer Vision
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Formation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Formation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linear-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Algebra
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinhole-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinhole camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lens
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometric-image-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric image formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometric image formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perspective-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspective projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distortion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distortion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perspective-distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspective distortion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radial-distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radial distortion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthographic-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orthographic projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#photometric-image-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photometric image formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Photometric image formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        光强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色的表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色的记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        着色
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../CG/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Graphics
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    
+  
+  
+  
+    <a href="../../../theory/TCS/encoding.md" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../math_phys/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math & Phys
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../QC/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantum Computing
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../../../misc/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Misc
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linear-algebra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear Algebra
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Camera
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pinhole-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinhole camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lens
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geometric-image-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geometric image formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geometric image formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perspective-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspective projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distortion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distortion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perspective-distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perspective distortion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radial-distortion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radial distortion
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthographic-projection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orthographic projection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#photometric-image-formation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Photometric image formation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Photometric image formation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        光强
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色的表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        颜色的记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        着色
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Computer Science
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Vision Computing
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Introduction of Computer Vision
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="image-formation">Image Formation<a class="headerlink" href="#image-formation" title="Permanent link">&para;</a></h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8zm6.78 1a.7.7 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38z"/></svg></span> 约 2639 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m12.96-10.71-2.75 3.54-1.96-2.36L8.5 15h11z"/></svg></span> 9 张图片 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3z"/></svg></span> 预计阅读时间 9 分钟</p>
+</div>
+<h2 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permanent link">&para;</a></h2>
+<p>线性变换可以用矩阵表示，例如二维平面上的逆时针旋转可以用一个 <span class="arithmatex">\(2 \times 2\)</span> 矩阵表示：</p>
+<div class="arithmatex">\[
+    M = \begin{bmatrix} 
+        \cos \theta &amp; -\sin \theta \\
+        \sin \theta &amp; \cos \theta
+    \end{bmatrix}
+\]</div>
+<p>对一个向量作用线性变换可以左乘对应的矩阵：</p>
+<div class="arithmatex">\[
+    \mathbf{x}' = M \mathbf{x}
+\]</div>
+<p>平移变换无法用线性变换来表示，我们可以用仿射变换（affine transformation）来表示平移+线性变换：</p>
+<div class="arithmatex">\[
+    \begin{pmatrix} 
+        x' \\ y' 
+    \end{pmatrix} = \begin{pmatrix} 
+        a &amp; b \\ c &amp; d
+    \end{pmatrix} \cdot \begin{pmatrix} 
+        x \\ y
+    \end{pmatrix} + \begin{pmatrix}
+        t_x \\ t_y
+    \end{pmatrix}
+\]</div>
+<p>如果要表示成矩阵形式，可以用齐次坐标表示：</p>
+<div class="arithmatex">\[
+    \begin{pmatrix} 
+        x' \\ y' \\ 1 
+    \end{pmatrix} = \begin{pmatrix} 
+        a &amp; b &amp; t_x \\
+        c &amp; d &amp; t_y \\
+        0 &amp; 0 &amp; 1
+    \end{pmatrix} \cdot \begin{pmatrix} 
+        x \\ y \\ 1
+    \end{pmatrix}
+\]</div>
+<h2 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">&para;</a></h2>
+<h3 id="pinhole-camera">Pinhole camera<a class="headerlink" href="#pinhole-camera" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">光屏上形成清晰图像的条件</p>
+<p>如果光屏上的每一个点都记录了空间中唯一一点发出的光线，则光屏上形成的图像是清晰的。</p>
+</div>
+<p>如果直接将胶片放置在物体前方，则物体上多个点发出的光线可以被胶片上的同一点接收，因而无法形成清晰的图像。为了解决这个问题，我们在胶片前方放置一个带有小孔的屏，使得光屏上的点只能接收到物体上唯一一点发出的光线。</p>
+<p>为了让成像更为清晰，通常要减小小孔直径，但是小孔直径太小会导致两个问题：</p>
+<ul>
+<li>通过小孔的光强过低，导致成像过暗</li>
+<li>光经过小孔后发生衍射</li>
+</ul>
+<h3 id="lens">Lens<a class="headerlink" href="#lens" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>透镜成像的基本关系</p>
+<div class="arithmatex">\[
+    \frac{1}{i} + \frac{1}{o} = \frac{1}{f}
+\]</div>
+</li>
+<li>
+<p>成像的放大系数（Image magnification）</p>
+<div class="arithmatex">\[
+    m = \dfrac{h_i}{h_o} = \dfrac{i}{o}
+\]</div>
+</li>
+<li>
+<p>图像大小</p>
+<p>调大焦距 <span class="arithmatex">\(f\)</span>，由于物距 <span class="arithmatex">\(o\)</span> 基本不变，所以像距 <span class="arithmatex">\(i\)</span> 会变大，故放大系数 <span class="arithmatex">\(m = \dfrac{i}{o}\)</span> 变大，生成的图像就会变大</p>
+</li>
+<li>
+<p>视场（Field of view, FOV）</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/09/22/pV4LO3D.png" /></p>
+<ul>
+<li>视场与焦距有关，焦距越大，放大系数越大，视场越小</li>
+<li>视场还与传感器尺寸有关，传感器尺寸越大，视场越大</li>
+<li>现在的相机上标的焦距一般是等效焦距，即对传感器（底片）尺寸进行归一化之后的焦距</li>
+</ul>
+</li>
+<li>
+<p>光圈（Aperture）</p>
+<p>一般使用 F-Number 来表示光圈大小：</p>
+<div class="arithmatex">\[
+    F = \frac{f}{D}
+\]</div>
+<p>其中 <span class="arithmatex">\(D\)</span> 是光圈直径。</p>
+<p><span class="arithmatex">\(F\)</span>, <span class="arithmatex">\(D\)</span> 和图像亮度的关系：<span class="arithmatex">\(F\)</span> 越大，光圈直径 <span class="arithmatex">\(D\)</span> 越小，进光量越少，图像亮度越低。</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/09/22/pV4LoH1.md.png" /></p>
+</li>
+<li>
+<p>景深（Depth of field, DoF）</p>
+<p>在确定了焦距 <span class="arithmatex">\(f\)</span> 和像距 <span class="arithmatex">\(i\)</span> 之后，使用高斯成像公式可以计算得到物距 <span class="arithmatex">\(o\)</span>。正好位于 <span class="arithmatex">\(o\)</span> 处的物体在像屏上成的像是最清晰的，但是我们一般希望可以让一定距离内的物体都能清晰地成像。</p>
+<p>我们先对成像的清晰程度进行定量分析：</p>
+<div class="admonition definition">
+<p class="admonition-title">模糊圆</p>
+<p>在焦距 <span class="arithmatex">\(f\)</span> 和像距 <span class="arithmatex">\(i\)</span> 确定的情况下，令模糊圆（Blur Circle）表示像距为 <span class="arithmatex">\(o'\)</span> 时在光屏上成的像，如下图所示：</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/09/22/pV4O18U.png" /></p>
+</div>
+<p>根据上图中的几何关系，我们可以得到模糊圆直径 <span class="arithmatex">\(b\)</span> 的表达式：</p>
+<div class="arithmatex">\[
+    b = D \cdot \frac{\left| i' - i \right| }{i'}
+\]</div>
+<p>模糊圆直径越小，成像越清晰。如果模糊圆直径小于像屏上一个像素点的大小，那么在该分辨率下，该位置的物体形成的像便是清晰的。</p>
+<div class="admonition definition">
+<p class="admonition-title">景深</p>
+<p>假设我们可以接受的最大模糊圆直径（一般就是像素点的直径）为 <span class="arithmatex">\(c\)</span>，如果在物距 <span class="arithmatex">\(o \in [o_1, o_2]\)</span> 时，物体在像屏上成像的模糊圆直径 <span class="arithmatex">\(b \leqslant c\)</span>，则 <span class="arithmatex">\(o_2 - o_1\)</span> 为此时图像的景深。</p>
+</div>
+<p><img alt="" src="https://s21.ax1x.com/2025/09/22/pV4OhPf.png" /></p>
+<p>根据上图，我们可以计算得到：</p>
+<div class="arithmatex">\[
+    \begin{cases}
+        c = \frac{f^2 (o - o_1)}{N o_1 (o - f)} \\
+        c = \frac{f^2 (o_2 - o)}{N o_2 (o - f)}
+    \end{cases}
+\]</div>
+<p>联立可得 <span class="arithmatex">\(o_2 - o_1 = \dfrac{2 o f^2 c N (o - f)}{f^4 - c^2 N^2 (o-f)^2}\)</span>.</p>
+</li>
+</ul>
+<h2 id="geometric-image-formation">Geometric image formation<a class="headerlink" href="#geometric-image-formation" title="Permanent link">&para;</a></h2>
+<h3 id="perspective-projection">Perspective projection<a class="headerlink" href="#perspective-projection" title="Permanent link">&para;</a></h3>
+<p>成像是一种三维空间到二维空间的投影，我们称这种投影为透视投影（Perspective Projection），现在我们希望能找到这个投影映射的数学表达。</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/09/22/pV4XldI.png" /></p>
+<p>如上图，由于物距通常较大，所以我们令 <span class="arithmatex">\(i \approx f\)</span>，此时像屏上成像点的坐标 <span class="arithmatex">\(p\)</span> 满足</p>
+<div class="arithmatex">\[
+    p = \begin{bmatrix} 
+        u \\ v 
+    \end{bmatrix} = \begin{bmatrix} 
+        \dfrac{f x}{z} \\ \dfrac{f y}{z} 
+    \end{bmatrix}.
+\]</div>
+<p>我们可以将其写成一个映射，称为透视投影：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    g: \mathbb{R}^3 &amp;\mapsto \mathbb{R}^2 \\
+    \begin{bmatrix} 
+        x \\ y \\ z 
+    \end{bmatrix} &amp;\to \begin{bmatrix} 
+        \dfrac{f x}{z} \\ \dfrac{f y}{z}
+    \end{bmatrix} 
+\end{aligned}
+\]</div>
+<p>可惜的是，透视投影不是一个线性映射，但是我们可以对其进行齐次化：</p>
+<div class="arithmatex">\[
+    \begin{bmatrix} 
+        f &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; f &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 1 &amp; 0 
+    \end{bmatrix} \begin{bmatrix} 
+        x \\ y \\ z \\ 1 
+    \end{bmatrix}  = \begin{bmatrix} 
+        fx \\ fy \\ z 
+    \end{bmatrix}  \cong \begin{bmatrix} 
+        \dfrac{fx}{z}  \\ \dfrac{fy}{z} \\ 1
+    \end{bmatrix} 
+\]</div>
+<p>其中，三维坐标系原点位于相机的位置，<span class="arithmatex">\(z\)</span> 轴为相机的主光轴，<span class="arithmatex">\(x\)</span> 轴和 <span class="arithmatex">\(y\)</span> 分别指向水平方向与竖直方向，均垂直于 <span class="arithmatex">\(z\)</span> 轴；二维坐标系原点位于相机主光轴与光屏的交点处，水平方向为 <span class="arithmatex">\(u\)</span> 轴，竖直方向为 <span class="arithmatex">\(v\)</span> 轴。</p>
+<p>上述公式表明透视投影在齐次坐标系下可写为线性映射。</p>
+<ul>
+<li>
+<p>透视投影是不可逆的，三维空间的深度信息会丢失</p>
+</li>
+<li>
+<p>到达空间中点的位置实际上反映了三维空间中的光线方向</p>
+</li>
+</ul>
+<div class="admonition definition">
+<p class="admonition-title">Vanishing Point</p>
+<p>三维空间中的两条无限延伸的平行线在经过透视投影之后会交于一点，我们称这个点为消失点（Vanishing Point）：</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/10/10/pVHg1te.png" /></p>
+</div>
+<div class="admonition property">
+<p class="admonition-title">消失点的性质</p>
+<ul>
+<li>任意两条相互平行的线的消失点相同</li>
+<li>从相机到消失点的连线与消失点对应的平行线平行</li>
+</ul>
+</div>
+<div class="admonition definition">
+<p class="admonition-title">Vanishing Line</p>
+<p>同一平面 <span class="arithmatex">\(\alpha\)</span> 内的所有直线对应的消失点在同一条直线上，该直线被称为消失线（Vanishing Line）</p>
+</div>
+<div class="admonition property">
+<p class="admonition-title">消失线的性质</p>
+<ul>
+<li>消失线对应了三维空间中平面的朝向</li>
+<li>消失线与面 <span class="arithmatex">\(\alpha\)</span> 平行</li>
+<li>消失线与相机构成的平面与面 <span class="arithmatex">\(\alpha\)</span> 平行</li>
+</ul>
+</div>
+<h3 id="distortion">Distortion<a class="headerlink" href="#distortion" title="Permanent link">&para;</a></h3>
+<h4 id="perspective-distortion">Perspective distortion<a class="headerlink" href="#perspective-distortion" title="Permanent link">&para;</a></h4>
+<p>透视畸变（Perspective Distortion）是指透视投影的结果与实际物体的形状不一致，这种现象不是由镜头本身的瑕疵造成的。</p>
+<p>越靠近图像的边缘，透视畸变的影响越明显。</p>
+<p>使用轴移相机（View camera）可以通过改变透镜与光屏的相对位置来消除透视畸变的影响，故其经常被用于拍摄建筑等需要保持物体形状的场景。</p>
+<h4 id="radial-distortion">Radial distortion<a class="headerlink" href="#radial-distortion" title="Permanent link">&para;</a></h4>
+<p>径向畸变（Radial Distortion）是由镜头本身瑕疵造成的图像畸变。一种典型的径向畸变的效果是三维空间中的直线在投影后不再是直线。</p>
+<p>径向畸变的变换公式：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    r^2 &amp;= {x'_n}^2 + {y'_n}^2 \\
+    x'_d &amp;= x'_n (1 + \kappa_1 r^2 + \kappa_2 r^4) \\
+    y'_d &amp;= y'_n (1 + \kappa_1 r^2 + \kappa_2 r^4)
+\end{aligned}
+\]</div>
+<p>使用广角镜头会产生桶形畸变（Barrel Distortion），使用长焦镜头会产生针形畸变（Pincushion Distortion）。</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/10/10/pVHg3fH.png" /></p>
+<h3 id="orthographic-projection">Orthographic projection<a class="headerlink" href="#orthographic-projection" title="Permanent link">&para;</a></h3>
+<p>正交投影（Orthographic Projection）是指将三维空间中的点投影到一个平面上，使得投影点与点本身的连线与该平面垂直。</p>
+<p>当相机与投影平面的距离无限远时，透视投影便转化为正交投影，在实际情况下一般无法实现。</p>
+<p>我们也可以使用齐次坐标表示正交投影：</p>
+<div class="arithmatex">\[
+    \begin{bmatrix} 
+        1 &amp; 0 &amp; 0 &amp; 0 \\
+        0 &amp; 1 &amp; 0 &amp; 0 \\
+        0 &amp; 0 &amp; 0 &amp; 1 
+    \end{bmatrix}  \begin{bmatrix} 
+        x \\ y \\ z \\ 1 
+    \end{bmatrix}  = \begin{bmatrix} 
+        x \\ y \\ 1
+    \end{bmatrix} 
+\]</div>
+<h2 id="photometric-image-formation">Photometric image formation<a class="headerlink" href="#photometric-image-formation" title="Permanent link">&para;</a></h2>
+<h3 id="_1">光强<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>曝光由快门（Shutter）控制，快门时间控制了曝光时间。</p>
+<p>在曝光过程中，传感器会持续记录照射到某个像素点的光强，并对其进行积分，最后得到该点的像素值。</p>
+<p>曝光时间过短会导致图像欠曝，曝光时间过长会导致图像过曝或图像模糊。</p>
+<p>除了曝光时间外，光圈大小也可以控制照射到传感器上的光强，故一般较短的曝光时间会配合较大的光圈，以获得较好的图像质量。</p>
+<p>快门类型可分为滚动快门（Rolling Shutter）和全局快门（Global Shutter）。</p>
+<ul>
+<li>滚动快门：一次读取一行的传感器电压值</li>
+<li>全局快门：一次读取所有传感器的电压值</li>
+</ul>
+<p>Rolling shutter effect：滚动快门拍摄的图像中，不同行的像素点记录的其实是不同时间的光强，因此拍摄视频时如果被拍摄物体快速转动，会出现物体图像变形的现象。</p>
+<h3 id="_2">颜色<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h4 id="_3">颜色的表示<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>颜色通常使用颜色空间中的坐标来表示，例如 RGB 颜色空间中，我们可以使用三元组 <span class="arithmatex">\((R, G, B)\)</span> 来表示颜色，其中 <span class="arithmatex">\(R, G, B \in [0, 1]\)</span>。</p>
+<p>除了 RGB 颜色空间外，HSV 颜色空间也常用于颜色表示。</p>
+<ul>
+<li>Hue：色调，取值范围为 <span class="arithmatex">\([0, 360)\)</span>，从红色开始按逆时针方向排列，红色为 0，绿色为 120，蓝色为 240，黄色为 60</li>
+<li>Saturation：饱和度，取值范围为 <span class="arithmatex">\([0, 1]\)</span>，饱和度越高，颜色越鲜艳</li>
+<li>Value：明度，取值范围为 <span class="arithmatex">\([0, 1]\)</span>，明度越高，颜色越亮</li>
+</ul>
+<p><img alt="" src="https://s21.ax1x.com/2025/10/10/pVHg2n0.png" /></p>
+<h4 id="_4">颜色的记录<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>在现代相机中，通常使用贝尔滤波器（Bayer Filter）来记录颜色。</p>
+<p><img alt="" src="https://s21.ax1x.com/2025/10/10/pVHgRBV.png" /></p>
+<p>滤波器实际上类似滤镜，可以过滤某一种波长的光。在上面这幅图中，我们使用四个像素来记录一个位置的颜色，包括 1 个红色像素，2 个绿色像素，1 个蓝色像素。使用 2 个绿色像素是因为人眼对绿色的敏感度更高。</p>
+<p>为了不浪费像素点，我们也可以使用线性插值的方法，使用临近像素点测量的某种颜色的值的线性组合来表示该点的该颜色的值。</p>
+<h4 id="_5">着色<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>着色（Shading）操作用于计算在物体表面反射的光。</p>
+<p>物体表面对光的反射特性被称为物体的材质（Material），使用<strong>双向反射分布函数（Bidirectional Reflectance Distribution Function, BRDF）</strong>来描述。</p>
+<div class="arithmatex">\[
+    f_r(\mathbf{\hat{v}}_i, \mathbf{\hat{v}}_r, \mathbf{\hat{n}}; \lambda)
+\]</div>
+<p>输入为入射光方向 <span class="arithmatex">\(\mathbf{\hat{v}}_i\)</span>，反射光方向 <span class="arithmatex">\(\mathbf{\hat{v}}_r\)</span>，物体表面的法线方向 <span class="arithmatex">\(\mathbf{\hat{n}}\)</span>，光的波长 <span class="arithmatex">\(\lambda\)</span>，输出为反射光的强度。</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年7月1日 14:17:39 UTC">2026年7月1日</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年7月1日 14:17:39 UTC">2026年7月1日</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 Silvermilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/rzm0572/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.tracking", "navigation.path", "navigation.prune", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../js/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
